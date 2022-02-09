@@ -15,7 +15,7 @@ function book_go1(kind){
 		 days = difference/(1000 * 3600 * 24);
 		
 		
-   if (checkinStr == ""){
+   if (checkinStr == ""){	
       alert("입실날짜를 입력하세요."+difference);
       return false;
    } else if (checkoutStr == ""){
