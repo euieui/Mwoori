@@ -5,8 +5,8 @@
 <div  class="clear"></div>
 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" /> -->
-<script src="<:c url value='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'/> "></script>
-<script src="<:c url value='//code.jquery.com/ui/1.8.18/jquery-ui.min.js'/> "></script>
+<script src="<c:url value='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'/> "></script>
+<script src="<c:url value='//code.jquery.com/ui/1.8.18/jquery-ui.min.js'/> "></script>
 <link href="<c:url value='/css/datepicker.css'/> " rel="stylesheet">
 
 <script>
@@ -89,7 +89,7 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 
 
 <div id="main_img">
-   <img id="img" src="<:c url value='/images/main_images3.jpg'/> ">     
+   <img id="img" src="<c:url value='/images/main_images3.jpg'/> ">     
 </div>
 
 
@@ -111,7 +111,7 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 <div id="main_video">
 <div style="text-style">  갤러리 <br>  GALLERY </div>
 <div>
-<iframe width="1200" height="678" src="<c: url value= 'https://www.youtube.com/embed/81xxCLvADlU?autoplay=1&mute=1'/> "   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+<iframe width="1200" height="678" src="<c:url value= 'https://www.youtube.com/embed/81xxCLvADlU?autoplay=1&mute=1'/> "   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
 encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </div>

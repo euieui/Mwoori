@@ -12,11 +12,8 @@ import woori.hotel.service.MainService;
 
 @Controller
 public class MainController {
+	
 	@Resource(name="MainService") MainService ms;
-	
-	
-	
-	
 	
 	
 	
