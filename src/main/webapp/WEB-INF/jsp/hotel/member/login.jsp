@@ -17,7 +17,7 @@
 	</div>	
 	<div class="logbox2">
 			<input type="button" value="회원가입" class="logbutton"	
-				onclick="location.href='contract'">
+				onclick="location.href='contract.do'">
 			<input type="button" value="아이디 비밀번호 찾기" class="logbutton" onclick="find_id()">	
 			<center><div>&nbsp;&nbsp;&nbsp;${message}</div></center>
 	</div>

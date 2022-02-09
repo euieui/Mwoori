@@ -51,4 +51,23 @@ public class MemberController {
 			return "member/login";
 		}
 	}
+	
+	@RequestMapping(value="/logout.do")
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("loginUser");
+		return "redirect:/main.do";
+	}
+	
+	@RequestMapping("findIdPw.do")
+	public String find_id_pwd() {
+		return"member/findIdPw";
+	}
+	
+
+	@RequestMapping("findIdForm.do")
+	public String find_id_form() {
+		return"member/findIdForm";
+	}
+	
 }
