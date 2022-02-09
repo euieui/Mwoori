@@ -6,4 +6,12 @@
 
 <mapper namespace="woori.hotel.dao.MainDAO">
 
+
+ <!-- #{cnt, mode=OUT, jdbcType=INTEGER} -->
+ 	<select id="confirmRoom" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL confirmRoom( #{checkin}, #{checkout}, #{kind}, #{usernum}, #{roomnum},
+				#{bool, mode=OUT, jdbcType=INTEGER} )  }
+	</select>
+
+	
 </mapper>

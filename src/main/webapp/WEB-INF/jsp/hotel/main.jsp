@@ -93,7 +93,7 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 </div>
 
 
-<form name="formm" method="post" action="bookForm" style="background-color: #F1EBD6;">
+<form name="formm" method="post" action="bookForm.do" style="background-color: #F1EBD6;">
 <div id="serch_bar_view"  style="border:1px solid black;">
            <div id="serch_bar">
                   <ul>
