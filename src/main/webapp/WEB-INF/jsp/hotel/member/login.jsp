@@ -5,7 +5,7 @@
 <article>
 <div class="logtitle">로그인</div>
 
-<form method="post" name="loginFrm" action="login">
+<form method="post" name="loginFrm" action="login.do">
 	
 <div class="logview">
 	<div class="logbox1">
