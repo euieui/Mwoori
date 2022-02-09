@@ -89,7 +89,7 @@ function iddoublecheck(){
       documnet.formm.id.focus();
       return;
    }
-   var url = "idCheckForm?id=" + document.formm.id.value;
+   var url = "idCheckForm.do?id=" + document.formm.id.value;
    var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=200";
    window.open(url, "IdCheck", opt);
 }
@@ -98,7 +98,7 @@ function iddoublecheck(){
 
 
 function post_zip(){
-   var url = "findZipNum";
+   var url = "findZipNum.do";
    var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=550,";
    opt = opt + " height=300, top=300, left=300";
    window.open( url, "우편번호 찾기", opt );
@@ -117,20 +117,18 @@ function result(zip_num, sido, gugun, dong){
 
 
 function move_login(){
-	document.joinComFrm.action='loginForm';
+	document.joinComFrm.action='loginForm.do';
 	document.joinComFrm.submit();
 }
 
 
 
 function find_id(){
-   var url = "findIdPw";
+   var url = "findIdPw.do";
    var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=500,";
    opt = opt + "height=250, top=300, left=300";
    window.open(url, "Find Id/Pw", opt);
 }
-
-/*완료*/ 
 
 
 
