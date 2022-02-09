@@ -1,4 +1,4 @@
--- get all count
+-- get all count(전체)
 create or replace procedure getAllCount(
     p_cnt out number
 )
@@ -444,4 +444,4 @@ is
 begin
     update bookdetail set result='1' where bdseq=p_bdseq;
     commit;
-end; 
+end;
