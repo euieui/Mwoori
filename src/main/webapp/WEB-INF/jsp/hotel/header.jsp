@@ -38,14 +38,14 @@ font-family: 'Nanum Myeongjo', serif;
 
 
 
-<link href="static/css/css.css" rel="stylesheet">
-<link href="static/css/Hotel.css" rel="stylesheet">
-<link href="static/member/member.css" rel="stylesheet">
+<link href="<c:url value='/css/css.css'/> " rel="stylesheet">
+<link href="<c:url value='/css/Hotel.css'/>" rel="stylesheet">
+<link href="<c:url value='/member/member.css'/> " rel="stylesheet">
 <!-- <link href="member/member.css" rel="stylesheet">
 <link href="css/Hotel.css" rel="stylesheet">
 <link href="script/script.js" rel="stylesheet"> -->
-<script src="static/script/script.js"></script>
-<script src="static/script/mypage.js"></script>
+<script src="<c: url value='/script/script.js'/> "></script>
+<script src=" <c: url value='/script/mypage.js'/> "></script>
 
 </head>
 <body>
@@ -62,21 +62,21 @@ font-family: 'Nanum Myeongjo', serif;
  
  <div class="header_gnb">
   <ul>         
-              <li><a href="goInfo">호텔 우리 소개</a></li>    
-              <li><a href="room">객실 소개</a>                          
-              <li><a href="qnaList" >고객문의</a></li>
-              <li><a href="g">갤러리</a></li>
+              <li><a href="goInfo.do">호텔 우리 소개</a></li>    
+              <li><a href="room.do">객실 소개</a>                          
+              <li><a href="qnaList.do" >고객문의</a></li>
+              <li><a href="g.do">갤러리</a></li>
 
   <c:choose> 
 
           <c:when  test="${empty loginUser}">  
-              <li><a href="loginForm">로그인</a></li>
-              <li><a href="contract">회원가입</a></li>
+              <li><a href="loginForm.do">로그인</a></li>
+              <li><a href="contract.do">회원가입</a></li>
           </c:when> 
  <c:otherwise>
                <li id="logo">${loginUser.name}(${loginUser.id})</li>
-               <li><a href="logout">로그아웃</a></li>
-               <li><a href="bookChecklist?page=1&a=1">마이페이지</a></li>
+               <li><a href="logout.do">로그아웃</a></li>
+               <li><a href="bookChecklist.do?page=1&a=1">마이페이지</a></li>
          
  </c:otherwise> 
  </c:choose>
