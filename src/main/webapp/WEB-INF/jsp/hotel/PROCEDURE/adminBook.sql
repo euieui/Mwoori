@@ -444,4 +444,4 @@ is
 begin
     update bookdetail set result='1' where bdseq=p_bdseq;
     commit;
-end; 
+end;
