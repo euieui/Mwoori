@@ -38,7 +38,7 @@ function workerCheck(){
 <body>
 
 <div id="admin_login_title"> 관리자페이지 로그인</div>
-<form method="post" name="loginFrm" action="adminlogin">
+<form method="post" name="loginFrm" action="adminlogin.do">
  
 <div id="admin_login_view">
     <div id="admin_box1">

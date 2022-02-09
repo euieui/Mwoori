@@ -60,7 +60,7 @@ font-family: 'Nanum Myeongjo', serif;
 <header class="admin_header">
 
   <div class="admin_header_logo">
-        <a href="a">
+        <a href="a.do">
             <h1>THE WOORI</h1>
             <p > HOTELS & RESORTS</p></a>
             <p> 관리자 페이지 </p>
@@ -70,20 +70,20 @@ font-family: 'Nanum Myeongjo', serif;
  
  <div class="admin_header_gnb" >
            <ul >         
-                       <li><a class="admin_header_a" href="adminRoomList?a=1"> 객실관리</a></li>                              
-                       <li><a class="admin_header_a" href="adminbookchecklist?a=1"> 고객 예약 리스트</a></li>                              
-                       <li><a class="admin_header_a" href="adminQnaList?page=1&order=&key=">고객문의 리스트</a></li>
-                       <li><a class="admin_header_a" href="adminMemberList?page=1&key=">회원 리스트</a></li>
+                       <li><a class="admin_header_a" href="adminRoomList.do?a=1"> 객실관리</a></li>                              
+                       <li><a class="admin_header_a" href="adminbookchecklist.do?a=1"> 고객 예약 리스트</a></li>                              
+                       <li><a class="admin_header_a" href="adminQnaList.do?page=1&order=&key=">고객문의 리스트</a></li>
+                       <li><a class="admin_header_a" href="adminMemberList.do?page=1&key=">회원 리스트</a></li>
                        
                        
                        
                <c:choose>  
                      <c:when  test="${empty loginAdmin}">
-                           <li><a class="admin_header_a" href="adminloginForm">관리자 로그인</a></li>
+                           <li><a class="admin_header_a" href="adminloginForm.do">관리자 로그인</a></li>
                        </c:when>
                     <c:otherwise>
-                       <li> 안녕하세요 관리자(${loginAdmin.id})님</li>    
-                       <li><a class="admin_header_a" href="adminlogout">로그아웃</a></li>
+                       <li> 안녕하세요 관리자(${loginAdmin.ID})님</li>    
+                       <li><a class="admin_header_a" href="adminlogout.do">로그아웃</a></li>
                   </c:otherwise>
                </c:choose>
           </ul>
