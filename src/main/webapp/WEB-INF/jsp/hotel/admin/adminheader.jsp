@@ -15,10 +15,10 @@
 
 <title>Insert title here</title>
 
-<link href="static/css/admin.css" rel="stylesheet" type="text/css">
-<link href="static/css/admincss.css" rel="stylesheet" type="text/css">
-<link href="static/css/Hotel.css" rel="stylesheet" type="text/css">
-<script src="static/script/adminHotel.js"></script>
+<link href="<c:url value='/css/admin.css'/>" rel="stylesheet" type="text/css">
+<link href="<c:url value='/css/admincss.css'/>" rel="stylesheet" type="text/css">
+<link href="<c:url value='/css/Hotel.css'/>" rel="stylesheet" type="text/css">
+<script src="<c:url value='/script/adminHotel.js'/>"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
