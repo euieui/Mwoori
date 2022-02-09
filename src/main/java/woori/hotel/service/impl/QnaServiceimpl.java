@@ -1,5 +1,7 @@
 package woori.hotel.service.impl;
 
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -13,5 +15,11 @@ import woori.hotel.service.QnaService;
 public class QnaServiceimpl  extends EgovAbstractServiceImpl implements QnaService {
 
 	@Resource(name="QnaDAO") QnaDAO qdao;
+
+	@Override
+	public void listQna(HashMap<String, Object> paramMap) {
+		qdao.listQna(paramMap);
+		
+	}
 	
 }

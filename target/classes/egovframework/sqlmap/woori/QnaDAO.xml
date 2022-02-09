@@ -4,6 +4,11 @@
 <!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Woori.hotel.dao.QnaDAO">
+<mapper namespace="woori.hotel.dao.QnaDAO">
+
+<select id="listQna" resultType="woori.hotel.dao.QnaDAO">
+ select *from qna where id=#{param1} order by qnaseq desc
+</select>
+
 
 </mapper>
