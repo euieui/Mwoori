@@ -7,12 +7,12 @@ input{border:#BEBBB9 solid 1px;}
 </style>
 <article>
 
-<form method="post" name="profilePw" action="profileForm">
+<form method="post" name="profilePw" action="profileForm.do">
 	
 <div id="abox_aa">
 	<div id="sum_aa">프로필 수정</div>
 	<br>
-	<span id="chklisttxt_aa">${loginUser.name}님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</span>
+	<span id="chklisttxt_aa">${loginUser.NAME}님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</span>
 	<br><br>
 	<div id="chklistbox_aa">
 	<Br><br>

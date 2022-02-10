@@ -37,4 +37,9 @@
 			#{zip_num}, #{address}  )  }
 	</insert>
 	
+	<update id="updateMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL updateHotelmember( #{ID}, #{PWD}, #{NAME}, #{EMAIL}, #{PHONE}, 
+			#{ZIP_NUM}, #{ADDRESS}  )  }
+	</update>
+	
 </mapper>

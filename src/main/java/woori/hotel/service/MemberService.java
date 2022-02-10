@@ -10,5 +10,6 @@ public interface MemberService {
 	void resetPw(HashMap<String, Object> paramMap);
 	void selectAddressByDong(HashMap<String, Object> paramMap);
 	void insertMember(HashMap<String, Object> paramMap);
+	void updateMember(HashMap<String, Object> paramMap);
 
 }

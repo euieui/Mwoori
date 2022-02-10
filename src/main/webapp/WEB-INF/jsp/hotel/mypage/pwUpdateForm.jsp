@@ -9,7 +9,7 @@ input{border:#BEBBB9 solid 1px;}
 </style>
 <article>
 
-<form method="post" name="pwUpdateForm" action="pwUpdate">
+<form method="post" name="pwUpdateForm" action="pwUpdate.do">
 	
 <div id="abox_aa">
 	<div id="sum_aa">비밀번호 변경</div>

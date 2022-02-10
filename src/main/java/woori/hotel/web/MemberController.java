@@ -1,5 +1,6 @@
 package woori.hotel.web;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -14,12 +15,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import woori.hotel.service.AdminBookService;
 import woori.hotel.service.MemberService;
+import woori.hotel.util.BookVO;
+import woori.hotel.util.Paging;
 
 @Controller
 public class MemberController {
 
 	@Resource(name="MemberService") MemberService ms;
+	@Resource(name="AdminBookService") AdminBookService abs;
+	
 	
 	@RequestMapping(value="/loginForm.do")
 	public String loginForm() {
@@ -290,5 +296,210 @@ public class MemberController {
 	      //session.invalidate();
 	      session.removeAttribute("joinName");
 	      return "redirect:/loginForm.do";
+	}
+	
+// 회원가입, 아이디 비밀번호 찾기 끝
+	
+	
+	@RequestMapping(value="/bookChecklist.do")
+	public ModelAndView bookChecklist(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = 
+				(HashMap<String, Object>) session.getAttribute("loginUser");
+	    if(loginUser==null) mav.setViewName("member/login");
+	    else {
+			int page = 1;
+			String booknums="";
+			String indate="";
+			String outdate="";
+			
+			if(request.getParameter("booknums")!=null) {
+				booknums=request.getParameter("booknums");
+				session.setAttribute("booknums", booknums);
+			} else if(session.getAttribute("booknums")!=null) {
+				booknums=(String)session.getAttribute("booknums");
+			} else {
+				session.removeAttribute("booknums");
+				booknums="";
+			}
+			
+			if(request.getParameter("page")!=null) {
+				page=Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			} else if(session.getAttribute("page")!=null) {
+				page = (int)session.getAttribute("page");
+			} else {
+				page= 1;
+				session.removeAttribute("page");
+			}
+			
+			if(request.getParameter("checkins")!=null) {
+				indate=request.getParameter("checkins");
+				session.setAttribute("checkins", indate);
+			} else if(session.getAttribute("checkins")!=null) {
+				indate=(String)session.getAttribute("checkins");
+			} else {
+				session.removeAttribute("checkins");
+				indate="";
+			}
+			
+			if(request.getParameter("checkouts")!=null) {
+				outdate=request.getParameter("checkouts");
+				session.setAttribute("checkouts", outdate);
+			} else if(session.getAttribute("checkouts")!=null) {
+				outdate=(String)session.getAttribute("checkouts");
+			} else {
+				session.removeAttribute("checkouts");
+				outdate="";
+			}
+			
+			if(request.getParameter("a")!=null) {
+				System.out.println("파라미터 a 값 : "+request.getParameter("a"));
+				session.removeAttribute("checkins");
+				indate="";
+				session.removeAttribute("checkouts");
+				outdate="";
+				session.removeAttribute("booknums");
+				booknums="";
+			}
+			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			if(!booknums.equals("")) paramMap.put("booknums", Integer.parseInt(booknums));
+			else if(booknums.equals("")) paramMap.put("booknums", booknums);
+			paramMap.put("indate", indate);
+			paramMap.put("outdate", outdate);
+			paramMap.put("id", loginUser.get("ID"));
+			paramMap.put("count", 0);
+			
+			Paging paging = new Paging();
+			paging.setPage(page);
+			
+			abs.getAllCount(paramMap);
+			//getAllCount(paramMap);
+			int count = (int) paramMap.get("count");
+			paging.setTotalCount(count);
+			System.out.println("count : "+count);
+			
+			paramMap.put("ref_cursor", null);
+			paramMap.put("startnum", paging.getStartNum());
+			paramMap.put("endnum", paging.getEndNum());
+			System.out.println("all book list 전");
+			abs.getAllBookList(paramMap);
+			System.out.println("all book list 후");
+			System.out.println("list size 1 : "+paramMap.get("ref_cursor"));
+			
+			ArrayList<HashMap<String, Object>> list = 
+					(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			
+			BookVO bvo = new BookVO();
+			int price = 0;
+			if(list!=null) {
+			for(HashMap<String, Object> book : list) {
+				price = Integer.parseInt(book.get("PRICE").toString());
+				bvo.setPrice(price);
+				bvo.setCheckin((Timestamp) book.get("CHECKIN"));
+				bvo.setCheckout((Timestamp) book.get("CHECKOUT"));
+				bvo.days();
+				book.put("PRICE", price);}
+				
+			}
+			
+			
+			mav.addObject("booklist",list);
+			mav.addObject("paging", paging);
+			mav.addObject("total",count);
+			mav.addObject("booknums",booknums);
+			mav.addObject("checkins",indate);
+			mav.addObject("checkouts",outdate);
+			
+			mav.setViewName("mypage/bookchecklist");
+	    }
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/profilePw.do")
+	public String profilePw(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		if(loginUser==null) {
+			return "redirect:/loginForm.do";
+		} else {
+	    	session.setAttribute("loginUser", loginUser);
+	    	return "mypage/profilePw";
+ 		}
+
+	}
+	
+	@RequestMapping(value="/profileForm.do", method=RequestMethod.POST)
+	public ModelAndView profileForm(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		String url = "mypage/profileForm";
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		String pwd = request.getParameter("pwd");
+		if( loginUser == null) { 
+			mav.addObject("message", "다시 로그인해주세요");
+		}else if(pwd==""){
+			mav.addObject("message", "비밀번호를 입력해주세요");
+		}else if(!loginUser.get("PWD").equals(pwd)){
+			mav.addObject("message", "비밀번호가 틀립니다");
+		}else {
+	    	url = "mypage/profileForm";
+	    	String addr = loginUser.get("ADDRESS").toString(); //주소 추출
+			int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+			int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+			int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+			// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+			String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+			String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+			
+			mav.addObject("addr1",addr1);
+			mav.addObject("addr2",addr2);
+			session.setAttribute("loginUser", loginUser);
+		}  mav.setViewName(url);
+		return mav;
+	}
+
+	@RequestMapping(value="/profileUpdate.do", method=RequestMethod.POST)
+	public ModelAndView pwUpdateForm(HttpServletRequest request) {
+		ModelAndView mav= new ModelAndView();
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		
+		if(loginUser==null) {
+			mav.setViewName("redirect:/loginForm.do");
+		} else {
+			mav.addObject("message", "정상적으로 수정되었습니다");
+
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("ID", request.getParameter("id"));
+			paramMap.put("PWD", request.getParameter("pwd"));
+			paramMap.put("NAME", request.getParameter("name"));
+			paramMap.put("EMAIL", request.getParameter("email"));
+			paramMap.put("ZIP_NUM", request.getParameter("zip_num"));
+			paramMap.put("PHONE", request.getParameter("phone"));
+			paramMap.put("ADDRESS", request.getParameter("addr1") + " " + request.getParameter("addr2"));
+			
+			ms.updateMember(paramMap);
+			session.setAttribute("loginUser", loginUser);
+			String addr = loginUser.get("ADDRESS").toString(); //주소 추출
+			int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+			int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+			int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+			// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+			String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+			String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+			mav.addObject("addr1",addr1);
+			mav.addObject("addr2",addr2);
+			
+			mav.setViewName("mypage/profileForm");
+				
+		}
+		return mav;
+	
 	}
 }

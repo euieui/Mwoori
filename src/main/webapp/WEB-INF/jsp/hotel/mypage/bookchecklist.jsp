@@ -48,7 +48,7 @@ function go_search_checkdate(){
 <br>
 <span id="chklisttxt_aa">객실 및 예약 내역을 확인하실 수 있습니다.</span>
 <br><br>
-<form name="frm" method="post" action="bookChecklist">
+<form name="frm" method="post" action="bookChecklist.do">
 <div id="chklistbox_aa">
 <div id="chkselectbox_aa"><!-- 검색 -->
 	<span class="chkselect_aa">예약 번호 검색</span>
@@ -83,22 +83,22 @@ function go_search_checkdate(){
 				<c:forEach items="${booklist}" var="list">
 				<div id="chklistcontent_aa">
 					<div class="booknumclass_aa" id="chklistcontent2_aa">
-						<a href="listbookcheck?bdseq=${list.bdseq}">
-						${list.booknum}</a></div>
-					<div class="kindclass_aa" id="chklistcontent2_aa">${list.kind}</div>
-					<div class="usernumclass_aa" id="chklistcontent2_aa">${list.usernum}명</div>
+						<a href="listbookcheck?bdseq=${list.BDSEQ}">
+						${list.BOOKNUM}</a></div>
+					<div class="kindclass_aa" id="chklistcontent2_aa">${list.KIND}</div>
+					<div class="usernumclass_aa" id="chklistcontent2_aa">${list.USERNUM}명</div>
 					<div class="checkinoutclass_aa" id="chklistcontent2_aa">
-						<fmt:formatDate value="${list.checkin}"/> ~ 
-						<fmt:formatDate value="${list.checkout}"/>
+						<fmt:formatDate value="${list.CHECKIN}"/> ~ 
+						<fmt:formatDate value="${list.CHECKOUT}"/>
 					</div>
 					<div class="bookresultclass_aa" id="chklistcontent2_aa">
 						<c:choose>
-						<c:when test='${list.result=="1"}'>예약 완료</c:when>
-						<c:when test='${list.result=="2"}'>취소 신청</c:when>
-						<c:when test='${list.result=="3"}'>취소 완료</c:when>
+						<c:when test='${list.RESULT=="1"}'>예약 완료</c:when>
+						<c:when test='${list.RESULT=="2"}'>취소 신청</c:when>
+						<c:when test='${list.RESULT=="3"}'>취소 완료</c:when>
 						<c:otherwise>예약 대기</c:otherwise></c:choose>
 					</div>
-					<div class="bookpriceclass_aa" id="chklistcontent2_aa">${list.price}원</div>
+					<div class="bookpriceclass_aa" id="chklistcontent2_aa">${list.PRICE}원</div>
 				</div>
 				<div class="clear"></div>
 				</c:forEach>
@@ -117,7 +117,7 @@ function go_search_checkdate(){
 	<jsp:param name="endPage" value="${paging.endPage}" />
 	<jsp:param name="prev" value="${paging.prev}" />
 	<jsp:param name="next" value="${paging.next}" />
-	<jsp:param name="command" value="bookChecklist" />
+	<jsp:param name="command" value="bookChecklist.do" />
 </jsp:include>
 
 </div>
