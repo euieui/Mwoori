@@ -423,14 +423,15 @@ end;
 
 
 
--- get cancel all count(예약 대기자 수)
+-- get cancel all count(취소 예약 대기자 수)
 create or replace procedure getCancelAllCount(
-    p_rc out sys_refcursor
+    p_cnt out number
 )
 is
+    v_cnt number;
 begin
-    open p_rc for
-        select count(*) from book_view where result='2';
+        select count(*) as cnt into v_cnt from book_view where result='2';
+        p_cnt:=v_cnt;
 end;
 
 

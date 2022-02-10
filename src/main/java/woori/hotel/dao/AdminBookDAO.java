@@ -48,6 +48,14 @@ public interface AdminBookDAO {
 	void getAllBookListWithIdIndate(HashMap<String, Object> paramMap);
 
 	void getAllBookListWithIdOutdate(HashMap<String, Object> paramMap);
+
+	void getBookDetail(HashMap<String, Object> paramMap);
+
+	void adminBookCancel(HashMap<String, Object> paramMap);
+
+	void getCancelAllCount(HashMap<String, Object> paramMap);
+
+	void getAdminCancelList(HashMap<String, Object> paramMap);
 	
 	
 	

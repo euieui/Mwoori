@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import woori.hotel.service.AdminBookService;
@@ -31,9 +32,14 @@ public class AdminBookController {
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = 
 				(HashMap<String, Object>) session.getAttribute("loginAdmin");
+		int gotonum = 1;
+		if(request.getParameter("gotonum")!=null) 
+			gotonum=Integer.parseInt(request.getParameter("gotonum"));
 	    if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
+	    else if(gotonum==2) mav.setViewName("redirect:/adminbookcancelpage.do");
 	    else {
 			int page = 1;
+			
 			String booknums="";
 			String indate="";
 			String outdate="";
@@ -113,7 +119,6 @@ public class AdminBookController {
 			paging.setPage(page);
 			
 			abs.getAllCount(paramMap);
-			//getAllCount(paramMap);
 			int count = (int) paramMap.get("count");
 			paging.setTotalCount(count);
 			System.out.println("count : "+count);
@@ -121,26 +126,14 @@ public class AdminBookController {
 			paramMap.put("ref_cursor", null);
 			paramMap.put("startnum", paging.getStartNum());
 			paramMap.put("endnum", paging.getEndNum());
-			System.out.println("all book list 전");
 			abs.getAllBookList(paramMap);
-			System.out.println("all book list 후");
-			System.out.println("list size 1 : "+paramMap.get("ref_cursor"));
 			
 			ArrayList<HashMap<String, Object>> list = 
 					(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 			
 			BookVO bvo = new BookVO();
 			int price = 0;
-			if(list!=null) {
-			for(HashMap<String, Object> book : list) {
-				price = Integer.parseInt(book.get("PRICE").toString());
-				bvo.setPrice(price);
-				bvo.setCheckin((Timestamp) book.get("CHECKIN"));
-				bvo.setCheckout((Timestamp) book.get("CHECKOUT"));
-				bvo.days();
-				book.put("PRICE", price);}
-				
-			}
+			
 			
 			
 			mav.addObject("booklist",list);
@@ -150,9 +143,105 @@ public class AdminBookController {
 			mav.addObject("booknums",booknums);
 			mav.addObject("checkins",indate);
 			mav.addObject("checkouts",outdate);
+			mav.addObject("gotonum",1);
 			
+			System.out.println("gotonum : "+gotonum);
 			mav.setViewName("admin/book/adminbookchecklist");
+			
+			
 	    }
+		
+		return mav;
+	}
+	
+	
+	
+	
+	@RequestMapping(value="/adminbooklistdetail.do")
+	public ModelAndView adminbooklistdetail(HttpServletRequest request,
+			@RequestParam("bdseq") int bdseq) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = 
+				(HashMap<String, Object>) session.getAttribute("loginAdmin");
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("bdseq", bdseq);
+		paramMap.put("ref_cursor", null);
+	    if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
+	    else {
+	    	abs.getBookDetail(paramMap);
+	    	ArrayList<HashMap<String, Object>> list = 
+	    			(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+	    	mav.addObject("booklist",list.get(0));
+	    	mav.addObject("gotonum",Integer.parseInt(request.getParameter("gotonum")));
+	    	mav.setViewName("admin/book/listbookcheck");
+		}
+		
+		return mav;
+	}
+	
+	
+	
+	
+	@RequestMapping(value="/adminbookcancel.do")
+	public String adminbookcancel(HttpServletRequest request, 
+			@RequestParam("bdseq") int bdseq, @RequestParam("gotonum") int gotonum) {
+		System.out.println("admin book cancel : "+gotonum);
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = 
+				(HashMap<String, Object>) session.getAttribute("loginAdmin");
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("bdseq", bdseq);
+	    if(loginAdmin==null) return "admin/adminloginForm";
+	    else {
+	    	abs.adminBookCancel(paramMap);
+	    	return "redirect:/adminbooklistdetail.do?bdseq="+bdseq+"&gotonum="+gotonum;
+	    }
+		
+	}
+	
+	
+	
+	
+	@RequestMapping(value="/adminbookcancelpage.do")
+	public ModelAndView adminbookcancelpage(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = 
+				(HashMap<String, Object>) session.getAttribute("loginAdmin");
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		Paging paging = new Paging();
+		int page = 1;
+		paramMap.put("ref_cursor", null);
+		if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
+		else {
+			if(request.getParameter("page")!=null) {
+				page=Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			} else if(session.getAttribute("page")!=null) {
+				page = (int)session.getAttribute("page");
+			} else {
+				page= 1;
+				session.removeAttribute("page");
+			}
+			
+			paging.setPage(page);
+			paramMap.put("count", 0);
+			abs.getCancelAllCount(paramMap);
+			int count = (int) paramMap.get("count");
+			paging.setTotalCount(count);
+			paramMap.put("startnum", paging.getStartNum());
+			paramMap.put("endnum", paging.getEndNum());
+			abs.getAdminCancelList(paramMap);
+			ArrayList<HashMap<String, Object>> list = 
+					(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			
+			
+			mav.addObject("booklist",list);
+			mav.addObject("total",count);
+			mav.addObject("paging",paging);
+			mav.setViewName("admin/book/adminbookcancelpage");
+		}
 		
 		return mav;
 	}

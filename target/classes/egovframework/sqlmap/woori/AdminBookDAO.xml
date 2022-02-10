@@ -105,5 +105,31 @@
 		{ CALL getAllBookListWithIdOutdate( #{id}, #{outdate}, #{startnum}, #{endnum}, 
 		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
 	</select>
+	
+	
+	
+	<!-- book detail -->
+	<select id="getBookDetail" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getBookDetail( #{bdseq}, 
+		#{ ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
+	</select>
+	
+	
+	<!-- book cancel -->
+	<select id="adminBookCancel" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL adminBookCancel( #{bdseq} ) }
+	</select>
+	
+	
+	<!-- book cancel count -->
+	<select id="getCancelAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getCancelAllCount( #{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<!-- book cancel list -->
+	<select id="getAdminCancelList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAdminCancelList( #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
 
 </mapper>

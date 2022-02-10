@@ -86,4 +86,24 @@ public class AdminBookServiceimpl extends EgovAbstractServiceImpl implements Adm
 		
 	}
 
+	@Override
+	public void getBookDetail(HashMap<String, Object> paramMap) {
+		abdao.getBookDetail(paramMap);
+	}
+
+	@Override
+	public void adminBookCancel(HashMap<String, Object> paramMap) {
+		abdao.adminBookCancel(paramMap);
+	}
+
+	@Override
+	public void getCancelAllCount(HashMap<String, Object> paramMap) {
+		abdao.getCancelAllCount(paramMap);
+	}
+
+	@Override
+	public void getAdminCancelList(HashMap<String, Object> paramMap) {
+		abdao.getAdminCancelList(paramMap);
+	}
+
 }
