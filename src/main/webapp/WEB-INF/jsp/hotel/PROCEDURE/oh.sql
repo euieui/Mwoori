@@ -1,3 +1,4 @@
+select *from qna;
 ---qna  프로시저-------
 
 create or replace procedure deleteQna
@@ -76,3 +77,40 @@ open p_rc for
  select *from hotelimg where kind=p_kind;
 
  end;
+ 
+ ---어드민 qna------------------
+ create or replace procedure getallcountQnaList(
+p_count out number
+)
+is
+vs_count number;
+begin
+
+select count(*) into vs_count from qna;
+p_count:=vs_count;
+end;
+
+----------------------------------
+
+    
+ create or replace PROCEDURE adminlistQna1(
+p_startnum  number,
+p_endnum number,
+p_key qna.title%type,
+p_order varchar2,
+p_rc out sys_refcursor)
+is
+
+begin    
+ open p_rc for
+
+ 
+	 	select * from( 
+		select * from ( 
+				select rownum as rn, p.* from 
+				 ((select * from qna  where id like '%'||p_key||'%'  order by p_order   ) p) 
+				) where rn >= p_startNum 
+            	) where rn <= p_endNum;
+        commit;
+        end; 
+        

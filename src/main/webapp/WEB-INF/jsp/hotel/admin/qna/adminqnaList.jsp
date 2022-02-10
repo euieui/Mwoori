@@ -42,7 +42,7 @@ border:1px solid black;
 <script type="text/javascript">
 
  function go_view(qnaseq){
- 	var url="adminQnaDetail?qnaseq="+qnaseq; 
+ 	var url="adminQnaDetail.do?qnaseq="+qnaseq; 
 	document.formm.action=url;
 	document.formm.submit();
  }
@@ -50,7 +50,7 @@ border:1px solid black;
 function go_serch_qna(){
 	
 	if(document.formm.key.value=="") return;
-	var url="adminQnaList?page=1";
+	var url="adminQnaList.do?page=1";
 	// 보던페이지가어떤에피이지 이더라도,검색갤겨의 1페이로 가기위해 파라미터page를 1로 전송.,
 	document.formm.action=url;
 	document.formm.submit();
@@ -60,12 +60,12 @@ function go_serch_qna(){
 
 function go_total_qna(){
 	document.formm.key.value="";
-	document.formm.action="adminQnaList?page=1";
+	document.formm.action="adminQnaList.do?page=1";
 	document.formm.submit();
 	
 }
 function go_order_qna(){
-	document.form.action="adminQnaList?page=1";
+	document.form.action="adminQnaList.do?page=1";
 	document.form.submit();
 
 }
@@ -82,10 +82,10 @@ function go_order_qna(){
 <form name="form"  method="post">
 		<select name="tag" >		
 
-			<option value ="1" <c:if test="${order eq '1'}">selected</c:if> >최신순</option>
-			<option value ="2" <c:if test="${order eq '2'}">selected</c:if>>오래된순</option>
-			<option value ="3" <c:if test="${order eq '3'}">selected</c:if> >답변완료</option>
-			<option value ="4" <c:if test="${order eq '4'}">selected</c:if>>미답변</option>			
+			<option value ="qnaseq desc" <c:if test="${order eq 'qnaseq desc'}">selected</c:if> >최신순</option>
+			<option value ="qnaseq asc" <c:if test="${order eq 'qnaseq asc'}">selected</c:if>>오래된순</option>
+			<option value ="rep desc" <c:if test="${order eq 'rep desc'}">selected</c:if> >답변완료</option>
+			<option value ="rep asc" <c:if test="${order eq 'rep asc'}">selected</c:if>>미답변</option>			
 		
 		</select> 
 	<input  type = "button" value = "검색" onClick="go_order_qna();" style="    font-weight: bold; border: 1px solid black;
@@ -116,21 +116,21 @@ function go_order_qna(){
              
          <%--  <td><c:out value="${size}"/></td --%>
              
-                    <td>${qnaDto.qnaseq}</td>         
-                    <td><a  href="adminQnaDetail?qnaseq=${qnaDto.qnaseq}">${qnaDto.title}</a>
+                    <td>${qnaDto.QNASEQ}</td>         
+                    <td><a  href="adminQnaDetail.do?qnaseq=${qnaDto.QNASEQ}">${qnaDto.TITLE}</a>
         <c:choose>
         
                  <c:when test="${qnaDto.rep==1}">
-                     <img width="10" height="9" id="new" src="static/images/ic_new.gif">  
+                     <img width="10" height="9" id="new" src="<c:url value='/images/ic_new.gif'/> ">  
                 </c:when>
              
           </c:choose>    
                     </td>
-                    <td >${qnaDto.id}</td>
-                    <td><fmt:formatDate value="${qnaDto.indate }"/></td>
+                    <td >${qnaDto.ID}</td>
+                    <td><fmt:formatDate value="${qnaDto.INDATE }"/></td>
                     <td>
                      <c:choose>
-                                <c:when test='${qnaDto.rep=="1"}'>(미처리)</c:when>
+                                <c:when test='${qnaDto.REP=="1"}'>(미처리)</c:when>
                                 <c:otherwise>(답변 처리완료)</c:otherwise>
                      </c:choose>
                      </td>
@@ -145,7 +145,7 @@ function go_order_qna(){
 		  <jsp:param name="endPage" value="${paging.endPage}" />
 		  <jsp:param name="prev" value="${paging.prev}" />
 		  <jsp:param name="next" value="${paging.next}" />
-		  <jsp:param name="command" value="adminQnaList"/>
+		  <jsp:param name="command" value="adminQnaList.do"/>
 		
 </jsp:include> 
 

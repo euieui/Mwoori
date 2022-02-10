@@ -49,25 +49,25 @@ function go_list() {
 <article>
 
 <form name="frm" method="post">
-<input type="hidden" name="qnaseq" value="${qnaDto.qnaseq}">
+<input type="hidden" name="qnaseq" value="${qnaDto.QNASEQ}">
 <table id="admin_qnaList">
         <caption>
                        <h1>Q&amp;A 게시판</h1>
         </caption>
         
-        	<tr style="border: 1px solid black"><th width="20%">제목</th><td align="left">${qnaDto.title } ${qnaDto.rep } </td></tr>
-        	<tr style="border: 1px solid black"><th>등록일</th><td align="left"> <fmt:formatDate value="${qnaDto.indate}"/></td></tr>
-        	<tr style="border: 1px solid black"><th>문의사항</th><td align="left"> ${qnaDto.content }</td></tr>
+        	<tr style="border: 1px solid black"><th width="20%">제목</th><td align="left">${qnaDto.TITLE } ${qnaDto.REP } </td></tr>
+        	<tr style="border: 1px solid black"><th>등록일</th><td align="left"> <fmt:formatDate value="${qnaDto.INDATE}"/></td></tr>
+        	<tr style="border: 1px solid black"><th>문의사항</th><td align="left"> ${qnaDto.CONTENT }</td></tr>
             
            <c:choose>
-             <c:when test='${qnaDto.rep=="1" }'>
+             <c:when test='${qnaDto.REP=="1" }'>
            	<tr>
               <td colspan="2"><textarea name="reply" rows="7" cols="82.5"style="border: 2px solid black"></textarea></td>
             </tr>
             </table>
            
               <div style="margin:0 auto; width:200px;">
-                <input type="button" class="btn" value="저장" onclick="go_rep('${qnaDto.qnaseq}')"id="qna_button">
+                <input type="button" class="btn" value="저장" onclick="go_rep('${qnaDto.QNASEQ}')"id="qna_button">
                <input  type="button" value="목록" onClick="go_list()" id="qna_button">
               </div>
              
@@ -75,7 +75,7 @@ function go_list() {
            </c:when>
            <c:otherwise>
             <tr style="border: 1px solid black">
-              <th>답변</th><td style="text-align: center;">${qnaDto.reply}</td>
+              <th>답변</th><td style="text-align: center;">${qnaDto.REPLY}</td>
             </tr>
            
            </c:otherwise>
