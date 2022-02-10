@@ -112,46 +112,46 @@
     >
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images1.jpg" />
+          <img src="<c:url value='/gallery/galley_images1.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images2.jpg" />
+           <img src="<c:url value='/gallery/galley_images2.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images3.jpg" />
+             <img src="<c:url value='/gallery/galley_images3.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images4.jpg" />
+             <img src="<c:url value='/gallery/galley_images4.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images5.jpg" />
+           <img src="<c:url value='/gallery/galley_images5.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images6.jpg" />
+              <img src="<c:url value='/gallery/galley_images6.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images7.jpg" />
+              <img src="<c:url value='/gallery/galley_images7.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images8.jpg" />
+             <img src="<c:url value='/gallery/galley_images8.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images9.jpg" />
+            <img src="<c:url value='/gallery/galley_images9.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images10.jpg" />
+              <img src="<c:url value='/gallery/galley_images10.jpg'/> " />
         </div>
                <div class="swiper-slide">
-          <img src="static/gallery/galley_images11.jpg" />
+             <img src="<c:url value='/gallery/galley_images11.jpg'/> " />
         </div>
                <div class="swiper-slide">
-          <img src="static/gallery/galley_images12.jpg" />
+              <img src="<c:url value='/gallery/galley_images12.jpg'/> " />
         </div>
                <div class="swiper-slide">
-          <img src="static/gallery/galley_images13.jpg" />
+        <img src="<c:url value='/gallery/galley_images13.jpg'/> " />
         </div>
                <div class="swiper-slide">
-          <img src="static/gallery/galley_images14.jpg" />
+            <img src="<c:url value='/gallery/galley_images14.jpg'/> " />
         </div>
       </div>
       <div class="swiper-button-next"></div>
@@ -160,46 +160,46 @@
     <div thumbsSlider="" class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images1.jpg" />
+         <img src="<c:url value='/gallery/galley_images1.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images2.jpg" />
+          <img src="<c:url value='/gallery/galley_images2.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images3.jpg" />
+          <img src="<c:url value='/gallery/galley_images3.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images4.jpg" />
+          <img src="<c:url value='/gallery/galley_images4.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images5.jpg" />
+          <img src="<c:url value='/gallery/galley_images5.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images6.jpg" />
+          <img src="<c:url value='/gallery/galley_images6.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images7.jpg" />
+       <img src="<c:url value='/gallery/galley_images7.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images8.jpg" />
+          <img src="<c:url value='/gallery/galley_images8.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images9.jpg" />
+        <img src="<c:url value='/gallery/galley_images9.jpg'/> " />
         </div>
         <div class="swiper-slide">
-          <img src="static/gallery/galley_images10.jpg" />
+     <img src="<c:url value='/gallery/galley_images10.jpg'/> " />
         </div>
             <div class="swiper-slide">
-          <img src="static/gallery/galley_images11.jpg" />
+         <img src="<c:url value='/gallery/galley_images11.jpg'/> " />
         </div>
             <div class="swiper-slide">
-          <img src="static/gallery/galley_images12.jpg" />
+         <img src="<c:url value='/gallery/galley_images12.jpg'/> " />
         </div>
             <div class="swiper-slide">
-          <img src="static/gallery/galley_images13.jpg" />
+        <img src="<c:url value='/gallery/galley_images13.jpg'/> " />
         </div>
             <div class="swiper-slide">
-          <img src="static/gallery/galley_images14.jpg" />
+       <img src="<c:url value='/gallery/galley_images14.jpg'/> " />
         </div>
       </div>
     </div>

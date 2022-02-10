@@ -31,7 +31,7 @@ height: 400px; margin-top:100px; margin :0 atuo;
 <h3> 고객문의 수정하기</h3>
 	<div>${message}</div>
 <form name="formm"  method="post" >
-<input type="hidden" name="qnaseq" value="${qnaVO.qnaseq}">
+<input type="hidden" name="qnaseq" value="${qnaVO.QNASEQ}">
  
  <table id="qnawriteview">
      <tr>
@@ -60,7 +60,7 @@ height: 400px; margin-top:100px; margin :0 atuo;
 <%@ include file="../footer.jsp" %> 
 <script type="text/javascript">
 function go_qna_update() {
-	 document.formm.action ="qnaUpdate";
+	 document.formm.action ="qnaUpdate.do";
     document.formm.submit();
 }
 </script>

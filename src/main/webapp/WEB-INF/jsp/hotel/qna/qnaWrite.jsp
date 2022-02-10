@@ -35,7 +35,7 @@ border:1px solid black;
 
 <div id="qnaview1">
   
-<form name="formm" method="post" action="qnaWrite" >
+<form name="formm" method="post" action="qnaWrite.do" >
 <table id="qnawriteview">
 <h4>${message}</h4>
 <caption>
@@ -59,7 +59,7 @@ border:1px solid black;
                   <input type="submit"  value="저장하기"     class="submit" id="qna_button"> 
          		
          		  <input type="button"  value="취소"  class="submit"  id="qna_button"
-       							onclick="location.href='qnaList'"> 
+       							onclick="location.href='qnaList.do'"> 
               </td>
    </tr>
       

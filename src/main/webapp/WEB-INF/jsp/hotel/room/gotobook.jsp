@@ -11,7 +11,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
-<link href="static/css/datepicker.css" rel="stylesheet">
+<link href="<c:url value='/css/datepicker.css'/> " rel="stylesheet">
 <style type="text/css">
 #gotobook_view{
     border: 1px solid black;
@@ -129,7 +129,7 @@ width: 70px;
   </script>
 </head>
 <body>
-<form name="formm" method="post" action="gotobookdetail" >
+<form name="formm" method="post" action="gotobookdetail.do" >
 <div id="gotobook_view"  style="border:1px solid black;">
 <table id="gotobook_table">
 <caption>

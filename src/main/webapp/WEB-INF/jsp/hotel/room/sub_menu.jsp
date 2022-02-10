@@ -42,9 +42,9 @@ margin: 10px 15px; */
     <ul>
     
         <li id="room_aa"> 객실 </li>
-        <li id="room_li"><a href="gotoroom?num=1">Deluxe </a></li>
-		<li id="room_li"><a href="gotoroom?num=2"> BusinessDeluxe </a></li>
-		<li id="room_li"><a href="gotoroom?num=3">GrandCornerDeluxe</a></li> 
-		<li id="room_li"><a href="gotoroom?num=4">ExecuticeBusinessDeluxe</a></li>   
+        <li id="room_li"><a href="gotoroom.do?num=1">Deluxe </a></li>
+		<li id="room_li"><a href="gotoroom.do?num=2"> BusinessDeluxe </a></li>
+		<li id="room_li"><a href="gotoroom.do?num=3">GrandCornerDeluxe</a></li> 
+		<li id="room_li"><a href="gotoroom.do?num=4">ExecuticeBusinessDeluxe</a></li>   
     </ul>
 </nav>

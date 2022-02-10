@@ -112,17 +112,17 @@ ${imglist.kind} 객실 사진</div></c:forEach>
       <c:forEach items="${imglist}" var="imglist">
         <div class="swiper-slide">
         
-          				<img src="static/room_images/${imglist.img1}.jpg" />
+          				<img src="<c:url value='/room_images/${imglist.IMG1}.jpg'/> " />
         </div>
        
                <div class="swiper-slide">
-       					   <img src="static/room_images/${imglist.img2}.jpg" />
+       					  <img src="<c:url value='/room_images/${imglist.IMG2}.jpg'/> " />
         </div>
                <div class="swiper-slide">
-        					  <img src="static/room_images/${imglist.img3}.jpg" />
+        					  <img src="<c:url value='/room_images/${imglist.IMG3}.jpg'/> " />
         </div>
                <div class="swiper-slide">
-       							   <img src="static/room_images/${imglist.img4}.jpg" />
+       							  <img src="<c:url value='/room_images/${imglist.IMG4}.jpg'/> " />
       </div>
         </c:forEach>
       
@@ -134,16 +134,16 @@ ${imglist.kind} 객실 사진</div></c:forEach>
       <div class="swiper-wrapper">
         <c:forEach items="${imglist}" var="imglist">
         <div class="swiper-slide">
-         	<img src="static/room_images/${imglist.img1}.jpg" />
+         <img src="<c:url value='/room_images/${imglist.IMG1}.jpg'/> " />
         </div>
         <div class="swiper-slide">
-         	<img src="static/room_images/${imglist.img2}.jpg" />
+         	<<img src="<c:url value='/room_images/${imglist.IMG2}.jpg'/> " />
         </div>
         <div class="swiper-slide">
-       	<img src="static/room_images/${imglist.img3}.jpg" />
+     <img src="<c:url value='/room_images/${imglist.IMG3}.jpg'/> " />
         </div>
         <div class="swiper-slide">
-         	<img src="static/room_images/${imglist.img4}.jpg" />
+        <img src="<c:url value='/room_images/${imglist.IMG4}.jpg'/> " />
         </div>
      </c:forEach>
       </div>

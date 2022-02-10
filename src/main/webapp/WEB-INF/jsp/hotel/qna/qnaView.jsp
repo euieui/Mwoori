@@ -49,27 +49,27 @@ border:1px solid black;
    <div> ${message }</div>
 </div>
 <form  id="qnaform"name="formm" method="post" >
- <input type="hidden" name="qnaseq" value="${qnaVO.qnaseq}">
+ <input type="hidden" name="qnaseq" value="${qnaVO.QNASEQ}">
  <table id="qnatable" >
           <tr>
-              <th >제목</th><td width="400" >${qnaVO.title}</td>
+              <th >제목</th><td width="400" >${qnaVO.TITLE}</td>
           </tr>
  
            <tr>
-              <th>등록번호</th><td width="400" >${qnaVO.qnaseq}</td>
+              <th>등록번호</th><td width="400" >${qnaVO.QNASEQ}</td>
           </tr>
  
           <tr> 
                <th>등록일</th>
                <td>
-       		<fmt:formatDate value="${qnaVO.indate}" type="date"/></td>
+       		<fmt:formatDate value="${qnaVO.INDATE}" type="date"/></td>
           </tr>
           <tr>
                  <th>문의내용</th><td align="left" style="text-align:center;font-size:115%;">
-       		  <pre>${qnaVO.content}</pre></td>
+       		  <pre>${qnaVO.CONTENT}</pre></td>
           </tr>
           <tr>
-                 <th>답변 내용</th><td align="left" style="text-align:center;">${qnaVO.reply}</td>
+                 <th>답변 내용</th><td align="left" style="text-align:center;">${qnaVO.REPLY}</td>
                  
           </tr>
   </table>
@@ -77,7 +77,7 @@ border:1px solid black;
  <div class="clear"></div>
 <div  id="qna_buttons">
 <input type="button"  value="목록보기" id="qna_button"
-onclick="location.href='qnaList'">
+onclick="location.href='qnaList.do'">
 <input type="button"  value="수정" id="qna_button"
 onclick="go_qna_update();"> 
 
@@ -89,11 +89,11 @@ onclick="go_qna_update();">
 
 <script type="text/javascript">
 function go_qna_delete(){
-  document.formm.action = "qnaDelete";
+  document.formm.action = "qnaDelete.do";
      document.formm.submit();
  } 
  function go_qna_update() {
-	 document.formm.action = "qnaUpdateForm";
+	 document.formm.action = "qnaUpdateForm.do";
      document.formm.submit();
 }
 </script>

@@ -1,5 +1,6 @@
 package woori.hotel.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
@@ -95,6 +96,101 @@ public class MainController {
 	
 	
 	
+
+	
+	@RequestMapping("/gotoimgshow.do")
+	public ModelAndView gotoimgshow( HttpServletRequest request
+			) {
+		ModelAndView mav=new ModelAndView();
+		
+		String num=request.getParameter("num");
+		
+
+		String kind ="";
+		
+		if(num.equals("1")) {
+			 kind="Deluxe";	 
+		}else if(num.equals("2")) {
+			kind="BusinessDeluxe";
+		}else if(num.equals("3")) {
+			kind="GrandCornerDeluxe";
+		}else{
+			kind="ExecuticeBusinessDeluxe";
+		}
+	  	HashMap<String, Object> paramMap = new HashMap<String, Object>();
+	  	paramMap.put("kind",kind);
+		
+	  	ms.imglist(paramMap);
+	  	
+		ArrayList<HashMap<String, Object>> list 
+		= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+	
+	
+		
+		mav.addObject("imglist",list);
+
+		mav.setViewName("room/gotoimgshow");
+		return mav;
+	}
+	
+	@RequestMapping("/gotoroom.do")
+	public ModelAndView Deluxe(HttpServletRequest request) {
+		
+		ModelAndView mav= new ModelAndView();
+	String num=request.getParameter("num");
+		
+		System.out.println("num:"+num);
+		String kind ="";
+		
+		if(num.equals("1")) {
+			 kind="Deluxe";	 
+			 mav.setViewName("room/Deluxe");
+		}else if(num.equals("2")) {
+			kind="BusinessDeluxe";
+			mav.setViewName("room/BusinessDeluxe");
+		}else if(num.equals("3")) {
+			kind="GrandCornerDeluxe";
+			mav.setViewName("room/GrandCornerDeluxe");
+		}else{
+			kind="ExecuticeBusinessDeluxe";
+			mav.setViewName("room/ExecuticeBusinessDeluxe");
+		}
+	  	HashMap<String, Object> paramMap = new HashMap<String, Object>();
+	  	paramMap.put("kind",kind);
+	  	ms.imglist(paramMap);
+		
+		ArrayList<HashMap<String, Object>> list 
+		= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		
+	
+	
+		
+		mav.addObject("imglist",list);
+		
+		return mav;		
+	}
+	
+	@RequestMapping("/room.do")
+	public String room() {
+		return "room/room";
+	}
+	@RequestMapping("/gallery.do")
+	public String gallery() {
+		return "gallery/gallery";
+	}
+	@RequestMapping("/v.do")
+	public String video() {
+		return "gallery/video";
+	}
+	@RequestMapping("/sitemap.do")
+	public String sitemap() {
+		return "Info/sitemap";
+	}
+
+	@RequestMapping("/map.do")
+	public String map() {
+		return"Info/map";
+	}
 	
 	
 	

@@ -21,5 +21,11 @@ public class MainServiceimpl extends EgovAbstractServiceImpl implements MainServ
 		mdao.confirmRoom(paramMapDBool);
 	}
 
+
+	@Override
+	public void imglist(HashMap<String, Object> paramMap) {
+		mdao.imglist(paramMap);		
+	}
+
 	
 }

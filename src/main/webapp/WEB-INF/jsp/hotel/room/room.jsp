@@ -63,7 +63,7 @@ width: 82.66px;
 <script type="text/javascript">
 
 function gotobook(kind){
-	 var url="gotobook?kind="+kind
+	 var url="gotobook.do?kind="+kind
 	 var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=900,height=550, top=300, left=300";
 	window.open(url, "객실 예약하기", opt);
 	
@@ -71,7 +71,7 @@ function gotobook(kind){
 
 function gotoimgshow(num){
 
- 	 var url="gotoimgshow?num="+num;
+ 	 var url="gotoimgshow.do?num="+num;
 	 var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=810,height=470, top=300, left=300";
 	window.open(url, "객실 사진", opt); 
 	
@@ -92,7 +92,7 @@ function gotoimgshow(num){
 			<div class="room_content">
 									<div class="room_1">
 														<div>
-															<a href="gotoimgshow?num=1"><img  src="static/room_images/Deluxe1.jpg" height="200px" width="400px"></a>
+															<a href="gotoimgshow.do?num=1"><img  src="<c:url value='/room_images/Deluxe1.jpg'/> " height="200px" width="400px"></a>
 															
 														</div>
 													
@@ -110,7 +110,7 @@ function gotoimgshow(num){
 								
 								<div class="room_1">
 														<div>
-													<a href="gotoimgshow?num=2"><img  src="static/room_images/BusinessDeluxe1.jpg" height="200px" width="400px"></a>
+													<a href="gotoimgshow.do?num=2"><img  src="<c:url value='/room_images/BusinessDeluxe1.jpg'/> " height="200px" width="400px"></a>
 														</div>
 													
 														<div class="roomcontent_view">
@@ -126,7 +126,7 @@ function gotoimgshow(num){
 								</div>
 									<div class="room_1">
 														<div>
-													<a href="gotoimgshow?num=3"><img  src="static/room_images/GrandCornerDeluxe1.jpg" height="200px" width="400px"></a>
+													<a href="gotoimgshow.do?num=3"><img  src="<c:url value='/room_images/GrandCornerDeluxe1.jpg'/> " height="200px" width="400px"></a>
 														</div>
 													
 														<div class="roomcontent_view">
@@ -142,7 +142,7 @@ function gotoimgshow(num){
 								</div>
 								<div class="room_1">
 														<div>
-														<a href="gotoimgshow?num=4">	<img  src="static/room_images/ExecuticeBusinessDeluxe1.jpg" height="200px" width="400px"></a>
+														<a href="gotoimgshow.do?num=4">	<img  src="<c:url value='/room_images/ExecuticeBusinessDeluxe1.jpg'/> " height="200px" width="400px"></a>
 														</div>
 													
 														<div class="roomcontent_view" >

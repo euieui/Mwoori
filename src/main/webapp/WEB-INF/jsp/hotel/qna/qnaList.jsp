@@ -69,24 +69,24 @@ font-weight: bold; font-size: 140%;
         		<tr style="height: 30px;  text-align:center;">
                
                     <td id="qna_size"><c:out value="${size}"/></td>
-                    <td id="qna_title"><a href="qnaView?qnaseq=${qnaVO.qnaseq}">${qnaVO.title}</a>
+                    <td id="qna_title"><a href="qnaView.do?qnaseq=${qnaVO.QNASEQ}">${qnaVO.TITLE}</a>
         <c:choose>
-           <c:when test="${qnaVO.rep==1}">
-                     <img width="10" height="9" id="new" src="static/images/ic_new.gif">  
+           <c:when test="${qnaVO.REP==1}">
+                     <img width="10" height="9" id="new" src="<c:url value='/images/ic_new.gif'/>">  
                 </c:when>
                 
-             <c:when test="${qnaVO.rep==2 }">
-            <br> <img  src="static/images/ic_reply.png"> &nbsp;&nbsp;${qnaVO.reply}
+             <c:when test="${qnaVO.REP==2 }">
+            <br> <img  src="<c:url value='/images/ic_reply.png'/> "> &nbsp;&nbsp;${qnaVO.REPLY}
               </c:when>
           </c:choose>    
                      
                      </td> 
-                    <td id="qna_id">  ${qnaVO.id} </td>   
-               		<td id="qna_date"><fmt:formatDate value="${qnaVO.indate}" type="date"/></td>
+                    <td id="qna_id">  ${qnaVO.ID} </td>   
+               		<td id="qna_date"><fmt:formatDate value="${qnaVO.INDATE}" type="date"/></td>
                		<td id="qna_rep">
                         <c:choose>
-                				<c:when test="${qnaVO.rep==1}"> no </c:when>
-                				<c:when test="${qnaVO.rep==2}"> yes </c:when>
+                				<c:when test="${qnaVO.REP==1}"> no </c:when>
+                				<c:when test="${qnaVO.REP==2}"> yes </c:when>
                		    </c:choose>
                    </td>    
            		</tr>
@@ -97,9 +97,9 @@ font-weight: bold; font-size: 140%;
 <div class="clear"></div>
 <div id="qna_buttons"  >
 	<input type="button"  value="1:1 질문하기"  class="submit" id="qna_button"
-	onClick="location.href='qnaWriteForm'"> 
+	onClick="location.href='qnaWriteForm.do'"> 
 	<input type="button"    value="되돌아가기"  class="cancel" id="qna_button"
-	onclick="location.href='mainForm'">  
+	onclick="location.href='mainForm.do'">  
 </div>
 </form>
 </article>

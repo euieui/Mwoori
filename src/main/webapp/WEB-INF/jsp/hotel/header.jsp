@@ -64,7 +64,7 @@ font-family: 'Nanum Myeongjo', serif;
               <li><a href="goInfo.do">호텔 우리 소개</a></li>    
               <li><a href="room.do">객실 소개</a>                          
               <li><a href="qnaList.do" >고객문의</a></li>
-              <li><a href="g.do">갤러리</a></li>
+              <li><a href="gallery.do">갤러리</a></li>
 
   <c:choose> 
 
@@ -73,7 +73,7 @@ font-family: 'Nanum Myeongjo', serif;
               <li><a href="contract.do">회원가입</a></li>
           </c:when> 
  <c:otherwise>
-               <li id="logo">${loginUser.name}(${loginUser.id})</li>
+               <li id="logo">${loginUser.NAME}(${loginUser.ID})</li>
                <li><a href="logout.do">로그아웃</a></li>
                <li><a href="bookChecklist.do?page=1&a=1">마이페이지</a></li>
          

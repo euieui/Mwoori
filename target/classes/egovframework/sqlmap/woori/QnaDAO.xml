@@ -6,9 +6,21 @@
 
 <mapper namespace="woori.hotel.dao.QnaDAO">
 
-<select id="listQna" resultType="woori.hotel.dao.QnaDAO">
- select *from qna where id=#{param1} order by qnaseq desc
-</select>
+
+<select parameterType="java.util.HashMap" statementType="CALLABLE" id="listQna">
+{CALL listQna(#{id},#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap})} </select>
+
+<insert parameterType="java.util.HashMap" statementType="CALLABLE" id="insertQna">
+{ CALL insertQna( #{id},#{content},#{title} ) } </insert>
+
+<select parameterType="java.util.HashMap" statementType="CALLABLE" id="getQna">
+{CALL getQna(#{qnaseq},#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap })} </select>
+
+<update parameterType="java.util.HashMap" statementType="CALLABLE" id="updateQna">
+{ CALL updateQna(#{qnaseq},#{id},#{title},#{content}) } </update>
+
+<select parameterType="java.util.HashMap" statementType="CALLABLE" id="deleteQna">
+{ CALL deleteQna(#{qnaseq}) } </select>
 
 
 </mapper>
