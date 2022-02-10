@@ -4,7 +4,7 @@ function go_search_booknum(){
 	document.frm.checkouts.value="";
 	document.frm.bookid.value="";
 	
-	var url = "adminbookchecklist?page=1";
+	var url = "adminbookchecklist.do?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 }
@@ -15,7 +15,7 @@ function go_total_check(){
 	document.frm.checkins.value="";
 	document.frm.checkouts.value="";
 	document.frm.bookid.value="";
-	var url = "adminbookchecklist?page=1";
+	var url = "adminbookchecklist.do?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 }
@@ -40,7 +40,7 @@ function go_search_checkdate(){
 		}
 	}
 	
-	var url = "adminbookchecklist?page=1";
+	var url = "adminbookchecklist.do?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 }
@@ -54,7 +54,7 @@ function go_search_bookid() {
 	document.frm.checkins.value="";
 	document.frm.checkouts.value="";
 	
-	var url = "adminbookchecklist?page=1";
+	var url = "adminbookchecklist.do?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 	
@@ -82,7 +82,7 @@ function go_search_dateANDid() {
 		}
 	}
 	
-	var url = "adminbookchecklist?page=1";
+	var url = "adminbookchecklist.do?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 }
@@ -93,11 +93,11 @@ function go_search_dateANDid() {
 function confirmbookcancel(){
 	var url="";
 	if(document.frm.gotonum.value=="1"){
-		url = "adminbookcancel?bdseq="
+		url = "adminbookcancel.do?bdseq="
 		+document.frm.bookdetailnum.value+"&gotonum="+document.frm.gotonum.value;
 		/*alert(document.frm.gotonum.value);*/
 	} else if(document.frm.gotonum.value=="2"){
-		url="adminbookcancel?bdseq="
+		url="adminbookcancel.do?bdseq="
 		+document.frm.bookdetailnum.value+"&gotonum="+document.frm.gotonum.value;
 	}
 	
@@ -122,7 +122,7 @@ function go_order_save(){
 	if(count ==0){
 		alert("주문처리할 항목을 선택해 주세요.");
 	}else{
-		document.frm.action ="adminBookSave";
+		document.frm.action ="adminBookSave.do";
 		document.frm.submit();
 	}
 }

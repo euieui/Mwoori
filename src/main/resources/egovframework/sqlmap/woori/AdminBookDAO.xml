@@ -5,4 +5,105 @@
 	
 <mapper namespace="woori.hotel.dao.AdminBookDAO">
 
+	<select id="getAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCount( #{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllCountWithId" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountWithId( #{id}, 
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllCountWithIdBooknums" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountWithIdBooknum( #{id}, #{booknums}, 
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllCountWithBooknum" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountWithBooknum( #{booknums}, 
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllCountWithIndateOutdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountWithIndateOutdate( #{indate}, #{outdate},  
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllCountWithIndate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountWithIndate( #{indate},   
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllCountWithOutdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountWithOutdate( #{outdate},   
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllCountWithIdIndateOutdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountWithIdIndateOutdate( #{id}, #{indate}, #{outdate},    
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllCountWithIdIndate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountWithIdIndate( #{id}, #{indate},  
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllCountWithIdOutdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountWithIdOutdate( #{id}, #{outdate},  
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	
+	<!-- get book list -->
+	<select id="getAllBookList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookList( #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+	
+	<select id="getAllBookListWithBooknum" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookListWithBooknum( #{booknums}, #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+	
+	<select id="getAllBookListWithId" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookListWithId( #{id}, #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+	
+	<select id="getAllBookListWithIdBooknum" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookListWithIdBooknum( #{id}, #{booknums}, #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+	
+	<select id="getAllBookListWithIndateOutdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookListWithInOut( #{indate}, #{outdate}, #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+	
+	<select id="getAllBookListWithIndate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookListWithIndate( #{indate}, #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+	
+	<select id="getAllBookListWithOutdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookListWithOutdate( #{outdate}, #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+	
+	<select id="getAllBookListWithIdIndateOutdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookListWithIdInOut( #{id}, #{indate}, #{outdate}, #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+	
+	<select id="getAllBookListWithIdIndate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookListWithIdIndate( #{id}, #{indate}, #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+	
+	<select id="getAllBookListWithIdOutdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllBookListWithIdOutdate( #{id}, #{outdate}, #{startnum}, #{endnum}, 
+		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
+	</select>
+
 </mapper>

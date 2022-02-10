@@ -53,29 +53,29 @@
 				<div id="chklistcontent_aa">
 					<div class="booknumclass_aa" id="chklistcontent2_aa">
 					<c:choose>
-						<c:when test='${list.result=="0"}'>
-						<a href="adminbooklistdetail?bdseq=${list.bdseq}&gotonum=1">
-						${list.booknum}(<input type="checkbox" name="result" value="${list.bdseq}">예약대기)</a></c:when>
+						<c:when test='${list.RESULT=="0"}'>
+						<a href="adminbooklistdetail.do?bdseq=${list.BDSEQ}&gotonum=1">
+						${list.BOOKNUM}(<input type="checkbox" name="result" value="${list.bdseq}">예약대기)</a></c:when>
    
 						<c:otherwise>
-						<a href="adminbooklistdetail?bdseq=${list.bdseq}&gotonum=1">
-						${list.booknum}(<input type="checkbox" checked="checked" disabled="disabled">처리)</a></c:otherwise>
+						<a href="adminbooklistdetail.do?bdseq=${list.BDSEQ}&gotonum=1">
+						${list.BOOKNUM}(<input type="checkbox" checked="checked" disabled="disabled">처리)</a></c:otherwise>
 					</c:choose>	
 					</div>
-					<div class="kindclass_aa" id="chklistcontent2_aa">${list.id}</div>
-					<div class="usernumclass_aa" id="chklistcontent2_aa">${list.usernum}명</div>
+					<div class="kindclass_aa" id="chklistcontent2_aa">${list.ID}</div>
+					<div class="usernumclass_aa" id="chklistcontent2_aa">${list.USERNUM}명</div>
 					<div class="checkinoutclass_aa" id="chklistcontent2_aa">
-						<fmt:formatDate value="${list.checkin}"/> ~ 
-						<fmt:formatDate value="${list.checkout}"/>
+						<fmt:formatDate value="${list.CHECKIN}"/> ~ 
+						<fmt:formatDate value="${list.CHECKOUT}"/>
 					</div>
 					<div class="bookresultclass_aa" id="chklistcontent2_aa">
 						<c:choose>
-						<c:when test='${list.result=="1"}'>예약 완료</c:when>
-						<c:when test='${list.result=="2"}'>취소 신청</c:when>
-						<c:when test='${list.result=="3"}'>취소 완료</c:when>
+						<c:when test='${list.RESULT=="1"}'>예약 완료</c:when>
+						<c:when test='${list.RESULT=="2"}'>취소 신청</c:when>
+						<c:when test='${list.RESULT=="3"}'>취소 완료</c:when>
 						<c:otherwise>예약 대기</c:otherwise></c:choose>
 					</div>
-					<div class="bookpriceclass_aa" id="chklistcontent2_aa">${list.price}원</div>
+					<div class="bookpriceclass_aa" id="chklistcontent2_aa">${list.PRICE}원</div>
 				</div>
 				<div class="clear"></div>
 				</c:forEach>
@@ -90,13 +90,13 @@
 </form>
 
 	<br>
-<jsp:include page="paging.jsp">
+<jsp:include page="../paging/paging.jsp">
 	<jsp:param name="page" value="${paging.page}" />
 	<jsp:param name="beginPage" value="${paging.beginPage}" />
 	<jsp:param name="endPage" value="${paging.endPage}" />
 	<jsp:param name="prev" value="${paging.prev}" />
 	<jsp:param name="next" value="${paging.next}" />
-	<jsp:param name="command" value="adminbookchecklist" />
+	<jsp:param name="command" value="adminbookchecklist.do" />
 </jsp:include>
 
 </div>
