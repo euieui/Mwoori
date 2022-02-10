@@ -14,4 +14,7 @@ public interface AdminService{
 
 	void getQna(HashMap<String, Object> paramMap);
 
+
+	void updateQnaReply(HashMap<String, Object> paramMap);
+
 }

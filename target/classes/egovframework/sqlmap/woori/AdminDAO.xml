@@ -34,5 +34,10 @@
 {CALL getQna(#{qnaseq},#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap })} 
 </select>
 
+<update id="updateQnaReply"  parameterType="java.util.HashMap" statementType="CALLABLE">
+{ CALL updateQnaReply(#{qnaseq},#{reply}) }
+
+</update>
+
 
 </mapper>

@@ -15,4 +15,6 @@ public interface AdminDAO {
 
 	void getQna(HashMap<String, Object> paramMap);
 
+	void updateQnaReply(HashMap<String, Object> paramMap);
+
 }

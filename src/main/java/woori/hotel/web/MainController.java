@@ -95,6 +95,114 @@ public class MainController {
 		return mav;
 	}
 	
+
+	@RequestMapping("/gotobook.do")
+	public ModelAndView gotobook(HttpServletRequest request){
+		ModelAndView mav= new ModelAndView();
+		
+		String kind=request.getParameter("kind");
+		
+		mav.addObject("kind",kind);
+		mav.setViewName("room/gotobook");
+		return mav;	
+	}
+	
+	@RequestMapping(value="/gotobookdetail.do", method=RequestMethod.POST)
+	public ModelAndView gotobookdetail(@RequestParam("roomnum") int roomnum,
+			@RequestParam("usernum") int usernum, @RequestParam("checkin") String checkin,
+			@RequestParam("checkout") String checkout, HttpServletRequest request) {
+	
+		String kind=request.getParameter("kind");
+				boolean DBool=false;
+				boolean BDBool=false;
+				boolean GCDBool=false;
+				boolean EBDBool=false;
+		
+		
+ModelAndView mav = new ModelAndView();
+if(kind.equals("Deluxe")) {
+			DBool=true;
+			HashMap<String, Object> paramMapDBool = new HashMap<String, Object>();
+			paramMapDBool.put("checkin", checkin);
+			paramMapDBool.put("checkout", checkout);
+			paramMapDBool.put("kind", "Deluxe");
+			paramMapDBool.put("usernum", usernum);
+			paramMapDBool.put("roomnum", roomnum);
+			paramMapDBool.put("bool", null);
+			ms.confirmRoom(paramMapDBool);
+
+
+
+					mav.addObject("DBool",DBool);	
+					mav.addObject("BDBool",BDBool);
+					mav.addObject("GCDBool",GCDBool);
+					mav.addObject("EBDBool",EBDBool);
+		}else if(kind.equals("Business Deluxe")) {
+							BDBool=true;
+							HashMap<String, Object> paramMapDBool = new HashMap<String, Object>();
+							paramMapDBool.put("checkin", checkin);
+							paramMapDBool.put("checkout", checkout);
+							paramMapDBool.put("kind", "Business Deluxe");
+							paramMapDBool.put("usernum", usernum);
+							paramMapDBool.put("roomnum", roomnum);
+							paramMapDBool.put("bool", null);
+							ms.confirmRoom(paramMapDBool);
+							
+							mav.addObject("BDBool",BDBool);
+							mav.addObject("DBool",DBool);
+							mav.addObject("GCDBool",GCDBool);
+							mav.addObject("EBDBool",EBDBool);
+			}else if(kind.equals("Grand Corner Deluxe")) {
+							GCDBool=true;
+							HashMap<String, Object> paramMapDBool = new HashMap<String, Object>();
+							paramMapDBool.put("checkin", checkin);
+							paramMapDBool.put("checkout", checkout);
+							paramMapDBool.put("kind", "Grand Corner Deluxe");
+							paramMapDBool.put("usernum", usernum);
+							paramMapDBool.put("roomnum", roomnum);
+							paramMapDBool.put("bool", null);
+							ms.confirmRoom(paramMapDBool);
+							 
+							 
+							 
+							mav.addObject("GCDBool",GCDBool);
+							mav.addObject("DBool",DBool);
+							mav.addObject("BDBool",BDBool);		
+							mav.addObject("EBDBool",EBDBool);
+	}else {	
+							EBDBool=true;
+							HashMap<String, Object> paramMapDBool = new HashMap<String, Object>();
+							paramMapDBool.put("checkin", checkin);
+							paramMapDBool.put("checkout", checkout);
+							paramMapDBool.put("kind", "Executive Business Deluxe");
+							paramMapDBool.put("usernum", usernum);
+							paramMapDBool.put("roomnum", roomnum);
+							paramMapDBool.put("bool", null);
+							ms.confirmRoom(paramMapDBool);
+							
+							
+							mav.addObject("EBDBool",EBDBool);
+							mav.addObject("DBool",DBool);
+							mav.addObject("BDBool",BDBool);
+							mav.addObject("GCDBool",GCDBool);
+							
+							}
+							
+							
+							mav.addObject("checkin",checkin);
+							mav.addObject("checkout",checkout);
+							mav.addObject("roomnum",roomnum);
+							mav.addObject("usernum",usernum);
+							
+							
+							
+							
+							mav.setViewName("bookDetail");
+								return mav;
+							}
+	
+	
+
 	
 	
 

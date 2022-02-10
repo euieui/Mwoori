@@ -37,6 +37,12 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
+	@Override
+	public void updateQnaReply(HashMap<String, Object> paramMap) {
+		adao.updateQnaReply(paramMap);
+		
+	}
+
 	
 
 }

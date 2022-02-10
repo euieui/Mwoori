@@ -120,7 +120,7 @@ function go_order_qna(){
                     <td><a  href="adminQnaDetail.do?qnaseq=${qnaDto.QNASEQ}">${qnaDto.TITLE}</a>
         <c:choose>
         
-                 <c:when test="${qnaDto.rep==1}">
+                 <c:when test="${qnaDto.REP==1}">
                      <img width="10" height="9" id="new" src="<c:url value='/images/ic_new.gif'/> ">  
                 </c:when>
              

@@ -190,4 +190,28 @@ public class AdminController {
 	    }
 		return mav;
 	}
+	
+
+	@RequestMapping("/adminQnaRepsave.do")
+	public ModelAndView admin_qna_repsave(HttpServletRequest request
+	,@RequestParam("qnaseq") String qnaseq) {
+		ModelAndView mav= new ModelAndView();
+
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+	    
+	    if(loginUser==null) mav.setViewName("admin/adminloginForm");
+	    else {
+	    	HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put( "qnaseq", qnaseq );
+			paramMap.put( "reply", request.getParameter("reply") );
+	    		
+	    			as.updateQnaReply(paramMap);
+	    			
+	    			mav.setViewName("redirect:/adminQnaList.do");
+	    }
+		return mav;
+	}	   
+
+	
 }

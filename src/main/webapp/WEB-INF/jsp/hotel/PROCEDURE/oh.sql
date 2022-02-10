@@ -113,4 +113,16 @@ begin
             	) where rn <= p_endNum;
         commit;
         end; 
+        --------------
+         create or replace procedure updateQnaReply
+ (   p_qnaseq in qna.qnaseq%type,
+    p_reply in qna.reply%type
+  )
+   is
+   begin 
+  update qna set reply=p_reply,rep='2' where qnaseq=p_qnaseq;
+
+   commit;
+   end;
+        
         
