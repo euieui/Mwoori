@@ -32,7 +32,7 @@ function result(zip_num, sido, gugun, dong){
 <body>
 <div id="popup">
 	<h3>우편번호 검색</h3>
-	<form method="post" name="formm" action="findZipNum">
+	<form method="post" name="formm" action="findZipNum.do">
 		동이름 : <input name="dong" type="text">
 		<input type="submit" value="찾기" class="dup_brown">
 	</form>
@@ -41,14 +41,14 @@ function result(zip_num, sido, gugun, dong){
 		<tr><th width="100">우편번호</th><th>주소</th></tr>
 		<c:forEach items="${addressList}" var="addressDto">
 			<tr>
-				<td>${addressDto.zip_num}</td>
+				<td>${addressDto.ZIP_NUM}</td>
 				<!-- onClick="result(우편번호, 시도, 구군, 동);" -->
-				<td><a href="#" onClick="result('${addressDto.zip_num}',
-				'${addressDto.sido}', '${addressDto.gugun}', '${addressDto.dong}' );">
-				${addressDto.sido} ${addressDto.gugun} ${addressDto.dong} ${addressDto.bunji}</a></td>
+				<td><a href="#" onClick="result('${addressDto.ZIP_NUM}',
+				'${addressDto.SIDO}', '${addressDto.GUGUN}', '${addressDto.DONG}' );">
+				${addressDto.SIDO} ${addressDto.GUGUN} ${addressDto.DONG} ${addressDto.BUNGI}</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 </div>
 </body>
-</html><!-- 완료 -->
+</html>

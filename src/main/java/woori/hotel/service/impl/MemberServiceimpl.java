@@ -34,4 +34,14 @@ public class MemberServiceimpl extends EgovAbstractServiceImpl implements Member
 	public void resetPw(HashMap<String, Object> paramMap) {
 		mdao.resetPw(paramMap);
 	}
+
+	@Override
+	public void selectAddressByDong(HashMap<String, Object> paramMap) {
+		mdao.selectAddressByDong(paramMap);
+	}
+
+	@Override
+	public void insertMember(HashMap<String, Object> paramMap) {
+		mdao.insertMember(paramMap);
+	}
 }

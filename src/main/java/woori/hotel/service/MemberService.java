@@ -8,5 +8,7 @@ public interface MemberService {
 	void confirmPhone1(HashMap<String, Object> paramMap);
 	void confirmPhone2(HashMap<String, Object> paramMap);
 	void resetPw(HashMap<String, Object> paramMap);
+	void selectAddressByDong(HashMap<String, Object> paramMap);
+	void insertMember(HashMap<String, Object> paramMap);
 
 }

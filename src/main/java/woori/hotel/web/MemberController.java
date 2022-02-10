@@ -203,4 +203,92 @@ public class MemberController {
 		return mav;
 	}
 	
+
+	@RequestMapping("contract.do")
+	public String contract() {
+		return "member/contract";
+	}
+	
+	@RequestMapping(value="/joinForm.do", method=RequestMethod.POST)
+	public String joinForm() {
+		return "member/join";
+	}
+	
+	@RequestMapping("idCheckForm.do")
+	public ModelAndView id_check_form(@RequestParam("id") String id) {
+		ModelAndView mav = new ModelAndView();
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put( "ref_cursor", null );
+		paramMap.put("id", id);
+		ms.getMember(paramMap);	 // 조회 
+		ArrayList< HashMap<String,Object> > list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		
+		int result=0;
+		if(list.size()==0) result=-1;
+		else result=1;
+		mav.addObject("result",result);
+		mav.addObject("id",id);
+		mav.setViewName("member/idcheck");
+		return mav;
+	}
+	
+
+	@RequestMapping("findZipNum.do")
+	public ModelAndView find_zip(@RequestParam(value="dong", required=false) String dong) {
+		ModelAndView mav = new ModelAndView();
+		
+		if(dong!=null&&dong.trim().equals("")==false) {
+			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put( "ref_cursor", null );
+			paramMap.put("dong", dong);
+			ms.selectAddressByDong(paramMap);	 // 조회 
+			ArrayList< HashMap<String,Object> > list 
+				= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			
+			mav.addObject("addressList", list);
+		}
+		mav.setViewName("member/findZipNum");
+		return mav;
+	}
+	
+	@RequestMapping("joinComplete.do")
+	public String joinComplete(Model model, HttpServletRequest request, 
+			@RequestParam(value="pwd", required=false) String pwd,
+			@RequestParam(value="id", required=false) String id,
+			@RequestParam(value="name", required=false) String name,
+			@RequestParam(value="email", required=false) String email,
+			@RequestParam(value="addr1", required=false) String addr1,
+			@RequestParam(value="addr2", required=false) String addr2,
+			@RequestParam(value="zip_num", required=false) String zip_num,
+			@RequestParam(value="phone", required=false) String phone) {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", id);
+		paramMap.put("pwd", pwd);
+		paramMap.put("name", name);
+		paramMap.put("email", email);
+		paramMap.put("zip_num", zip_num);
+		paramMap.put("phone", phone);
+		paramMap.put("address", addr1+" "+addr2);
+		ms.insertMember(paramMap);
+		model.addAttribute("message", "회원가입이 완료되었어요. 로그인하세요");
+
+		ms.getMember(paramMap);	
+		ArrayList< HashMap<String,Object> > list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");	 
+		HttpSession session=request.getSession();
+		session.setAttribute("joinName", list.get(0));
+		return "member/joinComplete";
+	}
+	
+
+	@RequestMapping("joinCom.do")
+	public String joinCom(Model model, HttpServletRequest request) {
+		
+		 HttpSession session = request.getSession();
+	      //session.invalidate();
+	      session.removeAttribute("joinName");
+	      return "redirect:/loginForm.do";
+	}
 }

@@ -81,6 +81,38 @@ function go_next(){
 
 
 
+function go_save(){
+	if (document.formm.id.value == "") {
+		alert("아이디를 입력하여 주세요."); 	    
+	    document.formm.id.focus();
+	} else if(document.formm.reid.value != document.formm.id.value){
+		alert("아이디 중복확인을 하지 않았습니다");		
+		document.formm.id.focus();
+	} else if(document.formm.pwd.value == "") {
+	    alert("비밀번호를 입력해 주세요.");	    
+	    document.formm.pwd.focus();
+	} else if(document.formm.pwd.value != document.formm.pwdCheck.value) {
+	    alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");	    
+	    document.formm.pwd.focus();
+	} else if(document.formm.name.value == "") {
+	    alert("이름을 입력해 주세요.");	    
+	    document.formm.name.focus();
+	} else if(document.formm.email.value == "") {
+	    alert("이메일을 입력해 주세요.");	   
+	    document.formm.email.focus();
+	}  else if(document.formm.phone.value == "") {
+	    alert("전화번호를 입력해 주세요.");	   
+	    document.formm.phone.focus();
+	} else if(document.formm.zip_num.value == "") {
+	    alert("주소를 입력해 주세요.");	   
+	    document.formm.zip_num.focus();
+	} else{
+		document.formm.action = "joinComplete.do";
+	    document.formm.submit();
+	}
+}
+
+
 
 
 function iddoublecheck(){

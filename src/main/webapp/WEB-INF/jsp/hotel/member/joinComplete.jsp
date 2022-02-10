@@ -13,7 +13,7 @@
 	<div class="contSelect">가입완료</div>
 </div>
 
-<form method="post" name="joinComFrm" action="joinCom">
+<form method="post" name="joinComFrm" action="joinCom.do">
 
 	<div class="joinComView">
 	 	<c:choose> 
@@ -26,7 +26,7 @@
 	 		 <c:otherwise>
 	 		 	<div class="joinComText">
 					감사합니다.<br>
-					${joinName.name} 님께서는 우리호텔에 정상적으로 가입되셨습니다.
+					${joinName.NAME} 님께서는 우리호텔에 정상적으로 가입되셨습니다.
 				</div>
 				<div id="joinComButton"><input type="submit" value="로그인" class="joinButton"></div>
 			</c:otherwise>

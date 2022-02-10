@@ -26,4 +26,15 @@
 	<update id="resetPw" statementType="CALLABLE" parameterType="java.util.HashMap" >
 		{CALL resetPw( #{id}, #{pwd}  )  }
 	</update>
+	
+	<select id="selectAddressByDong" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL selectAddressByDong( #{dong}, 
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } )  }
+	</select>
+	
+	<insert id="insertMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL insertHotelmember( #{id}, #{pwd}, #{name}, #{email}, #{phone},
+			#{zip_num}, #{address}  )  }
+	</insert>
+	
 </mapper>

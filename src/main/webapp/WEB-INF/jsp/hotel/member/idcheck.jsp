@@ -24,13 +24,13 @@ input{border:#BEBBB9 solid 1px;}
 <body>
 <div id="wrap" style="margin:20px 0">
 <h3>ID 중복확인</h3>
-	<form method="post" name="idCheckFrm" action="idCheckForm">
+	<form method="post" name="idCheckFrm" action="idCheckForm.do">
 		User ID&nbsp;&nbsp;&nbsp;<input type="text" name="id" value="${id}">
 		<input type="submit" value="검색" class="dup_brown"><br>
 		
 		<div style="margin-top:20px">
 			<c:if test="${result==1}">
-				<script type="text/javascript">opener.document.joinFrm.id.value="";</script>
+				<script type="text/javascript">opener.document.formm.id.value="";</script>
 				${id} 은(는) 이미 사용중인 아이디입니다.
 			</c:if>
 			<c:if test="${result==-1}">
