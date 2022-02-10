@@ -42,7 +42,7 @@ public class MainServiceimpl extends EgovAbstractServiceImpl implements MainServ
 				(ArrayList<HashMap<String, Object>>) paramMapRemain.get("ref_cursor");
 		
 		for( HashMap<String, Object> i : remainRoomListHash) {
-			remainRoomList.add((Integer) i.get("HOTELNUM"));
+			remainRoomList.add(Integer.parseInt( i.get("HOTELNUM").toString()));
 		}
 		
 		HashMap<String, Object> paramMapBooked = new HashMap<String, Object>();
@@ -57,7 +57,7 @@ public class MainServiceimpl extends EgovAbstractServiceImpl implements MainServ
 				(ArrayList<HashMap<String, Object>>) paramMapBooked.get("ref_cursor");
 		
 		for( HashMap<String, Object> i : bookedRoomListHash) {
-			bookedRoomList.add((Integer) i.get("HOTELNUM"));
+			bookedRoomList.add(Integer.parseInt( i.get("HOTELNUM").toString()));
 		}
 	
 		remainRoomList.removeAll(bookedRoomList);
@@ -67,9 +67,26 @@ public class MainServiceimpl extends EgovAbstractServiceImpl implements MainServ
 
 
 	@Override
-	public void insertRoom(ArrayList<Integer> remainList, String string, ArrayList<Integer> userNumList, String checkin,
+	public void insertRoom(ArrayList<Integer> remainList, String id, ArrayList<Integer> userNumList, String checkin,
 			String checkout) {
-		// TODO Auto-generated method stub
+		
+		
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", id);
+		paramMap.put("maxBookNum", null);
+		mdao.insertBook(paramMap);
+		
+		
+		for(int i = 0 ; i<userNumList.size(); i++) {
+			HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
+			paramMap1.put("booknum", Integer.parseInt(paramMap.get("maxBookNum").toString()));
+			paramMap1.put("hotelnum", remainList.get(i));
+			paramMap1.put("usernum", userNumList.get(i));
+			paramMap1.put("checkin", checkin);
+			paramMap1.put("checkout", checkout);
+			
+			mdao.insertRoom(paramMap1);
+		}
 		
 	}
 

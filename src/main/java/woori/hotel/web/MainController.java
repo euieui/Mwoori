@@ -332,7 +332,7 @@ if(kind.equals("Deluxe")) {
 
 		}
 		
-		
+	
 	}
 	
 	

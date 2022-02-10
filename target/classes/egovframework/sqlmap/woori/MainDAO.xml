@@ -18,6 +18,20 @@
 			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap })}
 	</select>
 	
+	<insert id="insertBook" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{Call insertBook(#{id},#{maxBookNum, mode=OUT, jdbcType=INTEGER})}
+	</insert>
+	
+	<select id="bookedRoom" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{Call bookedRoom(#{checkin},#{checkout},#{kind},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap })}
+	</select>
+	
+	<insert id="insertRoom" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{Call insertRoom(#{booknum},#{hotelnum},#{usernum},#{checkin},#{checkout})}
+	</insert>
+	
+	
 <select parameterType="java.util.HashMap" statementType="CALLABLE" id="imglist">
 {CALL imglist(#{kind},#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap })} </select>
 	

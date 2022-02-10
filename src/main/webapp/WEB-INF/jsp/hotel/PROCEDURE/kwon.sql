@@ -53,3 +53,34 @@ begin
     open p_rc for
     select hotelnum from hotel where kind=p_kind;
 end;
+
+-- insertBook  Book테이블에 있는 BookNum 만 insert 후 max(booknum)리턴
+-- 프로시저
+create or replace procedure insertBook(
+    p_id book.id%type,
+    p_maxBookNum out number
+)
+is 
+    vs_maxBookNum number;
+begin
+    insert into book values (seq_book_booknum.nextval, p_id);
+    select max(booknum) into vs_maxBookNum from book;
+    p_maxBookNum := vs_maxBookNum;
+end;
+
+-- insertroom 
+-- 프로시저
+create or replace procedure insertRoom(
+    p_booknum bookdetail.booknum%type,
+    p_hotelnum bookdetail.hotelnum%type,
+    p_usernum bookdetail.usernum%type,
+    p_checkin bookdetail.checkin%type,
+    p_checkout bookdetail.checkout%type
+)
+is
+begin
+    insert into bookdetail (usernum,checkin,checkout,bdseq,booknum,hotelnum) 
+    values(p_usernum, to_date(p_checkin,'yyyy-mm-dd'),to_date(p_checkout,'yyyy-mm-dd'),seq_bookdetail_bdseq.nextval,p_booknum,p_hotelnum);
+    commit;
+end;
+

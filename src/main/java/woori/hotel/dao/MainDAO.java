@@ -15,4 +15,8 @@ public interface MainDAO {
 
 	void bookedRoom(HashMap<String, Object> paramMapBooked);
 
+	void insertBook(HashMap<String, Object> paramMap);
+
+	void insertRoom(HashMap<String, Object> paramMap1);
+
 }
