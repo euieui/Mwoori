@@ -12,4 +12,18 @@
 		{CALL selectHotelmember( #{id}, 
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } )  }
 	</select>
+	
+	<select id="confirmPhone1" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL confirmPhone1( #{name}, #{phone}, 
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } )  }
+	</select>
+	
+	<select id="confirmPhone2" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL confirmPhone2( #{id}, #{name}, #{phone}, 
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } )  }
+	</select>
+	
+	<update id="resetPw" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL resetPw( #{id}, #{pwd}  )  }
+	</update>
 </mapper>

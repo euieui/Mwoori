@@ -27,10 +27,10 @@ function move_login(){
 <table align="center" bgcolor="black" cellspacing="1" width="400">
 
 <tr align="center" bgcolor="white">
-		<th>성명</th><td>${member.name}</td>
+		<th>성명</th><td>${member.NAME}</td>
 	</tr>
 	<tr align="center" bgcolor="white">
-		<th>전화번호</th><td>${member.phone}</td>
+		<th>전화번호</th><td>${member.PHONE}</td>
 	</tr>
 </table>
 <div align="center" class="findIdFormbutton">
@@ -38,7 +38,7 @@ function move_login(){
 	<center>${msg}</center>
 	<br>
 	<input type="button" value="로그인 창으로" class="dup_brown" onclick="move_login();">
-	<input type="button" value="비밀번호 찾기" class="dup_darkbrown" onclick="location.href='findPwForm?id=${member.id}'">
+	<input type="button" value="비밀번호 찾기" class="dup_darkbrown" onclick="location.href='findPwForm.do?id=${member.id}'">
 	<br>
 	
 </div>

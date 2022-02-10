@@ -19,4 +19,19 @@ public class MemberServiceimpl extends EgovAbstractServiceImpl implements Member
 	public void getMember(HashMap<String, Object> paramMap) {
 		mdao.getMember(paramMap);
 	}
+
+	@Override
+	public void confirmPhone1(HashMap<String, Object> paramMap) {
+		mdao.confirmPhone1(paramMap);
+	}
+
+	@Override
+	public void confirmPhone2(HashMap<String, Object> paramMap) {
+		mdao.confirmPhone2(paramMap);
+	}
+
+	@Override
+	public void resetPw(HashMap<String, Object> paramMap) {
+		mdao.resetPw(paramMap);
+	}
 }

@@ -15,7 +15,7 @@ input{border:#BEBBB9 solid 1px;}
 .dup_brown_long{width:120px; height:22px; background:#9f876b; color:white; font-size:90%; border:0;}</style>
 <script type="text/javascript">
 function move_login(){
-	opener.location.href='loginForm';
+	opener.location.href='loginForm.do';
 	self.close();
 }
 </script>
@@ -42,4 +42,3 @@ function move_login(){
 
 </body>
 </html>
-<!-- 완료 -->

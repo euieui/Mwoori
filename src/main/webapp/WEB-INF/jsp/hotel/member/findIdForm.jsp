@@ -15,13 +15,13 @@ input{border:#BEBBB9 solid 1px;}
 </head>
 <body>
 <center><h3>ID 찾기</h3></center>
-<form method="post" name="frm" action="findIdStep1">
+<form method="post" name="frm" action="findIdStep1.do">
 <table align="center" bgcolor="black" cellspacing="1" width="400">
 	<tr align="center" bgcolor="white">
-		<th>성명</th><td><input type="text" name="name" value="${name}"></td>
+		<th>성명</th><td><input type="text" name="name" value="${member.NAME}"></td>
 	</tr>
 	<tr align="center" bgcolor="white">
-		<th>전화번호</th><td><input type="text" name="phone" value="${phone}"></td>
+		<th>전화번호</th><td><input type="text" name="phone" value="${memer.PHONE}"></td>
 	</tr>
 </table>
 <div align="center" class="findIdFormbutton">
