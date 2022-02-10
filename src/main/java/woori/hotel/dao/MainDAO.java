@@ -10,5 +10,9 @@ public interface MainDAO {
 	void confirmRoom(HashMap<String, Object> paramMapDBool);
 
 	void imglist(HashMap<String, Object> paramMap);
+	
+	void selectRoomNum(HashMap<String, Object> paramMapRemain);
+
+	void bookedRoom(HashMap<String, Object> paramMapBooked);
 
 }

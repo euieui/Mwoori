@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +29,7 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping(value="bookForm", method=RequestMethod.POST)
+	@RequestMapping(value="bookForm.do", method=RequestMethod.POST)
 	public ModelAndView bookForm(@RequestParam("roomnum") int roomnum,
 			@RequestParam("usernum") int usernum, @RequestParam("checkin") String checkin,
 			@RequestParam("checkout") String checkout, HttpServletRequest request) {
@@ -192,7 +193,39 @@ public class MainController {
 		return"Info/map";
 	}
 	
-	
+	@RequestMapping(value="/book.do")
+	public String book(@RequestParam("roomnum") int roomnum,
+			@RequestParam("usernum") int usernum, @RequestParam("checkin") String checkin,
+			@RequestParam("checkout") String checkout, @RequestParam("kind") String kind,
+			HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = (HashMap<String, Object>) session.getAttribute("loginUser");
+		if(loginUser == null) {
+			return "member/login";
+		}else {
+			
+			ArrayList<Integer> remainList = ms.remainList(checkin, checkout, kind);
+			ArrayList<Integer> userNumList = new ArrayList<>();
+			
+		
+			int a = usernum / roomnum ;  
+			int b = usernum % roomnum; 
+			
+			for(int i = 0 ; i<roomnum ; i++) userNumList.add(a);
+			for(int i = 0 ; i<b ; i ++) userNumList.set(i, userNumList.get(i)+1);
+			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("checkin", checkin);
+			paramMap.put("checkout", checkout);
+			
+			ms.insertRoom(remainList,(String) loginUser.get("ID"),userNumList,checkin,checkout);
+			return "redirect:/bookChecklist.do";
+
+		}
+		
+		
+	}
 	
 	
 }

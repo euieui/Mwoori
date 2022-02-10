@@ -1,7 +1,7 @@
 
 function book_go1(kind){
    document.formm.kind.value= kind;
-   document.formm.action = "book";
+   document.formm.action = "book.do";
    document.formm.submit();
 }
 

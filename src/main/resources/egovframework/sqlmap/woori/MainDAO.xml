@@ -12,6 +12,12 @@
 		{CALL confirmRoom( #{checkin}, #{checkout}, #{kind}, #{usernum}, #{roomnum},
 				#{bool, mode=OUT, jdbcType=INTEGER} )  }
 	</select>
+	
+	<select id="selectRoomNum" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{Call selectRoomNum(#{kind},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap })}
+	</select>
+	
 <select parameterType="java.util.HashMap" statementType="CALLABLE" id="imglist">
 {CALL imglist(#{kind},#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap })} </select>
 	

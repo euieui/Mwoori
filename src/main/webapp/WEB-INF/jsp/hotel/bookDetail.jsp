@@ -4,7 +4,7 @@
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" /> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<link href="static/css/datepicker.css" rel="stylesheet">
+<link href="<c:url value='static/css/datepicker.css'/>" rel="stylesheet">
 <script>
   $.datepicker.setDefaults({
     dateFormat: 'yy-mm-dd',
@@ -162,7 +162,7 @@ $(document).ready(function( $ ){
 
 <div id="hotelview">
 	<div id="serch_bar_view">
-    <form method="post" name="formm" action="bookForm">
+    <form method="post" name="formm" action="bookForm.do">
     <input type="hidden" id = "kind" name="kind" value="">
            <div id="serch_bar">
                   <ul>
@@ -184,7 +184,7 @@ $(document).ready(function( $ ){
   <!--  ----------------- -->
 	<c:if  test="${DBool == true }">
 	<div id="roomview">
-		<div id=room_img><img src="/static/room_images/Deluxe1.jpg"></div>
+		<div id=room_img><img src="<c:url value='/room_images/Deluxe1.jpg'/>"></div>
 		<div id=room_content>
 			<ul>
 				<li>Deluxe</li>
@@ -209,7 +209,7 @@ $(document).ready(function( $ ){
 	<!-- Business Deluxe -->
 	<c:if  test="${BDBool == true }">
 	<div id="roomview">
-		<div id=room_img><img src="/static/room_images/BusinessDeluxe1.jpg"></div>
+		<div id=room_img><img src="<c:url value='/room_images/BusinessDeluxe1.jpg'/>"></div>
 		<div id=room_content>
 			<ul>
 				<li>Business Deluxe</li>
@@ -233,7 +233,7 @@ $(document).ready(function( $ ){
 	
 	<c:if  test="${GCDBool == true }">
 	<div id="roomview">
-		<div id=room_img><img src="/static/room_images/GrandCornerDeluxe1.jpg"></div>
+		<div id=room_img><img src="<c:url value='/room_images/GrandCornerDeluxe1.jpg'/>"></div>
 		<div id=room_content>
 			<ul>
 				<li>Grand Corner Deluxe</li>
@@ -257,7 +257,7 @@ $(document).ready(function( $ ){
 	
 	<c:if  test="${EBDBool == true }">
 	<div id="roomview">
-		<div id=room_img><img src="/static/room_images/ExecuticeBusinessDeluxe1.jpg"></div>
+		<div id=room_img><img src="<c:url value='/room_images/ExecuticeBusinessDeluxe1.jpg'/>"></div>
 		<div id=room_content>
 			<ul>
 				<li>Executive Business Deluxe</li>
@@ -288,8 +288,8 @@ $(document).ready(function( $ ){
 	    	<div id=seemore_view>
 		    	<div id=seemore_div1>
 		    		<div id=seemore_imgview1 class="seemore_imgview">
-						<img src="/static/room_images/Deluxe1.jpg"><img src="/static/room_images/Deluxe2.jpg">
-						<img src="/static/room_images/Deluxe3.jpg"><img src="/static/room_images/Deluxe4.jpg">
+						<img src="<c:url value='/room_images/Deluxe1.jpg'/>"><img src="<c:url value='/room_images/Deluxe2.jpg'/>">
+						<img src="<c:url value='/room_images/Deluxe3.jpg'/>"><img src="<c:url value='/room_images/Deluxe4.jpg'/>">
 					</div>
 					<div id="lbtn1" class="lbtn"></div>
         			<div id="rbtn1" class="rbtn"></div>
@@ -365,8 +365,8 @@ $(document).ready(function( $ ){
 	    	<div id=seemore_view>
 		    	<div id=seemore_div1>
 		    		<div id=seemore_imgview2 class="seemore_imgview">
-						<img src="/static/room_images/BusinessDeluxe1.jpg"><img src="/static/room_images/BusinessDeluxe2.jpg">
-						<img src="/static/room_images/BusinessDeluxe3.jpg"><img src="/static/room_images/BusinessDeluxe4.jpg">
+						<img src="<c:url value='/room_images/BusinessDeluxe1.jpg'/>"><img src="<c:url value='/room_images/BusinessDeluxe2.jpg'/>">
+						<img src="<c:url value='/room_images/BusinessDeluxe3.jpg'/>"><img src="<c:url value='/room_images/BusinessDeluxe4.jpg'/>">
 					</div>
 					<div id="lbtn2" class="lbtn"></div>
         			<div id="rbtn2" class="rbtn"></div>
@@ -443,8 +443,8 @@ $(document).ready(function( $ ){
 	    	<div id=seemore_view>
 		    	<div id=seemore_div1>
 		    		<div id=seemore_imgview3 class="seemore_imgview">
-						<img src="/static/room_images/GrandCornerDeluxe1.jpg"><img src="/static/room_images/GrandCornerDeluxe2.jpg">
-						<img src="/static/room_images/GrandCornerDeluxe3.jpg"><img src="/static/room_images/GrandCornerDeluxe4.jpg">
+						<img src="<c:url value='/room_images/GrandCornerDeluxe1.jpg'/>"><img src="<c:url value='/room_images/GrandCornerDeluxe2.jpg'/>">
+						<img src="<c:url value='/room_images/GrandCornerDeluxe3.jpg'/>"><img src="<c:url value='/room_images/GrandCornerDeluxe4.jpg'/>">
 					</div>
 					<div id="lbtn3" class="lbtn"></div>
         			<div id="rbtn3" class="rbtn"></div>
@@ -520,8 +520,8 @@ $(document).ready(function( $ ){
 	    	<div id=seemore_view>
 		    	<div id=seemore_div1>
 		    		<div id=seemore_imgview4 class="seemore_imgview">
-						<img src="/static/room_images/ExecuticeBusinessDeluxe1.jpg"><img src="/static/room_images/ExecuticeBusinessDeluxe2.jpg">
-						<img src="/static/room_images/ExecuticeBusinessDeluxe3.jpg"><img src="/static/room_images/ExecuticeBusinessDeluxe4.jpg">
+						<img src="<c:url value='/room_images/ExecuticeBusinessDeluxe1.jpg'/>"><img src="<c:url value='/room_images/ExecuticeBusinessDeluxe2.jpg'/>">
+						<img src="<c:url value='/room_images/ExecuticeBusinessDeluxe3.jpg'/>"><img src="<c:url value='/room_images/ExecuticeBusinessDeluxe4.jpg'/>">
 					</div>
 					<div id="lbtn4" class="lbtn"></div>
         			<div id="rbtn4" class="rbtn"></div>

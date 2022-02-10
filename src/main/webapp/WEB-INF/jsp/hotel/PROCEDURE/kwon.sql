@@ -23,3 +23,33 @@ begin
     else p_boolean := 0;
     end if;
 end;
+
+
+-- 예약되어 있는 방 check 
+-- 프로시저
+create or replace procedure bookedRoom(
+    p_checkin book_view.checkin%type,
+    p_checkout book_view.checkout%type,
+    p_kind book_view.kind%type,
+    p_rc out sys_refcursor
+    
+)
+is
+begin
+    open p_rc for
+    select hotelnum from book_view where checkout > to_date(p_checkin,'yyyy-mm-dd') 
+		and checkin < to_date(p_checkout,'yyyy-mm-dd') and kind = p_kind;
+end;
+
+
+-- kind 에 따른 총 방 갯수
+-- 프로시저
+create or replace procedure selectRoomNum(
+    p_kind hotel.kind%type,
+    p_rc out sys_refcursor
+)
+is
+begin
+    open p_rc for
+    select hotelnum from hotel where kind=p_kind;
+end;
