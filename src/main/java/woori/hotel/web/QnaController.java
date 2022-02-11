@@ -22,7 +22,15 @@ public class QnaController {
 	@Resource(name="QnaService") QnaService qs;
 	
 	
+	@RequestMapping("/contact.do")
+	public String qna_contact(Model model, HttpServletRequest request) {
+
 	
+	 
+	    return "qna/contact";
+	
+	
+}
 	
 	@RequestMapping("/qnaList.do") 
 	public ModelAndView qna_list(Model model, HttpServletRequest request) {
