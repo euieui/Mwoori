@@ -1,10 +1,16 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
+
+<!-- 임시 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" /> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <link href="<c:url value='/css/datepicker.css'/>" rel="stylesheet">
+
+<!-- 임시 -->
+<link href="<c:url value='/css/mobileHotel.css'/>" rel="stylesheet">
 <script>
   $.datepicker.setDefaults({
     dateFormat: 'yy-mm-dd',
@@ -597,4 +603,3 @@ $(document).ready(function( $ ){
 
 
 
-<%@ include file="footer.jsp" %>
