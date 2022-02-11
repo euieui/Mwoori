@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import woori.hotel.service.AdminBookService;
 
 @Controller
-public class MBookController {
+public class MBookController { 
 	
 	@Resource(name="AdminBookService") AdminBookService abs;
 	

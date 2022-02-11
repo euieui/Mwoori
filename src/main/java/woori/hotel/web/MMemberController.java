@@ -28,7 +28,7 @@ public class MMemberController {
 	
 	@RequestMapping(value="/mloginForm.do")
 	public String loginForm() {
-		return "mobile/member/login";
+		return "mobile/member/login"; 
 	}
 	
 	@RequestMapping(value="/login.do")
