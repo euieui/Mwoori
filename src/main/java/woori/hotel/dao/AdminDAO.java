@@ -25,6 +25,10 @@ public interface AdminDAO {
 
 	void getallcountQnaList1(HashMap<String, Object> paramMap);
 
+	void listMember(HashMap<String, Object> paramMap);
+
+	void getAllCountMember(HashMap<String, Object> paramMap);
+
 
 
 }

@@ -1,4 +1,4 @@
--- get all count(ì „ì²´)
+-- get all count(? „ì²?)
 create or replace procedure getAllCount(
     p_cnt out number
 )
@@ -377,7 +377,7 @@ end;
 
 
 
--- ì˜ˆì•½ ìƒì„¸ ë³´ê¸°
+-- ?˜ˆ?•½ ?ƒ?„¸ ë³´ê¸°
 
 -- get book detail
 create or replace procedure getBookDetail(
@@ -406,7 +406,7 @@ end;
 
 
 
--- get admin cancel list(ì·¨ì†Œ ëŒ€ê¸°ì ëª…ë‹¨)
+-- get admin cancel list(ì·¨ì†Œ ??ê¸°ì ëª…ë‹¨)
 create or replace procedure getAdminCancelList(
     p_startnum in number,
     p_endnum in number,
@@ -423,7 +423,7 @@ end;
 
 
 
--- get cancel all count(ì·¨ì†Œ ì˜ˆì•½ ëŒ€ê¸°ì ìˆ˜)
+-- get cancel all count(ì·¨ì†Œ ?˜ˆ?•½ ??ê¸°ì ?ˆ˜)
 create or replace procedure getCancelAllCount(
     p_cnt out number
 )
@@ -437,7 +437,7 @@ end;
 
 
 
--- update book result(ì˜ˆì•½ result ë³€ê²½)
+-- update book result(?˜ˆ?•½ result ë³?ê²?)
 create or replace procedure updateBookResult(
     p_bdseq in bookdetail.bdseq%type
 )
@@ -487,4 +487,109 @@ is
 begin
     update bookdetail set result='2' , refund=p_refund where bdseq=p_bdseq;
     commit;
+end;
+
+
+
+
+---- getMemberBook 
+
+create or replace procedure getMemberBook(
+    p_startnum in number,
+    p_endnum in number,
+    p_id in book_view.id%type,
+    p_rc out sys_refcursor
+)
+is
+begin
+    open p_rc for
+        select * from( select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view where id=p_id 
+        order by result asc ,booknum desc ) b ) 
+		) where rn>=p_startNum  ) where rn&<=p_endNum;
+end;
+
+
+
+create or replace procedure getMemberBookWithBooknum(
+    p_startnum in number,
+    p_endnum in number,
+    p_id in book_view.id%type,
+    p_booknum in book_view.booknum%type,
+    p_rc out sys_refcursor
+)
+is
+begin
+    open p_rc for
+        select * from( select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view where id=p_id and booknum=p_booknum
+        order by result asc ,booknum desc ) b ) 
+		) where rn>=p_startNum  ) where rn&<=p_endNum;
+end;
+
+
+
+create or replace procedure getMemberBookWithIndateOutdate(
+    p_startnum in number,
+    p_endnum in number,
+    p_id in book_view.id%type, 
+    p_indate in varchar2,
+    p_outdate in varchar2,
+    p_rc out sys_refcursor
+)
+is
+begin
+    open p_rc for
+        select * from( select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view where 
+		to_char(checkin, 'YYYYMMDD')=p_indate
+		and to_char(checkout, 'YYYYMMDD')=p_outdate
+        order by result asc ,booknum desc ) b ) 
+		) where rn>=p_startNum  ) where rn&<=p_endNum;
+end;
+
+
+
+create or replace procedure getMemberBookWithIndate(
+    p_startnum in number,
+    p_endnum in number,
+    p_id in book_view.id%type, 
+    p_indate in varchar2,
+    p_outdate in varchar2,
+    p_rc out sys_refcursor
+)
+is
+begin
+    open p_rc for
+        select * from( select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view where 
+		to_char(checkin, 'YYYYMMDD')=p_indate
+        order by result asc ,booknum desc ) b ) 
+		) where rn>=p_startNum  ) where rn&<=p_endNum;
+end;
+
+
+
+
+create or replace procedure getMemberBookWithOutdate(
+    p_startnum in number,
+    p_endnum in number,
+    p_id in book_view.id%type, 
+    p_indate in varchar2,
+    p_outdate in varchar2,
+    p_rc out sys_refcursor
+)
+is
+begin
+    open p_rc for
+        select * from( select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view where 
+		to_char(checkout, 'YYYYMMDD')=p_outdate
+        order by result asc ,booknum desc ) b ) 
+		) where rn>=p_startNum  ) where rn&<=p_endNum;
 end;

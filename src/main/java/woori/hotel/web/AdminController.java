@@ -13,13 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import woori.hotel.service.AdminBookService;
 import woori.hotel.service.AdminService;
+import woori.hotel.service.MemberService;
 import woori.hotel.util.Paging;
 
 @Controller
 public class AdminController {
 	
+	@Resource(name="MemberService") MemberService ms;
 	@Resource(name="AdminService") AdminService as;
+	@Resource(name="AdminBookService") AdminBookService abs;
 	
 	@RequestMapping(value="/a.do")
 	public String adminPage() {
@@ -269,5 +273,137 @@ public class AdminController {
 		return mav;
 	}	   
 
+
+
+
+	@RequestMapping("/adminMemberList.do")
+	public ModelAndView adminMemberList(HttpServletRequest request){
+		ModelAndView mav= new ModelAndView();
+		HttpSession session=request.getSession();
+		
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
 	
+		
+		if(loginAdmin == null)
+			mav.setViewName("admin/adminloginForm");
+		else {
+			int page = 1;
+			if( request.getParameter("page") != null) {
+				page = Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			} else if( session.getAttribute("page")!= null ) {
+				page = (int) session.getAttribute("page");
+			} else {
+				page = 1;
+				session.removeAttribute("page");
+			}
+		
+		
+			String key = "";
+			if( request.getParameter("key") != null ) {
+				key = request.getParameter("key");
+				session.setAttribute("key", key);
+			} else if( session.getAttribute("key")!= null ) {
+				key = (String)session.getAttribute("key");
+			} else {
+				session.removeAttribute("key");
+				key = "";
+			}
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("key", key);
+			paramMap.put("count", 0);
+			
+			Paging paging = new Paging();
+			paging.setPage(page);
+			
+			as.getAllCountMember(paramMap); //key,"hotelmember","name"
+			int count = (int)paramMap.get("count");
+			paging.setTotalCount(count);
+
+			paramMap.put("startNum" , paging.getStartNum() );
+			paramMap.put("endNum", paging.getEndNum() );
+			paramMap.put( "ref_cursor", null );
+			as.listMember(paramMap); //paging, key 
+		
+			ArrayList<HashMap<String, Object>> list = 
+					(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			
+			mav.addObject("memberList" , list);
+			mav.addObject("paging", paging);
+			mav.addObject("key", key);
+			mav.setViewName("admin/member/adminMemberList");		
+		}
+		return mav;
+	}
+	
+	
+
+	@RequestMapping("adminMemberDetailBook.do")
+	public ModelAndView adminMemberDetailBook(HttpServletRequest request,
+			@RequestParam("id") String id) {
+		ModelAndView mav= new ModelAndView();
+
+		String url = "admin/member/adminMemberDetailBook";
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		
+	    int page=1;
+	    if( request.getParameter("page") != null) {
+			page = Integer.parseInt(request.getParameter("page"));
+			session.setAttribute("page", page);
+			session.setAttribute("id",id);
+		} else if( session.getAttribute("page")!= null ) {
+			page = (int) session.getAttribute("page");
+			session.setAttribute("id",id);
+		} else {
+			page = 1;
+			session.removeAttribute("page");
+			session.setAttribute("id",id);
+		}
+	
+	    String booknums="";
+		String indate="";
+		String outdate="";
+	    if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
+		Paging paging = new Paging();
+		paging.setPage(page);
+		
+		
+
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		if(!booknums.equals("")) paramMap.put("booknums", Integer.parseInt(booknums));
+		else if(booknums.equals("")) paramMap.put("booknums", booknums);
+		paramMap.put("indate", indate);
+		paramMap.put("outdate", outdate);
+		paramMap.put("id", id);
+		paramMap.put("count", 0);
+		
+		
+		abs.getAllCount(paramMap);
+		int count=(int) paramMap.get("count");
+		paging.setTotalCount(count);
+		paging.paging();
+		
+		mav.addObject("paging", paging);
+		mav.addObject("action", "adminMemberDetailBook?id="+id);
+
+		paramMap.put("ref_cursor", null);
+		ms.getMember(paramMap);
+		ArrayList<HashMap<String, Object>> list1 = 
+				(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		
+
+		paramMap.put("startNum" , paging.getStartNum() );
+		paramMap.put("endNum", paging.getEndNum() );
+		ArrayList<HashMap<String, Object>> list2 = 
+				(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		abs.getMemberBook(paramMap); // id, paging, booknums, indate, outdate
+
+		mav.addObject("list", list1);
+		mav.addObject("dto", list2);
+		mav.setViewName("admin/member/adminMemberDetailBook");
+		
+	    return mav;
+	}
+
 }

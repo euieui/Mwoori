@@ -83,5 +83,16 @@
 		}
 
 	</select>
+	
+	
+	<select id="getAllCountMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountMember( #{key},
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="listMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{  	CALL listMember(  #{ startNum } , #{ endNum } , #{ key } , 
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
+	</select>
 
 </mapper>

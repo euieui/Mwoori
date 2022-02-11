@@ -24,6 +24,8 @@ public interface AdminBookService {
 
 	void updateBookResult(HashMap<String, Object> paramMap);
 
+	void getMemberBook(HashMap<String, Object> paramMap);
+
 	
 
 }
