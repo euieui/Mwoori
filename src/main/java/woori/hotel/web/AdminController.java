@@ -219,7 +219,7 @@ public class AdminController {
 	
 	
 
-}
+}  
 	
 
 	@RequestMapping("/adminQnaDetail.do")
@@ -240,7 +240,7 @@ public class AdminController {
 	        
 	    	mav.addObject("qnaDto", list.get(0));
 	  
-			mav.setViewName("admin/qna/adminqnaDetail");
+		    	mav.setViewName("admin/qna/adminqnaDetail");
 		    ;
 		    
 	    }

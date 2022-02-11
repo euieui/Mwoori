@@ -57,7 +57,7 @@ function go_serch_qna(){
 	
 	
 }
-
+   
 function go_total_qna(){
 	document.formm.key.value="";
 	document.formm.action="adminQnaList.do?page=1";

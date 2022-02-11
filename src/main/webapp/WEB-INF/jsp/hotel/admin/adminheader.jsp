@@ -54,7 +54,7 @@ font-family: 'Nanum Myeongjo', serif;
 
 
 
-</head>
+  </head>
 <body>
 <div id="wrap">
 <header class="admin_header">

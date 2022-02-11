@@ -13,7 +13,7 @@ public interface AdminDAO {
 
 	void adminlistQna(HashMap<String, Object> paramMap);
 
-	void getQna(HashMap<String, Object> paramMap);
+	  void getQna(HashMap<String, Object> paramMap);
 
 	void updateQnaReply(HashMap<String, Object> paramMap);
 

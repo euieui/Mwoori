@@ -12,7 +12,7 @@ public class Paging {
     private int startNum;  
     private int endNum;  
     
-    public void paging() {
+      public void paging() {
     	double temp = page / (double)displayPage;    
     	temp = Math.ceil(temp); 
     	endPage = (int)( temp * displayPage ); 
