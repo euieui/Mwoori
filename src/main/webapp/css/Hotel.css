@@ -147,7 +147,7 @@ border:none; line-height:35px; margin-top:7px;}
 	margin:20px auto;}
 #chklistlist_aa{position:relative; width:820px; font-size:120%; font-weight:bold;
 	 border-bottom:4px solid #9f876b; padding-top:5px; padding-bottom:5px;
-	 background:#f1ebd6;}
+	 background:#f1ebd6; text-align:center; margin:0 auto;}
 #chklistbox3_aa{position:relative; width:820px; min-height:82px; /* background:fuchsia; */ 
 	margin-top:5px;}
 #chklisttitle_aa{position:relative; width:820px; min-height:46px; /* background:skyblue; */
