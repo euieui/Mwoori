@@ -81,9 +81,9 @@ border-bottom: 2px solid;
     <div id="m_left_menu"> <h2> <span> 우리호텔 소개 </span></h2></div>
         <ul>
       	
-		<li><a href="goInfo">-&nbsp;호텔 개요</a></li>
-		<li><a href="seoulHotel">-&nbsp;제주 호텔</a></li>
-		<li><a href="map">-&nbsp;호텔 길찾기 </a>	
+		<li><a href="goInfo.do">-&nbsp;호텔 개요</a></li>
+		<li><a href="seoulHotel.do">-&nbsp;제주 호텔</a></li>
+		<li><a href="map.do">-&nbsp;호텔 길찾기 </a>	
 
         </ul>
  </div>
@@ -92,37 +92,37 @@ border-bottom: 2px solid;
     <div id="m_center_menu"><h2><span> 고객문의 </span></h2> </div>
         <ul>
              
-		        <li><a href="contact">-&nbsp;Q&amp;A 고객센터 </a></li>
-				<li><a href="qnaList"> -&nbsp;나의 Q&amp;A 게시글 </a></li>
-				<li><a href="qnaWriteForm">-&nbsp;Q&amp;A 질문하기</a></li>      
+		        <li><a href="contact.do">-&nbsp;Q&amp;A 고객센터 </a></li>
+				<li><a href="qnaList.do"> -&nbsp;나의 Q&amp;A 게시글 </a></li>
+				<li><a href="qnaWriteForm.do">-&nbsp;Q&amp;A 질문하기</a></li>      
         </ul>
  </div>
  
  <div id="m_right">
     <div id="m_right_menu"><h2><span> 갤러리 </span></h2> </div>
         <ul>
-       		<li><a href="g">-&nbsp;사진</a></li>
-			<li><a href="v">-&nbsp;비디오</a></li>
+       		<li><a href="gallery.do">-&nbsp;사진</a></li>
+			<li><a href="v.do">-&nbsp;비디오</a></li>
         </ul>
  </div>
  
  <div id="b_left">
     <div id="b_left_menu"><h2><span>마이페이지 </span></h2> </div>
         <ul>
-	<li><a href="bookChecklist">-&nbsp;예약확인/취소</a></li>
-		<li><a href="profilePw">-&nbsp;프로필수정</a></li>
-		<li><a href="pwUpdateForm">-&nbsp;비밀번호 변경</a></li>
-		<li><a href="qnaList">-&nbsp;문의 내역</a></li>
-		<li><a href="quitPw">-&nbsp;탈회 요청</a></li>
+	<li><a href="bookChecklist.do">-&nbsp;예약확인/취소</a></li>
+		<li><a href="profilePw.do">-&nbsp;프로필수정</a></li>
+		<li><a href="pwUpdateForm.do">-&nbsp;비밀번호 변경</a></li>
+		<li><a href="qnaList.do">-&nbsp;문의 내역</a></li>
+		<li><a href="quitPw.do">-&nbsp;탈회 요청</a></li>
         </ul>
  </div>
  <div id="b_left">
     <div id="b_left_menu"><h2><span>객실관리 </span></h2> </div>
         <ul>
-	        <li id="room_li"><a href="gotoroom?num=1">-&nbsp;Deluxe </a></li>
-			<li id="room_li"><a href="gotoroom?num=2">-&nbsp; BusinessDeluxe </a></li>
-			<li id="room_li"><a href="gotoroom?num=3">-&nbsp;GrandCornerDeluxe</a></li> 
-			<li id="room_li"><a href="gotoroom?num=4">-&nbsp;ExecuticeBusinessDeluxe</a></li>
+	        <li id="room_li"><a href="gotoroom.do?num=1">-&nbsp;Deluxe </a></li>
+			<li id="room_li"><a href="gotoroom.do?num=2">-&nbsp; BusinessDeluxe </a></li>
+			<li id="room_li"><a href="gotoroom.do?num=3">-&nbsp;GrandCornerDeluxe</a></li> 
+			<li id="room_li"><a href="gotoroom.do?num=4">-&nbsp;ExecuticeBusinessDeluxe</a></li>
         </ul>
  </div>
  

@@ -63,7 +63,7 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	@Override
 	public void adminlistQna4(HashMap<String, Object> paramMap) {
 		adao.adminlistQna4(paramMap);		
-	}
+	  }
 
 
 

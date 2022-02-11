@@ -219,7 +219,7 @@ public class AdminController {
 	
 	
 
-}  
+  }   
 	
 
 	@RequestMapping("/adminQnaDetail.do")

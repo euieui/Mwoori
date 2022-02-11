@@ -1,7 +1,7 @@
 package woori.hotel.util;
 
 public class Paging {
-	private int page = 1; 
+     	private int page = 1; 
 	private int totalCount;
 	private int displayRow = 10;
 	private int displayPage = 10;

@@ -63,7 +63,7 @@ open p_rc for
   update qna set  id=p_id,title=p_title,content=p_content where qnaseq=p_qnaseq;
 
    commit;
-   end;
+   end;   
    
    
    -------------------------------------------------메인--------------------------------

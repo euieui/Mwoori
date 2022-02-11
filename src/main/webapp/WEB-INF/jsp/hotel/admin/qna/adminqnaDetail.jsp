@@ -32,7 +32,7 @@ border:1px solid black;
  background: #9F876B;
   font-size: 65%;
      
-}
+    }  
 </style>
 <script type="text/javascript">
 
