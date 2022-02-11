@@ -18,18 +18,19 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	public void getAdmin(HashMap<String, Object> paramMap) {
 		adao.getAdmin(paramMap);
 	}
-
+	@Override
+	public void getallcountQnaList1(HashMap<String, Object> paramMap) {
+		adao.getallcountQnaList1(paramMap);	
+		
+	}
 	@Override
 	public void getallcountQnaList(HashMap<String, Object> paramMap) {
+
+			
 		adao.getallcountQnaList(paramMap);
-		
 	}
 
-	@Override
-	public void adminlistQna(HashMap<String, Object> paramMap) {
-		adao.adminlistQna(paramMap);
-		
-	}
+
 
 	@Override
 	public void getQna(HashMap<String, Object> paramMap) {
@@ -42,6 +43,30 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		adao.updateQnaReply(paramMap);
 		
 	}
+	@Override
+	public void adminlistQna(HashMap<String, Object> paramMap) {
+	
+		adao.adminlistQna(paramMap);
+		
+	}
+
+	@Override
+	public void adminlistQna2(HashMap<String, Object> paramMap) {
+		adao.adminlistQna2(paramMap);		
+	}
+
+	@Override
+	public void adminlistQna3(HashMap<String, Object> paramMap) {
+		adao.adminlistQna3(paramMap);		
+	}
+
+	@Override
+	public void adminlistQna4(HashMap<String, Object> paramMap) {
+		adao.adminlistQna4(paramMap);		
+	}
+
+
+
 
 	
 

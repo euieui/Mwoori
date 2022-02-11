@@ -17,4 +17,14 @@ public interface AdminDAO {
 
 	void updateQnaReply(HashMap<String, Object> paramMap);
 
+	void adminlistQna2(HashMap<String, Object> paramMap);
+
+	void adminlistQna3(HashMap<String, Object> paramMap);
+
+	void adminlistQna4(HashMap<String, Object> paramMap);
+
+	void getallcountQnaList1(HashMap<String, Object> paramMap);
+
+
+
 }

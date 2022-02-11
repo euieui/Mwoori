@@ -79,14 +79,14 @@ public class AdminController {
 	
 	
 
-	@RequestMapping("adminQnaList.do")
+	@RequestMapping("/adminQnaList.do")
 	public ModelAndView adminQnaList(HttpServletRequest request){
 
 		
 		ModelAndView mav= new ModelAndView();
 		HttpSession session=request.getSession();
 		
-		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
 	
 	
 		
@@ -133,27 +133,73 @@ public class AdminController {
 				session.removeAttribute("order");
 				order = "";
 			}
-			
-	
-			
+		
 			Paging paging = new Paging();
 			paging.setPage(page);
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 				paramMap.put( "cnt", 0 );
+		
+				if(key.equals("")) {
+					
+					System.out.println("key가 널이면");
+					as.getallcountQnaList( paramMap );
+				}else {
+					paramMap.put( "key", key );
+					System.out.println("key가 널이면아니면"+key);
+					as.getallcountQnaList1( paramMap );
+				}
+					
+				System.out.println("1111111111111111111111"+order);
+				System.out.println("1111111111111111111111"+key);
+				
+				int cnt = Integer.parseInt( paramMap.get("cnt").toString() );	
+				paging.setTotalCount(cnt);
+				paging.paging();
 				
 				
-				System.out.println("123213123123123"+order);
-			as.getallcountQnaList( paramMap );
-			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );	
-			paging.setTotalCount(cnt);
+				
+			if(order.equals("1") ||order.equals("")) {	
+			
+	
+	
 			paramMap.put("startNum" , paging.getStartNum() );
 			paramMap.put("endNum", paging.getEndNum() );
-			paramMap.put("key", key);
-			paramMap.put("order", order);
+			paramMap.put("key", key);			
 			paramMap.put( "ref_cursor", null );
+			as.adminlistQna(paramMap);
+			}else if(order.equals("2")) {
+				
 		
 
-			as.adminlistQna(paramMap);
+				paramMap.put("startNum" , paging.getStartNum() );
+				paramMap.put("endNum", paging.getEndNum() );
+				paramMap.put("key", key);		
+				paramMap.put( "ref_cursor", null );
+				as.adminlistQna2(paramMap);
+			}else if(order.equals("3")) {
+				
+			
+		
+				paramMap.put("startNum" , paging.getStartNum() );
+				paramMap.put("endNum", paging.getEndNum() );
+				paramMap.put("key", key);
+				paramMap.put( "ref_cursor", null );
+				as.adminlistQna3(paramMap);
+				
+			}else if(order.equals("4")) {
+				
+			
+			
+				paramMap.put("startNum" , paging.getStartNum() );
+				paramMap.put("endNum", paging.getEndNum() );
+				paramMap.put("key", key);
+				paramMap.put("order", order);
+				paramMap.put( "ref_cursor", null );
+				as.adminlistQna4(paramMap);
+			}
+			
+
+	
 			
 			ArrayList< HashMap<String,Object> > list 
 				= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");

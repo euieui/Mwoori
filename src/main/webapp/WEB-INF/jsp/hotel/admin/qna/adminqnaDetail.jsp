@@ -37,11 +37,11 @@ border:1px solid black;
 <script type="text/javascript">
 
 function go_rep(qnaseq){
-	document.frm.action="adminQnaRepsave";
+	document.frm.action="adminQnaRepsave.do";
 	document.frm.submit();
 }d
 function go_list() {
-	document.frm.action="adminQnaList";
+	document.frm.action="adminQnaList.do";
 	document.frm.submit();
 }
 </script>

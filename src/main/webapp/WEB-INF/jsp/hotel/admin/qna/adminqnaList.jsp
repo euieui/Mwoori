@@ -82,10 +82,10 @@ function go_order_qna(){
 <form name="form"  method="post">
 		<select name="tag" >		
 
-			<option value ="qnaseq desc" <c:if test="${order eq 'qnaseq desc'}">selected</c:if> >최신순</option>
-			<option value ="qnaseq asc" <c:if test="${order eq 'qnaseq asc'}">selected</c:if>>오래된순</option>
-			<option value ="rep desc" <c:if test="${order eq 'rep desc'}">selected</c:if> >답변완료</option>
-			<option value ="rep asc" <c:if test="${order eq 'rep asc'}">selected</c:if>>미답변</option>			
+			<option value ="1" <c:if test="${order eq '1'}">selected</c:if> >최신순</option>
+			<option value ="2" <c:if test="${order eq '2'}">selected</c:if>>오래된순</option>
+			<option value ="3" <c:if test="${order eq '3'}">selected</c:if> >답변완료</option>
+			<option value ="4" <c:if test="${order eq '4'}">selected</c:if>>미답변</option>			
 		
 		</select> 
 	<input  type = "button" value = "검색" onClick="go_order_qna();" style="    font-weight: bold; border: 1px solid black;
@@ -111,7 +111,7 @@ function go_order_qna(){
 <table  id="qnaList123" style="center;">
     <tr><th>번호</th><th >제목</th><th>작성자</th><th>작성일</th><th>답변여부</th></tr>
        <c:forEach items="${qnaList}" var ="qnaDto">
-       <c:set var="size" value="${fn:length(qnaList)-(status.count)+1}"/>
+      <%--  <c:set var="size" value="${fn:length(qnaList)-(status.count)+1}"/> --%>
              <tr>
              
          <%--  <td><c:out value="${size}"/></td --%>
@@ -140,11 +140,7 @@ function go_order_qna(){
 </div>
 <br>
  <jsp:include page="../paging/paging.jsp">
-		  <jsp:param name="page" value="${paging.page}" />
-		  <jsp:param name="beginPage" value="${paging.beginPage}" />
-		  <jsp:param name="endPage" value="${paging.endPage}" />
-		  <jsp:param name="prev" value="${paging.prev}" />
-		  <jsp:param name="next" value="${paging.next}" />
+
 		  <jsp:param name="command" value="adminQnaList.do"/>
 		
 </jsp:include> 

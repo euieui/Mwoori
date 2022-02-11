@@ -13,23 +13,16 @@
 
 <select id="getallcountQnaList" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{  CALL getallcountQnaList( 
+	
+		#{cnt, mode=OUT, jdbcType=INTEGER}  )  }
+	</select>
+	<select id="getallcountQnaList1" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  CALL getallcountQnaList1( 
+		#{key},
 		#{cnt, mode=OUT, jdbcType=INTEGER}  )  }
 	</select>
 
-	<select id="adminlistQna" statementType="CALLABLE" parameterType="java.util.HashMap">
 
-		{
-			CALL adminlistQna1(
-		
-				#{startNum},
-				#{endNum},
-				#{key},
-				#{order}, 
-				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } 
-			)  
-		}
-
-	</select>
 	<select parameterType="java.util.HashMap" statementType="CALLABLE" id="getQna">
 {CALL getQna(#{qnaseq},#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap })} 
 </select>
@@ -38,6 +31,57 @@
 { CALL updateQnaReply(#{qnaseq},#{reply}) }
 
 </update>
+	<select id="adminlistQna" statementType="CALLABLE" parameterType="java.util.HashMap">
 
+		{
+			CALL adminlistQna1(
+		
+				#{startNum},
+				#{endNum},
+				#{key},			
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } 
+			)  
+		}
+
+	</select>
+		<select id="adminlistQna2" statementType="CALLABLE" parameterType="java.util.HashMap">
+
+		{
+			CALL adminlistQna2(
+		
+				#{startNum},
+				#{endNum},
+				#{key},		
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } 
+			)  
+		}
+
+	</select>
+		<select id="adminlistQna3" statementType="CALLABLE" parameterType="java.util.HashMap">
+
+		{
+			CALL adminlistQna3(
+		
+				#{startNum},
+				#{endNum},
+				#{key},		 
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } 
+			)  
+		}
+
+	</select>
+		<select id="adminlistQna4" statementType="CALLABLE" parameterType="java.util.HashMap">
+
+		{
+			CALL adminlistQna4(
+		
+				#{startNum},
+				#{endNum},
+				#{key},			
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } 
+			)  
+		}
+
+	</select>
 
 </mapper>

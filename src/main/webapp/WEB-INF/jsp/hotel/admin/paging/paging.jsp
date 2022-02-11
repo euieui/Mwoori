@@ -6,30 +6,28 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	body{text-align:center;}
-	#paging{font-size: 110%;}
-	/* //dd */  
+	#paging{font-size:150%; font-weight:bold;}
 </style>
 </head>
 <body>
-<div id="paging" align="center" >
+<div id="paging" align="center" style="font-size:110%;">
 	<c:url var="action" value="${param.command}" />
-	<c:if test="${param.prev}">
-		<a href="${action}?page=${param.beginPage-1}">◀</a>&nbsp;
+	<c:if test="${paging.prev}">
+		<a href="${action}?page=${paging.beginPage-1}">◀</a>&nbsp;
 	</c:if>
-	<c:forEach begin="${param.beginPage}" end="${param.endPage}" var="index">
+	<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
 		<c:choose>
-        	<c:when test="${param.page==index}">
+        	<c:when test="${paging.page==index}">
         		<span style="color:red;font-weight:bold">${index}&nbsp;</span>
         	</c:when>
 	        <c:otherwise>
 				<a href="${action}?page=${index}">${index}</a>&nbsp;
 			</c:otherwise>
-		</c:choose>  
+		</c:choose>
 	</c:forEach>
 	<c:if test="${param.next}">
 			<a href="${action}?page=${param.endPage+1}">▶</a>&nbsp;
 	</c:if>	
 </div>
 </body>
-</html>   
+</html>

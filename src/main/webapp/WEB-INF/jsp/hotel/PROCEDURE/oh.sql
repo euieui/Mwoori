@@ -78,42 +78,125 @@ open p_rc for
 
  end;
  
+ 
+ 
+ 
+ 
  ---어드민 qna------------------
- create or replace procedure getallcountQnaList(
+  create or replace PROCEDURE adminlistQna1(
+p_startnum  number,
+p_endnum number,
+p_key qna.title%type,
+p_rc out sys_refcursor)
+
+is
+
+begin    
+ open p_rc for
+    
+ 
+	 	select * from( 
+		select * from ( 
+				select rownum as rn, p.* from 
+				 ((select * from qna  where id like '%'||p_key||'%' order by qnaseq desc   ) p) 
+				) where rn >= p_startNum 
+            	) where rn <= p_endNum;
+        commit;
+        end; 
+    -----------------------------------------------------------    
+ create or replace PROCEDURE adminlistQna2(
+p_startnum  number,
+p_endnum number,
+p_key qna.title%type,
+p_rc out sys_refcursor)
+
+is
+
+begin    
+ open p_rc for
+    
+ 
+	 	select * from( 
+		select * from ( 
+				select rownum as rn, p.* from 
+				 ((select * from qna  where id like '%'||p_key||'%' order by qnaseq asc   ) p) 
+				) where rn >= p_startNum 
+            	) where rn <= p_endNum;
+        commit;
+        end;
+   -----------------------------------------------------------                 
+create or replace PROCEDURE adminlistQna3(
+p_startnum  number,
+p_endnum number,
+p_key qna.title%type,
+p_rc out sys_refcursor)
+
+is
+
+begin    
+ open p_rc for
+    
+ 
+	 	select * from( 
+		select * from ( 
+				select rownum as rn, p.* from 
+				 ((select * from qna  where id like '%'||p_key||'%' order by rep desc   ) p) 
+				) where rn >= p_startNum 
+            	) where rn <= p_endNum;
+        commit;
+        end; 
+        
+     -----------------------------------------------------------       
+ create or replace PROCEDURE adminlistQna4(
+p_startnum  number,
+p_endnum number,
+p_key qna.title%type,
+p_rc out sys_refcursor)
+
+is
+
+begin    
+ open p_rc for
+    
+ 
+	 	select * from( 
+		select * from ( 
+				select rownum as rn, p.* from 
+				 ((select * from qna  where id like '%'||p_key||'%' order by rep asc   ) p) 
+				) where rn >= p_startNum 
+            	) where rn <= p_endNum;
+        commit;
+        end; 
+        
+        
+     -----------------------------------------------------------       
+create or replace procedure getallcountQnaList(
 p_count out number
 )
 is
 vs_count number;
 begin
 
-select count(*) into vs_count from qna;
+select count(*) into vs_count from qna ; 
 p_count:=vs_count;
-end;
+end; 
 
-----------------------------------
+   -----------------------------------------------------------         
+create or replace procedure getallcountQnaList1(
+p_key qna.id%type,
+p_count out number
 
-    
- create or replace PROCEDURE adminlistQna1(
-p_startnum  number,
-p_endnum number,
-p_key qna.title%type,
-p_order varchar2,
-p_rc out sys_refcursor)
+)
 is
+vs_count number;
+begin
 
-begin    
- open p_rc for
+select count(*) into vs_count from qna where id like '%'||p_key||'%' ; 
+p_count:=vs_count;
+end; 
 
- 
-	 	select * from( 
-		select * from ( 
-				select rownum as rn, p.* from 
-				 ((select * from qna  where id like '%'||p_key||'%'  order by p_order   ) p) 
-				) where rn >= p_startNum 
-            	) where rn <= p_endNum;
-        commit;
-        end; 
-        --------------
+
+   ----------------------------------------------------------- 
          create or replace procedure updateQnaReply
  (   p_qnaseq in qna.qnaseq%type,
     p_reply in qna.reply%type
