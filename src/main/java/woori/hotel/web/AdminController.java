@@ -42,7 +42,6 @@ public class AdminController {
 			@RequestParam("workId") String workId, 
 			@RequestParam("workPwd") String workPwd) {
 		
-		HttpSession session = request.getSession();
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		
 		paramMap.put("id", workId);
@@ -50,22 +49,33 @@ public class AdminController {
 		as.getAdmin(paramMap);
 		ArrayList<HashMap<String, Object>> list = 
 				(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-		session.setAttribute("loginUser", list.get(0));
 		if(list.size()==0) {
 			model.addAttribute("message","없는 회원 정보입니다.");
-			return "member/login";
+			return "admin/adminloginForm";
 		}
-		HashMap<String, Object> adminUser = list.get(0);
-		if(!adminUser.get("PWD").equals(workPwd)) {
+		HashMap<String, Object> loginAdmin = list.get(0);
+		if(!loginAdmin.get("PWD").equals(workPwd)) {
 			model.addAttribute("message", "아이디 혹은 비밀번호가 틀렸습니다.");
-			return "admin/adminLoginForm";
-		} else if(adminUser.get("PWD").equals(workPwd)) {
-			session.setAttribute("loginAdmin", adminUser);
+			return "admin/adminloginForm";
+		} else if(loginAdmin.get("PWD").equals(workPwd)) {
+			HttpSession session = request.getSession();
+			session.setAttribute("loginAdmin", loginAdmin);
+			return "admin/adminmain";
+		} else {
+			model.addAttribute("message" , "비밀번호가 다릅니다");
+			return "admin/adminloginForm";
 		}
 		
-		return "admin/adminmain";
+		
 	}
 	
+	
+	@RequestMapping(value="/adminlogout.do")
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("loginAdmin");
+		return "redirect:/a.do";
+	}
 	
 	
 
@@ -76,7 +86,7 @@ public class AdminController {
 		ModelAndView mav= new ModelAndView();
 		HttpSession session=request.getSession();
 		
-		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginAdmin");
 	
 	
 		
@@ -171,7 +181,7 @@ public class AdminController {
 			@RequestParam("qnaseq") String qnaseq) {
 		ModelAndView mav= new ModelAndView();
 		HttpSession session = request.getSession();
-		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginAdmin");
 	    System.out.println(1);
 	    if(loginUser==null) mav.setViewName("admin/adminloginForm");
 	    else {
@@ -198,7 +208,7 @@ public class AdminController {
 		ModelAndView mav= new ModelAndView();
 
 		HttpSession session = request.getSession();
-		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginAdmin");
 	    
 	    if(loginUser==null) mav.setViewName("admin/adminloginForm");
 	    else {

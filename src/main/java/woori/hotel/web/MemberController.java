@@ -201,8 +201,8 @@ public class MemberController {
 			Model model, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("pwd", pwd);
-		paramMap.put("id", id);
+		paramMap.put("PWD", pwd);
+		paramMap.put("ID", id);
 		ms.resetPw(paramMap);
 		
 		mav.setViewName("member/resetPwComplete");
@@ -486,7 +486,7 @@ public class MemberController {
 			
 			ms.updateMember(paramMap);
 			
-			session.setAttribute("loginUser", loginUser);
+			session.setAttribute("loginUser", paramMap);
 			String addr = loginUser.get("ADDRESS").toString(); //주소 추출
 			int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
 			int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
@@ -531,6 +531,15 @@ public class MemberController {
 		String url = "mypage/pwUpdateForm";
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("ID", loginUser.get("ID"));
+		paramMap.put("NAME", loginUser.get("NAME"));
+		paramMap.put("PWD", loginUser.get("PWD"));
+		paramMap.put("EMAIL", loginUser.get("EMAIL"));
+		paramMap.put("ZIP_NUM", loginUser.get("ZIP_NUM"));
+		paramMap.put("PHONE", loginUser.get("PHONE"));
+		paramMap.put("ADDRESS", loginUser.get("ADDRESS"));
+		
 		if( loginUser == null) { 
 			mav.addObject("message", "다시 로그인해주세요");
 	// 현재 비밀번호 확인
@@ -547,14 +556,12 @@ public class MemberController {
 			} else if(!newpwd_re.equals(newpwd)) {
 				mav.addObject("message", "새 비밀번호 확인이 일치하지 않습니다");
 			} else {
-				HashMap<String, Object> paramMap = new HashMap<String, Object>();
-				paramMap.put("id", loginUser.get("ID"));
-				paramMap.put("pwd", request.getParameter("newpwd"));
+				paramMap.put("PWD", request.getParameter("newpwd"));
 				ms.resetPw(paramMap);
 				mav.addObject("message", "정상적으로 수정되었습니다");
 			}
 		}  
-		session.setAttribute("loginUser", loginUser);
+		session.setAttribute("loginUser", paramMap);
 		mav.setViewName(url);
 		
 		return mav;

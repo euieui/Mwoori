@@ -24,7 +24,7 @@
 	</select>
 	
 	<update id="resetPw" statementType="CALLABLE" parameterType="java.util.HashMap" >
-		{CALL resetPw( #{id}, #{pwd}  )  }
+		{CALL resetPw( #{ID}, #{PWD}  )  }
 	</update>
 	
 	<select id="selectAddressByDong" statementType="CALLABLE" parameterType="java.util.HashMap" >

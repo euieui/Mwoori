@@ -1,3 +1,5 @@
+SELECT * FROM book_view;
+
 
 create or replace PROCEDURE selectHotelmember (
     p_id IN hotelmember.id%type,

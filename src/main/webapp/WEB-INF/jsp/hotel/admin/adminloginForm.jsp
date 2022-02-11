@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/admin.css">
+<link rel="stylesheet" href="<c:url value='../css/admin.css' />">
 <style>
 #admin_login_title {width:865px; height:80px; position:relative; margin:0 auto; margin-bottom:0; 
 border-bottom:3px solid #3a3125; color:#865009; font-size:120%; font-weight:bold; line-height:600%;}
