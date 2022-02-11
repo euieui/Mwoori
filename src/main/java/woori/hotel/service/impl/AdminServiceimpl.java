@@ -64,6 +64,14 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	public void adminlistQna4(HashMap<String, Object> paramMap) {
 		adao.adminlistQna4(paramMap);		
 	  }
+	@Override
+	public void listMember(HashMap<String, Object> paramMap) {
+		adao.listMember(paramMap);		
+	}
+	@Override
+	public void getAllCountMember(HashMap<String, Object> paramMap) {
+		adao.getAllCountMember(paramMap);		
+	}
 
 
 

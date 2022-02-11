@@ -121,7 +121,6 @@ public class AdminBookController {
 			abs.getAllCount(paramMap);
 			int count = (int) paramMap.get("count");
 			paging.setTotalCount(count);
-			System.out.println("count : "+count);
 			
 			paramMap.put("ref_cursor", null);
 			paramMap.put("startnum", paging.getStartNum());

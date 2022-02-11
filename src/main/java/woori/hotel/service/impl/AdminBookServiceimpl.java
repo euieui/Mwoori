@@ -268,6 +268,27 @@ public class AdminBookServiceimpl extends EgovAbstractServiceImpl implements Adm
 	public void updateBookResult(HashMap<String, Object> paramMap) {
 		abdao.updateBookResult(paramMap);
 	}
+
+	@Override
+	public void getMemberBook(HashMap<String, Object> paramMap) {
+		String id = (String) paramMap.get("id");
+		String booknums = paramMap.get("booknums").toString();
+		String indate = (String) paramMap.get("indate");
+		String outdate = (String) paramMap.get("outdate");
+		if( booknums.equals("") && indate.equals("") && outdate.equals("")) 
+			abdao.getMemberBook(paramMap);
+		else if(!booknums.equals("") && indate.equals("") && outdate.equals(""))
+			abdao.getMemberBookWithBooknum(paramMap);
+		else if(( booknums.equals("") && !indate.equals("")) || 
+				( booknums.equals("") && !outdate.equals(""))) {
+			if(!indate.equals("") && !outdate.equals(""))
+				abdao.getMemberBookWithIndateOutdate(paramMap);
+			else if(!indate.equals("") && outdate.equals(""))
+				abdao.getMemberBookWithIndate(paramMap);
+			else if(indate.equals("") && !outdate.equals(""))
+				abdao.getMemberBookWithOutdate(paramMap);
+		}
+	}
 	
 	
 	

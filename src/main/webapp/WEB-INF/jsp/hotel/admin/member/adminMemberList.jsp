@@ -5,7 +5,7 @@
 <script type="text/javascript">
 function go_view_detail(id){
 	 /* location.href="adminQnaDetail&qnaseq="+qnaseq; */
-	 var url="adminMemberDetail?id="+id;
+	 var url="adminMemberDetail.do?id="+id;
 	 document.formm.action=url;
 	 document.formm.submit();	
 	}
@@ -14,7 +14,7 @@ function go_view_detail_book(id) {
 	 document.formm.action=url;
 	 document.formm.submit(); */
 
-	 var url="adminMemberDetailBook?id="+id;
+	 var url="adminMemberDetailBook.do?id="+id;
 	 var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=800,";
 		opt = opt + "height=700, top=300, left=300";
 		window.open(url, "예약 정보", opt); 
@@ -23,7 +23,7 @@ function go_view_detail_book(id) {
 function go_serch_member(){
  
  if(document.formm.key.value=="") return;
- var url="adminMemberList?page=1";
+ var url="adminMemberList.do?page=1";
  // 보던페이지가어떤에피이지 이더라도,검색갤겨의 1페이로 가기위해 파라미터page를 1로 전송.,
  document.formm.action=url;
  document.formm.submit();
@@ -32,7 +32,7 @@ function go_serch_member(){
 }
 function go_total_member(){
  document.formm.key.value="";
- document.formm.action="adminMemberList?page=1";
+ document.formm.action="adminMemberList.do?page=1";
  document.formm.submit();
  
 }
@@ -49,10 +49,12 @@ border:1
 #adminmemebrlist tr th{
 padding:5px 0 6px;  border-top: solid 1px #999;   border-bottom: solid 1px #b2b2b2; background-color:#9F876B; color: #333; font-weight: bold;  
 line-height: 10px width:300px;
+text-align: center;
 }
 #adminmemebrlist tr td{
 padding: 8px 0 6px; border-top:solid 1px #999; background-color:white; color:#333; font-weight: bold; vertical-align: top;
 line-height: 30px;  
+text-align: center;
 }
 #qna_button{
 border:1px solid black;
@@ -65,7 +67,7 @@ border:1px solid black;
 </style>
 
 <article>
-<h1>우리 호텔 회원 리스트</h1>
+<center><h1>우리 호텔 회원 리스트</h1></center>
 <form name="formm" method="post">
 <table style="margin:0 auto; 
 	width:1000px; border:1px soloid black; text-align: center; margin-right: 140px;font-weight:bold;">
@@ -89,14 +91,14 @@ border:1px solid black;
     
        <c:forEach items="${memberList}" var ="memberDto">
              <tr>
-                   <td><a href="#" onClick= "go_view_detail('${memberDto.id}')">
-                   		${memberDto.id}<br>(회원정보수정)</a></td>                
-                    <td><a href="#" onClick= "go_view_detail_book('${memberDto.id}')">
-                    	${memberDto.name}<br>(예약정보)</a></td>
-                    <td>${memberDto.email}</td>
-                    <td>${memberDto.phone}</td>
-                    <td>${memberDto.zip_num} </td>
-                    <td>${memberDto.address}</td>                  
+                   <td><a href="#" onClick= "go_view_detail('${memberDto.ID}')">
+                   		${memberDto.ID}<br>(회원정보수정)</a></td>                
+                    <td><a href="#" onClick= "go_view_detail_book('${memberDto.ID}')">
+                    	${memberDto.NAME}<br>(예약정보)</a></td>
+                    <td>${memberDto.EMAIL}</td>
+                    <td>${memberDto.PHONE}</td>
+                    <td>${memberDto.ZIP_NUM} </td>
+                    <td>${memberDto.ADDRESS}</td>                  
              </tr>
        </c:forEach>
 </table>
@@ -109,7 +111,7 @@ border:1px solid black;
   <jsp:param name="endPage" value="${paging.endPage}" />
   <jsp:param name="prev" value="${paging.prev}" />
   <jsp:param name="next" value="${paging.next}" />
-  <jsp:param name="command" value="adminMemberList" />
+  <jsp:param name="command" value="adminMemberList.do" />
 </jsp:include> 
 
 

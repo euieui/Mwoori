@@ -380,15 +380,11 @@ public class MemberController {
 			//getAllCount(paramMap);
 			int count = (int) paramMap.get("count");
 			paging.setTotalCount(count);
-			System.out.println("count : "+count);
 			
 			paramMap.put("ref_cursor", null);
 			paramMap.put("startnum", paging.getStartNum());
 			paramMap.put("endnum", paging.getEndNum());
-			System.out.println("all book list 전");
 			abs.getAllBookList(paramMap);
-			System.out.println("all book list 후");
-			System.out.println("list size 1 : "+paramMap.get("ref_cursor"));
 			
 			ArrayList<HashMap<String, Object>> list = 
 					(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");

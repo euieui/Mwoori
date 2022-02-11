@@ -18,7 +18,7 @@ line-height: 30px;
 
 </style>
 <article>
-<h1>우리 호텔 ${dto.name}(${dto.id})님 예약 정보</h1>
+<h1>우리 호텔 ${dto.NAME}(${dto.ID})님 예약 정보</h1>
 <table id="book_detail">
       <tr>
          <th>예약번호</th>
@@ -29,19 +29,19 @@ line-height: 30px;
      </tr>
   <tr>
   <c:forEach items="${list}" var ="list">
-    <td>${list.booknum}</td>
-    <td>${list.kind}</td>
+    <td>${list.BOOKNUM}</td>
+    <td>${list.KIND}</td>
     
-    <td><fmt:formatDate value="${list.checkin}"/>&nbsp;-&nbsp;
-    	<fmt:formatDate value="${list.checkout}"/></td>
+    <td><fmt:formatDate value="${list.CHECKIN}"/>&nbsp;-&nbsp;
+    	<fmt:formatDate value="${list.CHECKOUT}"/></td>
     <td>
 	<c:choose>
-						<c:when test='${list.result=="1"}'>예약 완료</c:when>
-						<c:when test='${list.result=="2"}'>취소 신청</c:when>
-						<c:when test='${list.result=="3"}'>취소 완료</c:when>
+						<c:when test='${list.RESULT=="1"}'>예약 완료</c:when>
+						<c:when test='${list.RESULT=="2"}'>취소 신청</c:when>
+						<c:when test='${list.RESULT=="3"}'>취소 완료</c:when>
 						<c:otherwise>예약 대기</c:otherwise></c:choose>
     </td>
-    <td>${list.price}원</td>
+    <td>${list.PRICE}원</td>
   
   
   </tr>

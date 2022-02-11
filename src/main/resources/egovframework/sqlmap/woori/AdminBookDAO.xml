@@ -160,4 +160,30 @@
 		{ CALL updateBookResult( #{bdseq} ) }
 	</update>
 
+
+
+	<select id="getMemberBook" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{  	CALL getMemberBook(  #{ startNum } , #{ endNum }, #{ id },
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
+	</select>
+	
+	<select id="getMemberBookWithBooknum" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{  	CALL getMemberBookWithBooknum(  #{ startNum } , #{ endNum }, #{ id } , #{ booknums }, 
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
+	</select>
+	
+	<select id="getMemberBookWithIndateOutdate" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{  	CALL getMemberBookWithIndateOutdate(  #{ startNum } , #{ endNum }, #{ id } , #{ indate } , #{ outdate } , 
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
+	</select>
+	
+	<select id="getMemberBookWithIndate" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{  	CALL getMemberBookWithIndate(  #{ startNum } , #{ endNum }, #{ id } , #{ indate } ,
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
+	</select>
+	
+	<select id="getMemberBookWithOutdate" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{  	CALL getMemberBookWithOutdate(  #{ startNum } , #{ endNum }, #{ id } , #{ outdate } , 
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
+	</select>
 </mapper>
