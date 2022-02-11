@@ -446,3 +446,45 @@ begin
     update bookdetail set result='1' where bdseq=p_bdseq;
     commit;
 end;
+
+
+
+
+-- get max bed
+create or replace procedure getMaxBed(
+    p_hotelnum in hotel.hotelnum%type,
+    p_persons out number
+)
+is
+    v_persons hotel.persons%type;
+begin
+    select persons into v_persons from hotel where hotelnum=p_hotelnum;
+    p_persons:=v_persons;
+end;
+
+
+
+
+create or replace procedure changePeople(
+    p_number in bookdetail.usernum%type,
+    p_bdseq in bookdetail.bdseq%type
+)
+is
+begin
+    update bookdetail set usernum=p_number where bdseq=p_bdseq;
+    commit;
+end;
+
+
+
+
+-- request book cancel
+create or replace procedure requestBookCancel(
+    p_refund in bookdetail.refund%type,
+    p_bdseq in bookdetail.bdseq%type
+)
+is
+begin
+    update bookdetail set result='2' , refund=p_refund where bdseq=p_bdseq;
+    commit;
+end;
