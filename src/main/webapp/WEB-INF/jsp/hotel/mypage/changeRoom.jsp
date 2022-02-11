@@ -28,7 +28,7 @@
 		}
 		
 		if(window.confirm(document.formm.number.value+"명으로 예약을 변경하시겠습니까?")){
-			opener.location.href="gotochangeroom?bdseq="+document.formm.bdseq.value+
+			opener.location.href="gotochangeroom.do?bdseq="+document.formm.bdseq.value+
 					"&number="+document.formm.number.value;
 			self.close();
 		}
@@ -38,16 +38,16 @@
 </head>
 <body>
 
-<form method="post" name="formm" action="gotochangeroom">
+<form method="post" name="formm" action="gotochangeroom.do">
 
 <div id="chboxb_aa">
 	<div id="chcheck_aa">인원 변경</div>
 	<ul>
-		<li>${bookcheck.kind} 최대 인원(${max })명</li>
+		<li>${bookcheck.KIND} 최대 인원(${max })명</li>
 		<li><input type="number" name="number" max="${max }"></li>
 		
 	</ul>
-	<input type="hidden" name="bdseq" value="${bookcheck.bdseq }">
+	<input type="hidden" name="bdseq" value="${bookcheck.BDSEQ }">
 	<input type="hidden" name="max" value="${max }">
 	
 	<input type="button" value="수정" onclick="roomChangeCheck();" id="btn2_aa">

@@ -131,5 +131,27 @@
 		{ CALL getAdminCancelList( #{startnum}, #{endnum}, 
 		#{ref_cursor,  mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap} ) }
 	</select>
+	
+	
+	
+	
+	<!-- get max bed -->
+	<select id="getMaxBed" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getMaxBed( #{hotelnum}, 
+		#{max, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<!-- change people -->
+	<update id="changePeople" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL changePeople( #{number}, #{bdseq} ) }
+	</update>
+	
+	
+	
+	
+	<!-- request book cancel -->
+	<update id="requestBookCancel" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL requestBookCancel( #{refund}, #{bdseq} ) }
+	</update>
 
 </mapper>

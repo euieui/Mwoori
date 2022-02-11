@@ -56,6 +56,12 @@ public interface AdminBookDAO {
 	void getCancelAllCount(HashMap<String, Object> paramMap);
 
 	void getAdminCancelList(HashMap<String, Object> paramMap);
+
+	void getMaxBed(HashMap<String, Object> paramMap);
+
+	void changePeople(HashMap<String, Object> paramMap);
+
+	void requestBookCancel(HashMap<String, Object> paramMap);
 	
 	
 	
