@@ -55,7 +55,7 @@
 					<c:choose>
 						<c:when test='${list.RESULT=="0"}'>
 						<a href="adminbooklistdetail.do?bdseq=${list.BDSEQ}&gotonum=1">
-						${list.BOOKNUM}(<input type="checkbox" name="result" value="${list.bdseq}">예약대기)</a></c:when>
+						${list.BOOKNUM}(<input type="checkbox" name="result" value="${list.BDSEQ}">예약대기)</a></c:when>
    
 						<c:otherwise>
 						<a href="adminbooklistdetail.do?bdseq=${list.BDSEQ}&gotonum=1">

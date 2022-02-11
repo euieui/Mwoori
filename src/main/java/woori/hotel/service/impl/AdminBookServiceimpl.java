@@ -263,6 +263,11 @@ public class AdminBookServiceimpl extends EgovAbstractServiceImpl implements Adm
 		calDateDays = Math.abs(calDateDays);
 		return calDateDays;
 	}
+
+	@Override
+	public void updateBookResult(HashMap<String, Object> paramMap) {
+		abdao.updateBookResult(paramMap);
+	}
 	
 	
 	

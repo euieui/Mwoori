@@ -153,5 +153,11 @@
 	<update id="requestBookCancel" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{ CALL requestBookCancel( #{refund}, #{bdseq} ) }
 	</update>
+	
+	
+	<!-- update result -->
+	<update id="updateBookResult" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL updateBookResult( #{bdseq} ) }
+	</update>
 
 </mapper>

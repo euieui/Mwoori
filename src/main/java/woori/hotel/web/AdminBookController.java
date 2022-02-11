@@ -245,6 +245,20 @@ public class AdminBookController {
 		
 		return mav;
 	}
+	
+	
+	
+	
+	@RequestMapping(value="/adminBookSave.do")
+	public String adminBookSave(HttpServletRequest request,
+			@RequestParam("result") String [] resultArr) {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		for(String bdseq : resultArr) {
+			paramMap.put("bdseq", Integer.parseInt(bdseq));
+			abs.updateBookResult(paramMap);
+		}
+		return "redirect:/adminbookchecklist.do";
+	}
 
 
 

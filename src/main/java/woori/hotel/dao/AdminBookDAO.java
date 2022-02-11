@@ -62,6 +62,8 @@ public interface AdminBookDAO {
 	void changePeople(HashMap<String, Object> paramMap);
 
 	void requestBookCancel(HashMap<String, Object> paramMap);
+
+	void updateBookResult(HashMap<String, Object> paramMap);
 	
 	
 	
