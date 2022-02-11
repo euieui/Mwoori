@@ -22,6 +22,11 @@ public class MainController {
 	
 	@Resource(name="MainService") MainService ms;
 	
+	@RequestMapping(value="/start.do")
+	public String start(HttpServletRequest request, Model model) {
+		return "start";
+	}
+	
 	@RequestMapping("/main.do")
 	public ModelAndView index(Model model) {
 		ModelAndView mav = new ModelAndView();
