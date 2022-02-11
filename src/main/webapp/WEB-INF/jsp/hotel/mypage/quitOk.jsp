@@ -10,7 +10,7 @@ p{line-height:200%;}
 </style>
 <article>
 
-<form method="post" name="quitOk" action="quit">
+<form method="post" name="quitOk" action="quit.do">
 	
 <div id="abox_aa">
 	<div id="sum_aa">탈회 요청</div>

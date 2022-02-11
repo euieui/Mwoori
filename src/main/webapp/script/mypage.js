@@ -1,26 +1,26 @@
 
 function idcheck(){
-	var url = "fineIdPwd";
+	var url = "fineIdPwd.do";
 	var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=250";
 	window.open(url, "IdCheck", opt);
 }//완료
 
 
 function findPw(){
-	var url = "findPwForm";
+	var url = "findPwForm.do";
 	var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=700,";
 	opt = opt + "height=500, top=300, left=300";
 	window.open(url, "Find Id/Pw", opt);
 }
 
 function go_profilePw(){
-	document.profileForm.action ="profilePw";
+	document.profileForm.action ="profilePw.do";
 	document.profileForm.submit(); 
 }
 
 function quit(){
 	alert("탈퇴가 완료되었습니다" );
-	document.quitOk.action ="quit";
+	document.quitOk.action ="quit.do";
 	document.quitOk.submit(); 
 }
 
@@ -45,7 +45,7 @@ function bookCancelCheck(){
 
 function changeroom(){
 
-	var url = "changeRoom?bdseq="+document.frm.bdseq.value;
+	var url = "changeRoom.do?bdseq="+document.frm.bdseq.value;
 	var pop = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=250";
 	window.open(url, "ChangeRoom", pop);
 }

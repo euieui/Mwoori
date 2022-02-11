@@ -465,7 +465,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value="/profileUpdate.do", method=RequestMethod.POST)
-	public ModelAndView pwUpdateForm(HttpServletRequest request) {
+	public ModelAndView profileUpdate(HttpServletRequest request) {
 		ModelAndView mav= new ModelAndView();
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
@@ -485,6 +485,7 @@ public class MemberController {
 			paramMap.put("ADDRESS", request.getParameter("addr1") + " " + request.getParameter("addr2"));
 			
 			ms.updateMember(paramMap);
+			
 			session.setAttribute("loginUser", loginUser);
 			String addr = loginUser.get("ADDRESS").toString(); //주소 추출
 			int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
@@ -501,5 +502,112 @@ public class MemberController {
 		}
 		return mav;
 	
+	}
+	
+
+
+	@RequestMapping(value="/pwUpdateForm.do")
+	public String pwUpdateForm(HttpServletRequest request) {
+		
+		String url = "mypage/pwUpdateForm";
+		
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		if(loginUser==null) {
+			url = "redirect:/loginForm";
+		} else {
+	    	session.setAttribute("loginUser", loginUser);
+		}
+		return url;
+	}
+	
+	@RequestMapping(value="/pwUpdate.do", method=RequestMethod.POST)
+	public ModelAndView pwUpdate(HttpServletRequest request,
+			 @RequestParam(value="pwd") String pwd,
+			 @RequestParam(value="newpwd") String newpwd,
+			 @RequestParam(value="newpwd_re") String newpwd_re) {
+		ModelAndView mav = new ModelAndView();
+		
+		String url = "mypage/pwUpdateForm";
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		if( loginUser == null) { 
+			mav.addObject("message", "다시 로그인해주세요");
+	// 현재 비밀번호 확인
+		}else if(pwd.equals(null)){ 
+			mav.addObject("message", "현재 비밀번호를 입력해주세요");
+		}else if(!loginUser.get("PWD").equals(pwd)){
+			mav.addObject("message", "현재 비밀번호가 틀립니다");
+		}else {
+	// 새 비밀번호 확인
+			if(newpwd.equals(null)) {
+				mav.addObject("message", "새 비밀번호를 입력해주세요");
+			} else if(newpwd_re.equals(null)) {
+				mav.addObject("message", "새 비밀번호 확인을 입력해주세요");
+			} else if(!newpwd_re.equals(newpwd)) {
+				mav.addObject("message", "새 비밀번호 확인이 일치하지 않습니다");
+			} else {
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("id", loginUser.get("ID"));
+				paramMap.put("pwd", request.getParameter("newpwd"));
+				ms.resetPw(paramMap);
+				mav.addObject("message", "정상적으로 수정되었습니다");
+			}
+		}  
+		session.setAttribute("loginUser", loginUser);
+		mav.setViewName(url);
+		
+		return mav;
+	}
+	
+
+	@RequestMapping("quitPw.do")
+	public String quitPw(Model model, HttpServletRequest request) {
+		String url = "mypage/quitPw";
+		
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		if(loginUser==null) {
+			url = "member/login";
+		} else {
+	    	session.setAttribute("loginUser", loginUser);
+ 		}
+		return url;
+	}
+	
+	@RequestMapping(value="/quitCheck.do", method=RequestMethod.POST)
+	public ModelAndView quitCheck(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		String url = "quitPw";
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		String pwd = request.getParameter("pwd");
+		if( loginUser == null) { 
+			mav.addObject("message", "다시 로그인해주세요");
+		}else if(pwd==""){
+			mav.addObject("message", "비밀번호를 입력해주세요");
+		}else if(!loginUser.get("PWD").equals(pwd)){
+			mav.addObject("message", "비밀번호가 틀립니다");
+		}else {
+			url = "mypage/quitOk";
+			session.setAttribute("loginUser", loginUser);
+		}
+		mav.setViewName(url);
+		return mav;
+	}
+	
+	@RequestMapping(value="/quit.do", method=RequestMethod.POST)
+	public String quit(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", loginUser.get("ID"));
+		ms.deleteMember(paramMap);
+		
+		session.removeAttribute("loginUser");
+		
+		return "redirect:/";
 	}
 }

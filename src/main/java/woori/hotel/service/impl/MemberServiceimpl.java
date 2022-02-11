@@ -49,4 +49,9 @@ public class MemberServiceimpl extends EgovAbstractServiceImpl implements Member
 	public void updateMember(HashMap<String, Object> paramMap) {
 		mdao.updateMember(paramMap);
 	}
+
+	@Override
+	public void deleteMember(HashMap<String, Object> paramMap) {
+		mdao.deleteMember(paramMap);
+	}
 }

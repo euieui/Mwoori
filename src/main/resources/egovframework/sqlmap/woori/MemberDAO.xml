@@ -42,4 +42,8 @@
 			#{ZIP_NUM}, #{ADDRESS}  )  }
 	</update>
 	
+	<delete id="deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL deleteHotelember( #{id}  )  }
+	</delete>
+	
 </mapper>
