@@ -12,13 +12,13 @@
 </head>
 <body>
 <div id="paging" align="center" >
-	<c:url var="action" value="${param.COMMAND}" />
-	<c:if test="${param.PREV}">
-		<a href="${action}?page=${param.BEGINPAGE-1}">◀</a>&nbsp;
+	<c:url var="action" value="${param.command}" />
+	<c:if test="${param.prev}">
+		<a href="${action}?page=${param.beginPage-1}">◀</a>&nbsp;
 	</c:if>
-	<c:forEach begin="${param.BEGINPAGE}" end="${param.ENDPAGE}" var="index">
+	<c:forEach begin="${param.beginPage}" end="${param.endPage}" var="index">
 		<c:choose>
-        	<c:when test="${param.PAGE==index}">
+        	<c:when test="${param.page==index}">
         		<span style="color:red;font-weight:bold">${index}&nbsp;</span>
         	</c:when>
 	        <c:otherwise>
@@ -26,8 +26,8 @@
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
-	<c:if test="${param.NEXT}">
-			<a href="${action}?page=${param.ENDPAGE+1}">▶</a>&nbsp;
+	<c:if test="${param.next}">
+			<a href="${action}?page=${param.endPage+1}">▶</a>&nbsp;
 	</c:if>	
 </div>
 </body>
