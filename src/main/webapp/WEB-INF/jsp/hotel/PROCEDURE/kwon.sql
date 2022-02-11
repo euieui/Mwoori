@@ -80,7 +80,11 @@ create or replace procedure insertRoom(
 is
 begin
     insert into bookdetail (usernum,checkin,checkout,bdseq,booknum,hotelnum) 
-    values(p_usernum, to_date(p_checkin,'yyyy-mm-dd'),to_date(p_checkout,'yyyy-mm-dd'),seq_bookdetail_bdseq.nextval,p_booknum,p_hotelnum);
+    values(p_usernum, to_date(TO_CHAR(p_checkin, 'YYYY-MM-DD'),'yyyy-mm-dd'),to_date(TO_CHAR(p_checkout, 'YYYY-MM-DD'),'yyyy-mm-dd'),seq_bookdetail_bdseq.nextval,p_booknum,p_hotelnum);
     commit;
 end;
 
+
+select * from bookdetail;
+
+insert into bookdetail (usernum,checkin,checkout,bdseq,booknum,hotelnum) values (3, to_date('2022-03-01','yyyy-mm-dd'),to_date('2022-03-02','yyyy-mm-dd'),seq_bookdetail_bdseq.nextval,39,1402);
