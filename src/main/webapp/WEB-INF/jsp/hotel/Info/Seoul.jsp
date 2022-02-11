@@ -5,7 +5,9 @@
 <article class="rightarticle_aa"><%@ include file="sub_menu.jsp" %>
 <div id="sbox_aa">
 	<div id="sum_aa">제주 호텔</div>
-	<div class="box_aa" id="simg_aa"></div>
+	<div class="box_aa" id="simg_aa">
+	<img src="<c:url value='/images/hotel_seoul.jpg'/> " id="aa_img" width="845px;">
+	</div>
 	<div class="box_aa" id="box2_aa">
 		<div id="libox_aa" id="first_aa">
 			<div class="sub_aa">Urban Lifestyle Hotel</div>

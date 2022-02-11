@@ -36,8 +36,10 @@ body{font-family: 'Noto Serif KR', serif;}
 .subject_aa{width:845px;font-size:200%;  height: 55px; line-height:55px;
 	padding:0 10px; /* background:teal; */ color:#3a3125;}
 .text_aa{width:845px; font-size:110%; padding:10px; /* background:silver; */}
-#img_aa{height:200px; background-image:url('../images/hotel_sum.jpg');
-	 background-position:center center; overflow:hidden;}
+#img_aa{height:200px; /* background-image:url('../images/hotel_sum.jpg'); */
+	 background-position:center center; overflow:hidden;
+	 text-align:center; margin:auto; background-size:cover;}
+#aa_img{position:relative; text-align:center; top:-115px;}
 
 
 
@@ -48,8 +50,9 @@ body{font-family: 'Noto Serif KR', serif;}
 #sbox_aa{/* position:absolute; */width:865px;  /* height:1000px; */ float:left; 
 	/* margin: 0 20px 0 20px; */ /* left:430px; */ margin-top:20px;
 	min-height:296px; /* background:lime; */}
-#simg_aa{position:relative;height:500px; background-image:url('../images/hotel_seoul.jpg');
-	background-position:left center; overflow:hidden; background-size:865px;}
+#simg_aa{position:relative;height:500px; /* background-image:url('../images/hotel_seoul.jpg');
+	background-position:left center; */ overflow:hidden; background-size:865px;
+	text-align:center; margin:auto; }
 #box2_aa{position:relative;border:5px solid beige; width:855px; height:340px;}
 #libox_aa{position:relative;width:367.5px; height:300px; 
 	margin:20px 30px; float:left; 

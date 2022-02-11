@@ -7,7 +7,9 @@
 <%@ include file="sub_menu.jsp" %>
 <div id="abox_aa">
 	<div id="sum_aa">개요</div>
-	<div class="box_aa" id="img_aa"></div>
+	<div class="box_aa" id="img_aa">
+	<img src="<c:url value='/images/hotel_sum.jpg'/> " id="aa_img" width="845px;">
+	</div>
 	<div class="box_aa" id="af_aa">
 		<div class="subject_aa">소개</div>
 		<div class="text_aa">
