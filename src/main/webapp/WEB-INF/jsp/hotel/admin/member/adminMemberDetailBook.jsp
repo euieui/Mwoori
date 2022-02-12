@@ -3,7 +3,7 @@
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <style>
-#book_detail{
+#book_detail{ 
 margin:0 auto; padding:  30px; border-collapse: collapse;
 text-align: center;
 }

@@ -8,7 +8,7 @@ function go_search_booknum(){
 	document.frm.action=url;
 	document.frm.submit();
 }
-
+ 
 
 function go_total_check(){
 	document.frm.booknums.value="";
