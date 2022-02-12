@@ -42,9 +42,9 @@ function go_total_member(){
     border-collapse: collapse;
 width:1000px;  border-bottom:1px solid #999;   color:#666; font-size:12px; table-layout:fixed;
 margin:0 auto; margin-right:400px; 
-border:1
+border:1;
 
-}
+} 
 
 #adminmemebrlist tr th{
 padding:5px 0 6px;  border-top: solid 1px #999;   border-bottom: solid 1px #b2b2b2; background-color:#9F876B; color: #333; font-weight: bold;  

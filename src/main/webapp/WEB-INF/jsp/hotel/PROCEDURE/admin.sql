@@ -12,7 +12,7 @@ end;
 
 ----admin member get all count with key
 create or replace procedure getAllCountMember(
-    p_key in varchar2
+    p_key in varchar2,
     p_cnt out number
 )
 is

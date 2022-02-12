@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -367,8 +368,6 @@ public class AdminController {
 	    if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
 		Paging paging = new Paging();
 		paging.setPage(page);
-		
-		
 
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		if(!booknums.equals("")) paramMap.put("booknums", Integer.parseInt(booknums));
@@ -377,7 +376,6 @@ public class AdminController {
 		paramMap.put("outdate", outdate);
 		paramMap.put("id", id);
 		paramMap.put("count", 0);
-		
 		
 		abs.getAllCount(paramMap);
 		int count=(int) paramMap.get("count");
@@ -391,19 +389,91 @@ public class AdminController {
 		ms.getMember(paramMap);
 		ArrayList<HashMap<String, Object>> list1 = 
 				(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-		
+		mav.addObject("dto", list1.get(0));
 
 		paramMap.put("startNum" , paging.getStartNum() );
 		paramMap.put("endNum", paging.getEndNum() );
-		ArrayList<HashMap<String, Object>> list2 = 
-				(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		paramMap.put("ref_cursor2", null);
 		abs.getMemberBook(paramMap); // id, paging, booknums, indate, outdate
 
-		mav.addObject("list", list1);
-		mav.addObject("dto", list2);
+		ArrayList<HashMap<String, Object>> list2 = 
+				(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor2");
+		mav.addObject("list", list2);
 		mav.setViewName("admin/member/adminMemberDetailBook");
 		
 	    return mav;
 	}
 
+	@RequestMapping("adminMemberDetail.do")
+	public ModelAndView adminMemberDetail(HttpServletRequest request,
+			@RequestParam("id") String id) {
+			
+		ModelAndView mav= new ModelAndView();
+
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+	    if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
+	    
+	    HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", id);
+		paramMap.put("ref_cursor", null);
+
+	    ms.getMember(paramMap);
+		ArrayList<HashMap<String, Object>> list = 
+				(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+	    String addr = list.get(0).get("ADDRESS").toString(); //주소 추출
+		int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+		int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+		int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+		// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+		String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+		String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+		
+		mav.addObject("addr1",addr1);
+		mav.addObject("addr2",addr2);
+		mav.addObject("dto", list.get(0));
+		
+		mav.setViewName("admin/member/adminMemberDetail");
+		
+	    return mav;
+	}
+	
+
+	@RequestMapping(value="/adminMemberUpdate.do", method=RequestMethod.POST)
+	public ModelAndView adminMemberUpdate(HttpServletRequest request,
+			@RequestParam("id") String id) {
+			
+		ModelAndView mav= new ModelAndView();
+
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+	    if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
+	    
+	    HashMap<String, Object> paramMap = new HashMap<String, Object>();
+	    paramMap.put("ID", request.getParameter("id"));
+		paramMap.put("PWD", request.getParameter("pwd"));
+		paramMap.put("NAME", request.getParameter("name"));
+		paramMap.put("EMAIL", request.getParameter("email"));
+		paramMap.put("ZIP_NUM", request.getParameter("zip_num"));
+		paramMap.put("PHONE", request.getParameter("phone"));
+		paramMap.put("ADDRESS", request.getParameter("addr1") + " " + request.getParameter("addr2"));
+		
+		ms.updateMember(paramMap);
+		request.setAttribute("message", "정상적으로 수정되었습니다");
+		
+		String addr = paramMap.get("ADDRESS").toString(); //주소 추출
+		int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+		int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+		int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+		// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+		String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+		String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+		
+		mav.addObject("addr1",addr1);
+		mav.addObject("addr2",addr2);
+		mav.addObject("dto", paramMap);
+		mav.setViewName("admin/member/adminMemberDetail");
+		
+	    return mav;
+	} 
 }

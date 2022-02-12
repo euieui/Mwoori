@@ -83,7 +83,7 @@ public class AdminBookController {
 			} else {
 				session.removeAttribute("checkouts");
 				outdate="";
-			}
+			} 
 			
 			if(request.getParameter("bookid")!=null) {
 				id=request.getParameter("bookid");

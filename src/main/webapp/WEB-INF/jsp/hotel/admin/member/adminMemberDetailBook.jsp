@@ -28,7 +28,7 @@ line-height: 30px;
          <th>금액</th>           
      </tr>
   <tr>
-  <c:forEach items="${list}" var ="list">
+  <c:forEach items="${list}" var ="list"> 
     <td>${list.BOOKNUM}</td>
     <td>${list.KIND}</td>
     
@@ -57,7 +57,7 @@ line-height: 30px;
   <jsp:param name="endPage" value="${paging.endPage}" />
   <jsp:param name="prev" value="${paging.prev}" />
   <jsp:param name="next" value="${paging.next}" />
-  <jsp:param name="command" value="/adminMemberDetailBook?id=${id}" />
+  <jsp:param name="command" value="/adminMemberDetailBook.do?id=${id}" />
 </jsp:include> 
 
 </article>

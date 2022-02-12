@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="paging" align="center" >
-	<c:url var="action" value="/adminMemberDetailBook?id=${id}"/>
+	<c:url var="action" value="/adminMemberDetailBook.do?id=${id}"/>
 	<c:if test="${param.prev}">
 		<a href="${action}&page=${param.beginPage-1}">◀</a>&nbsp;
 	</c:if>

@@ -29,6 +29,6 @@ public interface AdminDAO {
 
 	void getAllCountMember(HashMap<String, Object> paramMap);
 
-
+ 
 
 }

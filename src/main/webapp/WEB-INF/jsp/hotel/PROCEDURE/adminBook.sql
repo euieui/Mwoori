@@ -507,10 +507,8 @@ begin
 		select rownum as rn, b.* from 
 		( ( select * from book_view where id=p_id 
         order by result asc ,booknum desc ) b ) 
-		) where rn>=p_startNum  ) where rn&<=p_endNum;
+		) where rn>=p_startNum  ) where rn<=p_endNum;
 end;
-
-
 
 create or replace procedure getMemberBookWithBooknum(
     p_startnum in number,
@@ -526,7 +524,7 @@ begin
 		select rownum as rn, b.* from 
 		( ( select * from book_view where id=p_id and booknum=p_booknum
         order by result asc ,booknum desc ) b ) 
-		) where rn>=p_startNum  ) where rn&<=p_endNum;
+		) where rn>=p_startNum  ) where rn<=p_endNum;
 end;
 
 
@@ -548,7 +546,7 @@ begin
 		to_char(checkin, 'YYYYMMDD')=p_indate
 		and to_char(checkout, 'YYYYMMDD')=p_outdate
         order by result asc ,booknum desc ) b ) 
-		) where rn>=p_startNum  ) where rn&<=p_endNum;
+		) where rn>=p_startNum  ) where rn<=p_endNum;
 end;
 
 
@@ -569,7 +567,7 @@ begin
 		( ( select * from book_view where 
 		to_char(checkin, 'YYYYMMDD')=p_indate
         order by result asc ,booknum desc ) b ) 
-		) where rn>=p_startNum  ) where rn&<=p_endNum;
+		) where rn>=p_startNum  ) where rn<=p_endNum;
 end;
 
 
@@ -591,5 +589,5 @@ begin
 		( ( select * from book_view where 
 		to_char(checkout, 'YYYYMMDD')=p_outdate
         order by result asc ,booknum desc ) b ) 
-		) where rn>=p_startNum  ) where rn&<=p_endNum;
+		) where rn>=p_startNum  ) where rn<=p_endNum;
 end;

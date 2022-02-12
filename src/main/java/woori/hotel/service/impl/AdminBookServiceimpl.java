@@ -268,7 +268,7 @@ public class AdminBookServiceimpl extends EgovAbstractServiceImpl implements Adm
 	public void updateBookResult(HashMap<String, Object> paramMap) {
 		abdao.updateBookResult(paramMap);
 	}
-
+ 
 	@Override
 	public void getMemberBook(HashMap<String, Object> paramMap) {
 		String id = (String) paramMap.get("id");

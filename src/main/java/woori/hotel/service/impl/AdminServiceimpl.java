@@ -71,7 +71,7 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	@Override
 	public void getAllCountMember(HashMap<String, Object> paramMap) {
 		adao.getAllCountMember(paramMap);		
-	}
+	} 
 
 
 

@@ -13,7 +13,7 @@ function okButton_member(id){
 	 document.formm.action=url;
 	 document.formm.submit();
 }
-</script>
+</script> 
 <style>
 #adminmemebrlist{
     border: 2px solid #9F876B;
