@@ -47,11 +47,11 @@ border:1px solid black;
 
 <table  id="adminmemebrlist" style="center; width: 500px;">
 	<tr><th>객실번호</th><td>${dto.hotelnum}</td></tr>
-	<tr><th>종류</th><td><input type="text" size="30" name="kind" value="${dto.kind}"></td></tr>
-	<tr><th>인원</th><td><input type="text" size="30" name="persons" value="${dto.persons}"></td></tr>
-	<tr><th>가격</th><td><input type="text" size="30" name="price" value="${dto.price}"></td></tr>
-	<tr><th>방크기</th> <td><input type="text" size="30" name="roomsize" value="${dto.roomsize}"></td></tr>
-	<tr><th>이미지</th> <td><img src="../static/images/${dto.img}" width="200pt">
+	<tr><th>종류</th><td><input type="text" size="30" name="kind" value="${dto.KIND}"></td></tr>
+	<tr><th>인원</th><td><input type="text" size="30" name="persons" value="${dto.PERSONS}"></td></tr>
+	<tr><th>가격</th><td><input type="text" size="30" name="price" value="${dto.PRICE}"></td></tr>
+	<tr><th>방크기</th> <td><input type="text" size="30" name="roomsize" value="${dto.ROOMSIZE}"></td></tr>
+	<tr><th>이미지</th> <td><img src="<c:url value='/images/${dto.IMG}' /> " width="200px">
 	      	<div id="imageName" style="float:left; font-size:120%; margin-right:20px; font-whight:bold"></div><Br>
 			<input type="button" value="이미지 선택" onclick="selectFile();"><br>
 	      	<input type="hidden" name="imagefilename"> *주의 : 이미지를 수정할 때에만 선택해주세요

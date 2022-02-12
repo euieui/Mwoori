@@ -13,6 +13,23 @@ function findPw(){
 	window.open(url, "Find Id/Pw", opt);
 }
 
+function go_profileUpdate(id){
+	if(document.formm.email.value == "") {
+	    alert("이메일을 입력해 주세요.");	   
+	    document.formm.email.focus();
+	}  else if(document.formm.phone.value == "") {
+	    alert("전화번호를 입력해 주세요.");	   
+	    document.formm.phone.focus();
+	} else if(document.formm.zip_num.value == "") {
+	    alert("주소를 입력해 주세요.");	   
+	    document.formm.zip_num.focus();
+	} else{
+		document.formm.action = "profileUpdate.do?id="+ id;
+	    document.formm.submit();
+	}
+}
+
+
 function go_profilePw(){
 	document.profileForm.action ="profilePw.do";
 	document.profileForm.submit(); 

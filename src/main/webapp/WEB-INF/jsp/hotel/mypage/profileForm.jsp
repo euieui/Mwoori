@@ -35,7 +35,7 @@ input{border:#BEBBB9 solid 1px;}
 		<br>
 		<div id="profText">&nbsp;&nbsp;&nbsp;${message}</div>
 		<div id="profButton">
-			<input type="submit" value="확인" class="okButton">
+			<input type="button" value="확인" class="okButton" onclick="go_profileUpdate('${loginUser.ID}')">
 			<input type="button" value="취소" class="cancleButton" onclick="go_profilePw()">
 		</div>
 	</div>

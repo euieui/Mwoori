@@ -93,5 +93,29 @@
 		{  	CALL listMember(  #{ startNum } , #{ endNum } , #{ key } , 
 				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
 	</select>
-
+	
+	<select id="getAllCountRoom" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ CALL getAllCountRoom( #{key},
+		#{count, mode=OUT, jdbcType=INTEGER} ) }
+	</select>
+	
+	<select id="getAllRoomList" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{  	CALL getAllRoomList(  #{ startNum } , #{ endNum } , #{ key } , 
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
+	</select>
+	
+	<insert id="insertRoom" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL insertRoom( #{hotelnum}, #{persons}, #{price}, #{img}, #{roomsize},
+			#{kind}  )  }
+	</insert>
+	
+	<select id="getRoom" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{  	CALL getRoom(  #{ hotelnum } ,
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap } ) }
+	</select>
+	
+	<delete id="deleteRoom" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{CALL deleteRoom( #{hotelnum} )  }
+	</delete>
+	
 </mapper>

@@ -1,18 +1,25 @@
 package woori.hotel.web;
  
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import woori.hotel.service.AdminBookService;
 import woori.hotel.service.AdminService;
@@ -476,4 +483,156 @@ public class AdminController {
 		
 	    return mav;
 	} 
+	
+	@RequestMapping("adminRoomList.do")
+	public ModelAndView adminRoomList(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+	    if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
+	    else {
+			int page = 1;
+			String key="";
+			
+			if(request.getParameter("key")!=null) {
+				key=request.getParameter("key");
+				session.setAttribute("key", key);
+			} else if(session.getAttribute("key")!=null) {
+				key=(String)session.getAttribute("key");
+			} else {
+				session.removeAttribute("key");
+				key="";
+			}
+			
+			if(request.getParameter("page")!=null) {
+				page=Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			} else if(session.getAttribute("page")!=null) {
+				page = (int)session.getAttribute("page");
+			} else {
+				page= 1;
+				session.removeAttribute("page");
+			}
+			
+			if(request.getParameter("a")!=null) {
+				System.out.println("파라미터 a 값 : "+request.getParameter("a"));
+				session.removeAttribute("key");
+				key="";
+			}
+			
+			Paging paging = new Paging();
+			paging.setPage(page);
+
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("key", key);
+			paramMap.put("count", 0);
+			
+			as.getAllCountRoom(paramMap); //key
+			int count = (int)paramMap.get("count");
+			paging.setTotalCount(count);
+			paging.paging();
+			
+
+			paramMap.put("startNum" , paging.getStartNum() );
+			paramMap.put("endNum", paging.getEndNum() );
+			paramMap.put( "ref_cursor", null );
+			as.getAllRoomList(paramMap); //paging, key 
+		
+			ArrayList<HashMap<String, Object>> list = 
+					(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			
+			mav.addObject("roomViewList",list);
+			mav.addObject("paging", paging);
+			mav.addObject("total",count);
+			mav.addObject("key",key);
+			
+			mav.setViewName("admin/room/adminRoomList");
+	    }
+		return mav;
+	}
+	
+
+	@RequestMapping(value="/adminRoomDelete.do", method=RequestMethod.POST)
+	public ModelAndView adminRoomDelete(HttpServletRequest request,
+			@RequestParam("hotelnum") String hotelnum) {
+			
+		ModelAndView mav= new ModelAndView();
+
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+	    if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
+	    else {
+	    	HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("hotelnum", request.getParameter("hotelnum"));
+	    	as.deleteRoom(paramMap);
+	    	mav.setViewName("redirect:/adminRoomList.do");
+	    }
+	    return mav;
+	}
+	
+	@RequestMapping(value="/adminRoomInsertForm.do")
+	public String adminRoomInsertForm() {
+		return "admin/room/adminRoomInsertForm";
+	}
+
+	@Autowired
+	ServletContext context;
+	
+	@RequestMapping(value="/fileup.do", method=RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, Object> fileup(HttpServletRequest request) {
+		HashMap<String, Object> resultMap = new HashMap<String, Object>();
+		
+		String savePath = context.getRealPath("/room_images");
+		String filename = "";
+		try {
+			MultipartRequest multi = new MultipartRequest(
+				request, savePath, 5*1024*1024, "UTF-8", new DefaultFileRenamePolicy());
+			filename = multi.getFilesystemName("img");
+		} catch(IOException e) {e.printStackTrace();
+		}
+		resultMap.put("FILENAME", "abc.txt");
+		resultMap.put("STATUS", 1);
+		resultMap.put("IMG", filename);
+		return resultMap;
+	}
+	
+	@RequestMapping(value="/adminRoomInsert.do", method=RequestMethod.POST)
+	public String adminRoomInsert(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+	    if(loginAdmin==null) return "admin/adminloginForm";
+	    
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			
+			paramMap.put("hotelnum", request.getParameter("hotelnum"));
+			paramMap.put("persons", request.getParameter("persons"));
+			paramMap.put("price", request.getParameter("price"));
+			paramMap.put("img", request.getParameter("img"));
+			paramMap.put("roomsize", request.getParameter("roomsize"));
+			paramMap.put("kind", request.getParameter("kind"));
+			as.insertRoom(paramMap);
+		    model.addAttribute("message", "객실 추가가 완료되었습니다");
+			return "redirect:/adminRoomList.do";
+	} 
+	@RequestMapping("adminRoomDetail.do")
+	public ModelAndView adminRoomDetail(HttpServletRequest request,
+			@RequestParam("hotelnum") String hotelnum) {
+		ModelAndView mav= new ModelAndView();
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+	    if(loginAdmin==null) mav.setViewName("admin/adminloginForm");
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("hotelnum", request.getParameter("hotelnum"));
+		paramMap.put("ref_cursor", null);
+		as.getRoom(paramMap);
+		ArrayList<HashMap<String, Object>> list = 
+				(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		mav.addObject("dto", list.get(0));
+		
+		mav.setViewName("admin/room/adminRoomDetail");
+		
+	    return mav;
+	}
 }

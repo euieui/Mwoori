@@ -9,9 +9,20 @@ function go_memberlist_member(){
 }
 
 function okButton_member(id){
-	 var url="adminMemberUpdate.do?id=" + id;
-	 document.formm.action=url;
-	 document.formm.submit();
+	if(document.formm.email.value == "") {
+	    alert("이메일을 입력해 주세요.");	   
+	    document.formm.email.focus();
+	}  else if(document.formm.phone.value == "") {
+	    alert("전화번호를 입력해 주세요.");	   
+	    document.formm.phone.focus();
+	} else if(document.formm.zip_num.value == "") {
+	    alert("주소를 입력해 주세요.");	   
+	    document.formm.zip_num.focus();
+	} else{
+		var url="adminMemberUpdate.do?id=" + id;
+		 document.formm.action=url;
+		 document.formm.submit();
+	}
 }
 </script> 
 <style>

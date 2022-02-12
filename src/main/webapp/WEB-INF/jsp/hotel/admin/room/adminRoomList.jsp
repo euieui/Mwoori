@@ -4,33 +4,36 @@
 <script type="text/javascript">
 function go_total_room(){
 	document.frm.key.value="";
-	document.frm.action="adminRoomList?a=1";
+	document.frm.action="adminRoomList.do?a=1";
 	document.frm.submit();
 }
 
 function go_search_room(){
 	if(document.frm.key.value=="") return;
-	var url="adminRoomList?page=1";
+	var url="adminRoomList.do?page=1";
 	// 보던페이지가어떤에피이지 이더라도,검색갤겨의 1페이로 가기위해 파라미터page를 1로 전송.,
 	document.frm.action=url;
 	document.frm.submit();
 }
 
 function go_roomview_detail(hotelnum) {
-		 var url="adminRoomDetail?hotelnum="+hotelnum;
+		 var url="adminRoomDetail.do?hotelnum="+hotelnum;
 		 var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=700,";
 			opt = opt + "height=600, top=300, left=300";
 			window.open(url, "객실 정보", opt); 
 	}
 
 function delete_room(hotelnum){
-	var url="adminRoomDelete?hotelnum="+hotelnum;
+	var con = confirm("취소하시겠습니까?");
+	if(con == true) {
+	var url="adminRoomDelete.do?hotelnum="+hotelnum;
 	document.frm.action=url;
 	document.frm.submit();
+	} else return false;  
 }
 
 function insert_room(){
-		var url="adminRoomInsertForm";
+		var url="adminRoomInsertForm.do";
 		document.frm.action=url;
 		document.frm.submit();
 }
@@ -66,7 +69,7 @@ border:1px solid black;
 
 <div  class="clear"></div>
 <article >
-<h1>객실 리스트</h1>
+<center><h1>객실 리스트</h1></center>
 <center>${message}</center>
 	<form name="frm" method="post">
 		<table style="margin:0 auto; 
@@ -93,18 +96,18 @@ border:1px solid black;
 				<c:forEach items="${roomViewList}" var="roomViewDto">
 					<tr>
 		                <td>
-		                	<img src="../static/room_images/${roomViewDto.img}" width="200pt"></td>
+		                	<img src="<c:url value='/room_images/${roomViewDto.IMG}' />" width="200px"></td>
 		                <td height="23" align="center" >
-		                	${roomViewDto.hotelnum}</td>
+		                	${roomViewDto.HOTELNUM}</td>
 		                <td height="23" align="center" >
-		                	${roomViewDto.kind}</td>
+		                	${roomViewDto.KIND}</td>
 		                <td height="23" align="center" >
-		                	${roomViewDto.persons}</td>
+		                	${roomViewDto.PERSONS}</td>
 		                <td height="23" align="center" >
-		                	${roomViewDto.price}</td>
+		                	${roomViewDto.PRICE}</td>
 		                <td height="23" align="center" >
-		                	${roomViewDto.roomsize}</td>
-		                <td> <center><input class="btn" type="button" name="btn_search" value="삭제" onclick="delete_room('${roomViewDto.hotelnum}');" id="qna_button"></center></td>
+		                	${roomViewDto.ROOMSIZE}</td>
+		                <td> <center><input class="btn" type="button" name="btn_search" value="삭제" onclick="delete_room('${roomViewDto.HOTELNUM}');" id="qna_button"></center></td>
 					</tr>
 				</c:forEach>
 			</c:otherwise>
@@ -118,7 +121,7 @@ border:1px solid black;
 	<jsp:param name="endPage" value="${paging.endPage}" />
 	<jsp:param name="prev" value="${paging.prev}" />
 	<jsp:param name="next" value="${paging.next}" />
-	<jsp:param name="command" value="adminRoomList" />
+	<jsp:param name="command" value="adminRoomList.do" />
 </jsp:include>
 	
 		

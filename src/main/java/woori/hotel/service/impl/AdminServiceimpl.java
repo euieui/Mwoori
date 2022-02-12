@@ -64,6 +64,7 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	public void adminlistQna4(HashMap<String, Object> paramMap) {
 		adao.adminlistQna4(paramMap);		
 	  }
+	
 	@Override
 	public void listMember(HashMap<String, Object> paramMap) {
 		adao.listMember(paramMap);		
@@ -71,6 +72,27 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	@Override
 	public void getAllCountMember(HashMap<String, Object> paramMap) {
 		adao.getAllCountMember(paramMap);		
+	}
+	
+	@Override
+	public void getAllCountRoom(HashMap<String, Object> paramMap) {
+		adao.getAllCountRoom(paramMap);		
+	}
+	@Override
+	public void getAllRoomList(HashMap<String, Object> paramMap) {
+		adao.getAllRoomList(paramMap);		
+	}
+	@Override
+	public void insertRoom(HashMap<String, Object> paramMap) {
+		adao.insertRoom(paramMap);		
+	}
+	@Override
+	public void getRoom(HashMap<String, Object> paramMap) {
+		adao.getRoom(paramMap);		
+	}
+	@Override
+	public void deleteRoom(HashMap<String, Object> paramMap) {
+		adao.deleteRoom(paramMap);		
 	} 
 
 

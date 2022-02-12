@@ -31,9 +31,16 @@ import java.util.HashMap;
 
 
 	void listMember(HashMap<String, Object> paramMap);
-
-
 	void getAllCountMember(HashMap<String, Object> paramMap);
+
+
+	void getAllCountRoom(HashMap<String, Object> paramMap);
+	void getAllRoomList(HashMap<String, Object> paramMap);
+	void insertRoom(HashMap<String, Object> paramMap);
+	void deleteRoom(HashMap<String, Object> paramMap);
+	void getRoom(HashMap<String, Object> paramMap);
+
+
 
 
 
