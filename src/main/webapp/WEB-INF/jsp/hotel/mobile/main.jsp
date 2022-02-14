@@ -25,9 +25,9 @@
 
   $(function() {
 	    $("#datepicker1, #datepicker2").datepicker({
-	        showOn:"button"
+	/*         showOn:"button"
 	           , buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif"
-	           ,buttonImageOnly: true,
+	           ,buttonImageOnly: true, */
 	      	 minDate:"0", maxDate: "+1Y"
 	    	 
 	    }); 
@@ -96,26 +96,19 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 <form name="formm" method="post" action="mbookForm.do" style="background-color: #F1EBD6;">
 <div id="serch_bar_view"  style="border:1px solid black;">
            <div id="serch_bar">
-                  <ul>
-                    <li >체크인&nbsp;&nbsp;<input type="text"  name="checkin" id="datepicker1" size="30" > </li>                  
-                    <li >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="30" >  </li>
+                  <ul style="text-align: center; float: left;">
+                    <li style="width:90%;">체크인&nbsp;&nbsp;<input type="text"  name="checkin" id="datepicker1" size="30" style="font-size: 30px;"> </li>                  
+                    <li style="width: 90%; margin-left:-32px;" >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="30" style="font-size: 30px;" >  </li>
                             
-                    <li>객실&nbsp;&nbsp;<input type="text" name="roomnum" size="20" id="datepicker3" ></li>
-                    <li>성인&nbsp;&nbsp;<input type="text" name="usernum" size="20" id="datepicker4"></li>
-                    <li><input type="submit" value="검색하기" id="serch_bar_button" onclick="return checkRoom();"></li>
+                    <li style="width: 90%; float: left;">객실&nbsp;&nbsp;<input type="text" name="roomnum" size="30" id="datepicker3" style="font-size: 30px;"></li>
+                    <li style="width: 90%;">성인&nbsp;&nbsp;<input type="text" name="usernum" size="30" id="datepicker4"style="font-size: 30px;"></li>
+                    <li style="width: 90%; text-align: center; " ><input type="submit" value="검색하기" id="serch_bar_button" onclick="return checkRoom();"></li>
                   </ul>
            </div>           
 </div>
 </form>
- <script type="text/javascript"></script>
-<div id="main_video">
-<div style="text-style">  갤러리 <br>  GALLERY </div>
-<div>
-<iframe width="100%" height="500" src="<c:url value= 'https://www.youtube.com/embed/81xxCLvADlU?autoplay=1&mute=1'/> "   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-</div>
-</div>
+
  
 </div>
 <%@ include file="footer.jsp" %>
