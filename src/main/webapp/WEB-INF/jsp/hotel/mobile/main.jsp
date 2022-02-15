@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 
 <%@ include file="header.jsp" %>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div  class="clear"></div>
 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" /> -->
@@ -97,12 +97,12 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 <div id="serch_bar_view"  style="border:1px solid black;">
            <div id="serch_bar">
                   <ul style="text-align: center; float: left;">
-                    <li style="width:90%;">체크인&nbsp;&nbsp;<input type="text"  name="checkin" id="datepicker1" size="30" style="font-size: 30px;"> </li>                  
-                    <li style="width: 90%; margin-left:-32px;" >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="30" style="font-size: 30px;" >  </li>
+                    <li style="">체크인&nbsp;&nbsp;<input type="text"  name="checkin" id="datepicker1" size="10" style="font-size: 30px;"> </li>                  
+                    <li style=" " >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="10" style="font-size: 30px;" >  </li>
                             
-                    <li style="width: 90%; float: left;">객실&nbsp;&nbsp;<input type="text" name="roomnum" size="30" id="datepicker3" style="font-size: 30px;"></li>
-                    <li style="width: 90%;">성인&nbsp;&nbsp;<input type="text" name="usernum" size="30" id="datepicker4"style="font-size: 30px;"></li>
-                    <li style="width: 90%; text-align: center; " ><input type="submit" value="검색하기" id="serch_bar_button" onclick="return checkRoom();"></li>
+                    <li style=" float: left;">객실&nbsp;&nbsp;<input type="text" name="roomnum" size="5" id="datepicker3" style="font-size: 30px;"></li>
+                    <li style="">성인&nbsp;&nbsp;<input type="text" name="usernum" size="5" id="datepicker4"style="font-size: 30px;"></li>
+                    <li style=" text-align: center; " ><input type="submit" value="검색하기" id="serch_bar_button" onclick="return checkRoom();"></li>
                   </ul>
            </div>           
 </div>

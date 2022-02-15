@@ -102,7 +102,7 @@ public class MQnaController {
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
 	    ModelAndView mav = new ModelAndView();
-		if (loginUser == null) mav.setViewName("member/login");
+		if (loginUser == null) mav.setViewName("mobile/member/login");
 		else {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("qnaseq",qnaseq);
@@ -110,7 +110,7 @@ public class MQnaController {
 			ArrayList<HashMap<String, Object>> list 
 			= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 			mav.addObject("qnaVO", list.get(0));
-			mav.setViewName("qna/qnaView");
+			mav.setViewName("mobile/qna/qnaView");
 		}
 		return mav;
 	}
@@ -124,7 +124,7 @@ public class MQnaController {
 		
 		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");   
 		
-	    if (loginUser == null) mav.setViewName( "member/login");
+	    if (loginUser == null) mav.setViewName( "mobile/member/login");
 	    HashMap<String, Object> paramMap = new HashMap<String, Object>();
 	    
 		paramMap.put("qnaseq",qnaseq);
@@ -155,7 +155,7 @@ public class MQnaController {
 		
 			HttpSession session= request.getSession();
 			HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");   
-		    if (loginUser == null) mav.setViewName("member/login");
+		    if (loginUser == null) mav.setViewName("mobilemember/login");
 		    else {
 		        HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		        paramMap.put("qnaseq",qnaseq);
@@ -176,7 +176,7 @@ public class MQnaController {
 	public String qna_delete(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");   
-		if (loginUser == null) return "loginForm";
+		if (loginUser == null) return "mobile/member/login";
 	    int qnaseq = Integer.parseInt(request.getParameter("qnaseq"));
 	    HashMap<String, Object> paramMap = new HashMap<String, Object>();
 	    paramMap.put("qnaseq",qnaseq); 

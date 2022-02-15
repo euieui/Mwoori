@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-<%@ include file="sub_menu.jsp" %>  
+
 <!-- <link href="qna/qna.css" rel="stylesheet"> -->
 <style>
 #qnawriteview{
- margin-left: 570px; height:200px;
-position:relative;
+margin:0 auto;
+width:80%;
+font-size:200%;
 background-color:#9F876B;
 border-collapse:collapse;
 border: 2px solid black;
@@ -16,7 +17,7 @@ border-bottom:
 }
 
 #qnaview1{
-height: 400px; margin-top:px;
+height: 1000px;
 }
 #qnawriteview caption {
 	    font-size: 120%;  font-weight: bold;
@@ -35,7 +36,7 @@ border:1px solid black;
 
 <div id="qnaview1">
   
-<form name="formm" method="post" action="qnaWrite.do" >
+<form name="formm" method="post" action="mqnaWrite.do" >
 <table id="qnawriteview">
 <h4>${message}</h4>
 <caption>
@@ -46,7 +47,7 @@ border:1px solid black;
    <tr height="25" >
              <td align="center" width="130 " style="font-weight: bold; ">제목</td>
              
-             <td width="450"><input type="text" name="title" size="68"  style="background-color:white;" /></td>
+             <td width="450" "><input type="text" name="title" size="68"  style="background-color:white; " /></td>
    </tr>
    <tr  >
             <td align="center" width="150" style="font-weight: bold; ">문의사항</td>
@@ -59,7 +60,7 @@ border:1px solid black;
                   <input type="submit"  value="저장하기"     class="submit" id="qna_button"> 
          		
          		  <input type="button"  value="취소"  class="submit"  id="qna_button"
-       							onclick="location.href='qnaList.do'"> 
+       							onclick="location.href='mqnaList.do'"> 
               </td>
    </tr>
       

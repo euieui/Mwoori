@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-<%@ include file="sub_menu.jsp" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <style>
 #qnaviewtable,#qnaviewtable th,#qnaviewtable td{
@@ -9,8 +9,8 @@ border:0;}
 color:#383838; text-decoration: none; 
 }
 #qnaviewtable{
-width:100%;  border-bottom:1px solid #999;  color:#666; font-size:12px; table-layout:fixed;
-margin:0 auto; margin-right:400px; 
+width:100%;  border-bottom:1px solid #999;  color:#666;  table-layout:fixed;
+margin:0 auto;
 border:1;     border-collapse: collapse;
 
 }
@@ -27,13 +27,13 @@ border:1px solid black;
     font-size: 65%;
 }
 #qnaviewtable tr th{ padding:5px 0 6px; /* border-top: solid 1px #999;  *//* border-bottom: solid 1px #b2b2b2; */ background-color:#9F876B; color: #333; font-weight: bold; vertical-align: top; 
-line-height: 50px;
+line-height: 50px; font-size:150%;
 }
 #qnaviewtable tr td{
 padding: 8px 0 6px; border-top:solid 1px #999; background-color:white; color:#333; font-weight: bold; vertical-align: top;
-line-height: 30px; 
+line-height: 30px;  font-size:200%;
 }
-#qnaviewtable #qna_date,#qna_rep{ padding: 0; font-family: Tahoma; font-size: 11px; line-height: normal;
+#qnaviewtable #qna_date,#qna_rep{ padding: 0; font-family: Tahoma; font-size:200%; line-height: normal;
 } 
 #qnaviewtable #qna_title{
  text-align: left; padding-left: 15px; font-size: 13px;
@@ -55,13 +55,13 @@ font-weight: bold; font-size: 140%;
 <article >
 
 <form name="formm" method="post">
-<table style=" border:1; cellspacing:0; width: 1000px;" id="qnaviewtable">
+<table style=" border:1; cellspacing:0; width: 100%;" id="qnaviewtable">
 <caption>
-<h1 style=" text-align: center; color:#3a3125;"> 1:1 고객 게시판 목록</h1>
-<h3 style=" text-align:center;  color:#3a3125;"> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h3>
+<h1 style=" text-align: center; color:#3a3125; font-size: 300%;"> 1:1 고객 게시판 목록</h1>
+<h3 style=" text-align:center;  color:#3a3125;  font-size: 190%;"> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h3>
 </caption>
 	<tr style="height: 60px; border:0;"  >
-           <th scope="col">등록번호</th><th scope="col">제목</th><th scope="col">아이디</th><th scope="col">등록일</th><th scope="col">답변 여부</th>
+           <th scope="col" >등록번호</th><th scope="col">제목</th><th scope="col">아이디</th><th scope="col">등록일</th><th scope="col">답변 여부</th>
     </tr>
   
 	<c:forEach items="${qnaList}"  var="qnaVO"  varStatus="status"> 
@@ -69,14 +69,14 @@ font-weight: bold; font-size: 140%;
         		<tr style="height: 30px;  text-align:center;">
                
                     <td id="qna_size"><c:out value="${size}"/></td>
-                    <td id="qna_title"><a href="qnaView.do?qnaseq=${qnaVO.QNASEQ}">${qnaVO.TITLE}</a>
+                    <td id="qna_title" style="font-size:130%;"><a href="mqnaView.do?qnaseq=${qnaVO.QNASEQ}">${qnaVO.TITLE}</a>
         <c:choose>
            <c:when test="${qnaVO.REP==1}">
-                     <img width="10" height="9" id="new" src="<c:url value='/images/ic_new.gif'/>">  
+                     <img width="20" height="18" id="new" src="<c:url value='/images/ic_new.gif'/>">  
                 </c:when>
                 
              <c:when test="${qnaVO.REP==2 }">
-            <br> <img  src="<c:url value='/images/ic_reply.png'/> "> &nbsp;&nbsp;${qnaVO.REPLY}
+            <br> <img width="20" height="18"  src="<c:url value='/images/ic_reply.png'/> "> &nbsp;&nbsp;${qnaVO.REPLY}
               </c:when>
           </c:choose>    
                      
@@ -97,9 +97,9 @@ font-weight: bold; font-size: 140%;
 <div class="clear"></div>
 <div id="qna_buttons"  >
 	<input type="button"  value="1:1 질문하기"  class="submit" id="qna_button"
-	onClick="location.href='qnaWriteForm.do'"> 
+	onClick="location.href='mqnaWriteForm.do'"> 
 	<input type="button"    value="되돌아가기"  class="cancel" id="qna_button"
-	onclick="location.href='mainForm.do'">  
+	onclick="location.href=mobilemain.do'">  
 </div>
 </form>
 </article>

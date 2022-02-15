@@ -18,9 +18,9 @@ a{
 }
 
 .header{
-	margin-top:-70px;
+	margin-top:-23px;
 	width:100%;
-	height:300px;
+	height:100px;
 	text-align: center;
 	box-sizing:border-box;
 	background-color: #faf1d0;
@@ -29,18 +29,20 @@ a{
 	
 }
 .header_logo h1{
-	font-size: 100px ;
+	font-size: 200% ;
 	
 	letter-spacing:2px;
 	
 }
 .header_logo p{
-	font-size: 30px;
+	margin-top:-20px;
+	font-size: 100%;
 	letter-spacing:2px;
-	margin-top:-40px;
+	
 }
 .header_gnb ul{
-	margin-top: 20px;
+	font-size:100%;
+	margin-top:-20px;
 	padding:0; list-style:none;
 }
 .header_gnb ul li{
@@ -52,7 +54,7 @@ a{
 	
 	display:block;
 	
-	font-size: 30px;
+	font-size: 60%;
 	color: black;
 	margin:0px 16px;
 	letter-spacing :0px;
@@ -67,19 +69,19 @@ a{
 
 
 #footer { 
-	float:left;
+
 width:100%;
-		margin-top:10px;
-	position:relative;  margin:o auto; height:200px;
+margin-top:100px;
+position:relative;  margin:o auto; height:270px;
 	   background-repeat: no-repeat;	  font-size: bold;
 	   background-color: #faf1d0;
-	   
+	 
 	   
 }
 
 /*  */
 #footer_view{
-	float:left;
+	/* float:left; */
 	position:relative;
 	width:100%;
 	height:150px;
@@ -88,7 +90,7 @@ width:100%;
 
 
 #footer_1{
-	float:left;
+	/* float:left; */
 position:relative;
 margin:0 auto;
 height: 30px ; width: 100%; 
@@ -113,7 +115,7 @@ margin-top:-90px;
  #footer_2 {  
  margin:0 auto;
 position:relative;
-float:left;
+/* float:left; */
 text-align:center;
  height: 50px ; width: 100%;
 	margin-top:50px;
@@ -140,7 +142,7 @@ footrer #foter_2 ul li a{
 	letter-spacing :1px;
 }
 #footer_3 {
-	float:left;
+/* 	float:left; */
 	position:relative;
 	right:0px;
 	
