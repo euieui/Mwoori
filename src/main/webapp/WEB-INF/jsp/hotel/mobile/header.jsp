@@ -10,7 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>The Woori Hotel</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
@@ -42,7 +41,9 @@ font-family: 'Nanum Myeongjo', serif;
 </style>
 <script src="<c:url value='/script/script.js'/>"></script>
 <script src="<c:url value='/script/mypage.js'/>"></script>
+<script src="<c:url value='/script/hotelScript.js'/>"></script>
 <link href="mcss/main.css" rel="stylesheet">
+<link href="mcss/hotel.css" rel="stylesheet">
 
 <%--  <link href="<c:url value='/css/css.css'/> " rel="stylesheet">
 <link href="<c:url value='/css/Hotel.css'/>" rel="stylesheet">
@@ -55,7 +56,7 @@ font-family: 'Nanum Myeongjo', serif;
 </head>
 <body>
 
-
+<div id="wrap">
 <header class="header"><!-- 로고, 주메뉴, 카테고리 메뉴 등이 표시되는 영역 -->
  <!-- 상단 메뉴 시작 : 로그인 CART MyPage 등-->
    <div class="header_logo">
@@ -93,5 +94,5 @@ font-family: 'Nanum Myeongjo', serif;
            		
            		
            		
-      
+        
 </header> 

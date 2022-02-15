@@ -6,7 +6,7 @@
 
 
 <article  class="rightarticle_aa"><%@ include file="sub_menu.jsp" %>
-<form action="bookcancel.do" name="frm">
+<form action="mbookcancel.do" name="frm">
 <input type="hidden" name="bdseq" value="${bookcheck.BDSEQ }">
 <input type="hidden" id="result" value="${bookcheck.RESULT }">
 <input type="hidden" name="checkin" value="${bookcheck.CHECKIN }">

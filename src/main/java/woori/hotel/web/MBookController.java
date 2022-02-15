@@ -139,5 +139,10 @@ public class MBookController {
 			return "redirect:/mlistbookcheck.do?bdseq="+bdseq;
 		}
 	}
+	
+	
+	
+	
+	
 
 }
