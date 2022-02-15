@@ -107,7 +107,7 @@ create or replace procedure deleteRoom (
     p_hotelnum in varchar2)
 IS
 BEGIN
-    delete hotel where hotelnum=to_number(p_hotelnum)
+    delete hotel where hotelnum=to_number(p_hotelnum);
     commit;
 END;
 
