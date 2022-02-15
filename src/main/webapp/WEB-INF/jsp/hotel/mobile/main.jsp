@@ -78,14 +78,7 @@ function days () {
 
   
 </script>
-<style>
-#main_video{
-position: relative; text-align: center; margin:0 auto; font-weight: bold;
-    font-size: 30px; 
-    margin-top: 50px;
-    
-}
-</style>
+
 <div id="wrap">
 
 <div id="main_img">
@@ -96,13 +89,14 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 <form name="formm" method="post" action="mbookForm.do" style="background-color: #F1EBD6;">
 <div id="serch_bar_view"  style="border:1px solid black;">
            <div id="serch_bar">
-                  <ul style="text-align: center; float: left;">
-                    <li style="">체크인&nbsp;&nbsp;<input type="text"  name="checkin" id="datepicker1" size="10" style="font-size: 30px;"> </li>                  
-                    <li style=" " >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="10" style="font-size: 30px;" >  </li>
+                  <ul style="text-align: left; ">
+                    <li >체크인&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text"  name="checkin" id="datepicker1" size="21" > </li>                  
+                    <li style="float:left;" >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="21"  >  </li>
                             
-                    <li style=" float: left;">객실&nbsp;&nbsp;<input type="text" name="roomnum" size="5" id="datepicker3" style="font-size: 30px;"></li>
-                    <li style="">성인&nbsp;&nbsp;<input type="text" name="usernum" size="5" id="datepicker4"style="font-size: 30px;"></li>
-                    <li style=" text-align: center; " ><input type="submit" value="검색하기" id="serch_bar_button" onclick="return checkRoom();"></li>
+                    <li style=" float: left;">객실&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="roomnum" size="21" id="datepicker3" ></li>
+                    <li style="">성인&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="usernum" size="21" id="datepicker4" ></li>
+                    <li >             
+                    <input type="submit" value="검색하기" id="serch_bar_button" onclick="return checkRoom();"></li>
                   </ul>
            </div>           
 </div>
