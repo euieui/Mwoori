@@ -25,9 +25,6 @@
 
   $(function() {
 	    $("#datepicker1, #datepicker2").datepicker({
-	/*         showOn:"button"
-	           , buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif"
-	           ,buttonImageOnly: true, */
 	      	 minDate:"0", maxDate: "+1Y"
 	    	 
 	    }); 
@@ -79,19 +76,19 @@ function days () {
   
 </script>
 
-<div id="wrap">
+
 
 <div id="main_img">
-   <img id="img" src="<c:url value='/images/main_images3.jpg'/> " >     
+  <img id="img" src="<c:url value='/images/main_images3.jpg'/> ">     
 </div>
 
 
-<form name="formm" method="post" action="mbookForm.do" style="background-color: #F1EBD6;">
+<form name="formm" method="post" action="mbookForm.do" >
 <div id="serch_bar_view"  style="border:1px solid black;">
            <div id="serch_bar">
                   <ul style="text-align: left; ">
                     <li >체크인&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text"  name="checkin" id="datepicker1" size="21" > </li>                  
-                    <li style="float:left;" >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="21"  >  </li>
+                    <li >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="21"  >  </li>
                             
                     <li style=" float: left;">객실&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="roomnum" size="21" id="datepicker3" ></li>
                     <li style="">성인&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="usernum" size="21" id="datepicker4" ></li>
@@ -104,5 +101,5 @@ function days () {
 
 
  
-</div>
+
 <%@ include file="footer.jsp" %>

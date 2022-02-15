@@ -1,29 +1,30 @@
         
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>   
-<%@ include file="sub_menu.jsp"%>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 
 #qnawriteview{
- margin-left: 570px; height:200px;
+width:100%;
+ height:200px;
 position:relative; border:1px solid black;
 background-color:#9F876B;
 border-collapse:collapse;
 }
-article h2{
- margin:0 auto; margin-left: 800px; margin-top:20px;
-}
 
 article h3{
- margin:0 auto; margin-left: 800px; margin-top:50px; margin-bottom: 30px
+
 }
 #qnaview1{
-height: 400px; margin-top:100px; margin :0 atuo;
+height: 100%; margin :0 atuo;
 }
 
 #qna_btn{
-    margin-left: 850px;
-    margin-top: 20px;
+margin:0 auto;
+
+ height: 50px;
+  width: 130px;  
+  color: #9F876B;
 }
 </style>
 <article>
@@ -35,13 +36,13 @@ height: 400px; margin-top:100px; margin :0 atuo;
  
  <table id="qnawriteview">
      <tr>
-             <td align="center" width="150">제목</td>
-             <td width="450"><input type="text" name="title" size="60" /></td>
+             <td align="center" width="10%">제목</td>
+             <td width="450"><input type="text" name="title" size="42" /></td>
    </tr>
    <tr>
-            <td align="center" width="150">문의사항</td>
+            <td align="center" width="10%">문의사항</td>
             <td width="450">
-            <textarea rows="10" cols="60" name="content" ></textarea>
+            <textarea rows="7" cols="45" name="content" ></textarea>
             </td>
    </tr>
  
@@ -60,7 +61,7 @@ height: 400px; margin-top:100px; margin :0 atuo;
 <%@ include file="../footer.jsp" %> 
 <script type="text/javascript">
 function go_qna_update() {
-	 document.formm.action ="qnaUpdate.do";
+	 document.formm.action ="mqnaUpdate.do";
     document.formm.submit();
 }
 </script>

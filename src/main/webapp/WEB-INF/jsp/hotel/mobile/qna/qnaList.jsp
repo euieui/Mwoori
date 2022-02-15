@@ -28,13 +28,13 @@ border:1px solid black;
     font-size: 65%;
 }
 #qnaviewtable tr th{ padding:5px 0 6px; /* border-top: solid 1px #999;  *//* border-bottom: solid 1px #b2b2b2; */ background-color:#9F876B; color: #333; font-weight: bold; vertical-align: top; 
-line-height: 50px; font-size:150%;
+line-height: 50px; 
 }
 #qnaviewtable tr td{
-padding: 8px 0 6px; border-top:solid 1px #999; background-color:white; color:#333; font-weight: bold; vertical-align: top;
-line-height: 30px;  font-size:200%;
+padding: 8px 0 6px; border-top:solid 1px #999; background-color:white; color:#333;  vertical-align: top;
+line-height: 30px;  
 }
-#qnaviewtable #qna_date,#qna_rep{ padding: 0; font-family: Tahoma; font-size:200%; line-height: normal;
+#qnaviewtable #qna_date,#qna_rep{ padding: 0; font-family: Tahoma; line-height: normal;
 } 
 #qnaviewtable #qna_title{
  text-align: left; padding-left: 15px; font-size: 13px;
@@ -47,7 +47,7 @@ line-height: 30px;  font-size:200%;
 line-height: 50px;}
 
 #qnaviewtable caption{
-font-weight: bold; font-size: 140%;
+font-weight: bold; 
 
 }
 
@@ -58,8 +58,8 @@ font-weight: bold; font-size: 140%;
 <form name="formm" method="post">
 <table style=" border:1; cellspacing:0; width: 100%;" id="qnaviewtable">
 <caption>
-<h1 style=" text-align: center; color:#3a3125; font-size: 300%;"> 1:1 고객 게시판 목록</h1>
-<h3 style=" text-align:center;  color:#3a3125;  font-size: 190%;"> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h3>
+<h1 style=" text-align: center; color:#3a3125; "> 1:1 고객 게시판 목록</h1>
+<h3 style=" text-align:center;  color:#3a3125; "> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h3>
 </caption>
 	<tr style="height: 60px; border:0;"  >
            <th scope="col" >등록번호</th><th scope="col">제목</th><th scope="col">아이디</th><th scope="col">등록일</th><th scope="col">답변 여부</th>
@@ -70,14 +70,14 @@ font-weight: bold; font-size: 140%;
         		<tr style="height: 30px;  text-align:center;">
                
                     <td id="qna_size"><c:out value="${size}"/></td>
-                    <td id="qna_title" style="font-size:130%;"><a href="mqnaView.do?qnaseq=${qnaVO.QNASEQ}">${qnaVO.TITLE}</a>
+                    <td id="qna_title" ><a href="mqnaView.do?qnaseq=${qnaVO.QNASEQ}">${qnaVO.TITLE}</a>
         <c:choose>
            <c:when test="${qnaVO.REP==1}">
-                     <img width="20" height="18" id="new" src="<c:url value='/images/ic_new.gif'/>">  
+                     <img width="10" height="9" id="new" src="<c:url value='/images/ic_new.gif'/>">  
                 </c:when>
                 
              <c:when test="${qnaVO.REP==2 }">
-            <br> <img width="20" height="18"  src="<c:url value='/images/ic_reply.png'/> "> &nbsp;&nbsp;${qnaVO.REPLY}
+            <br> <img width="10" height="9"  src="<c:url value='/images/ic_reply.png'/> "> &nbsp;&nbsp;${qnaVO.REPLY}
               </c:when>
           </c:choose>    
                      

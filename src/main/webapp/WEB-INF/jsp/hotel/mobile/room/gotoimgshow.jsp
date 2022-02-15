@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-  
-  <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<%@ include file="../header.jsp" %>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
@@ -13,8 +8,8 @@
 <style>
 article{
 
-width: 100%;height: 710px; margin: 0 auto;
-background: #9F876B;;
+width: 100%;height: 100%; margin: 0 auto;
+background: #9F876B;
 }
  
       .swiper {
@@ -103,7 +98,7 @@ background: #9F876B;;
 
 <article>
 <div><c:forEach items="${imglist}" var="imglist">
-<div id="sum_aa1" style="width: 800px; margin: 0 auto;">
+<div id="sum_aa1" style="width: 100%; margin: 0 auto;">
 ${imglist.kind} 객실 사진</div></c:forEach>
 <div style="  margin: 0 auto; width: 97%;"> 
 
@@ -182,7 +177,4 @@ ${imglist.kind} 객실 사진</div></c:forEach>
 
 
 </article>
-</body>
-</html>
-
-
+<%@ include file="../footer.jsp" %> 

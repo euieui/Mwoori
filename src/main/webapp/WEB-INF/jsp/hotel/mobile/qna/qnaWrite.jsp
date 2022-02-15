@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- <link href="qna/qna.css" rel="stylesheet"> -->
 <style>
 #qnawriteview{
 margin:0 auto;
-width:80%;
-font-size:200%;
+width:100%;
+
 background-color:#9F876B;
 border-collapse:collapse;
 border: 2px solid black;
@@ -17,10 +17,11 @@ border-bottom:
 }
 
 #qnaview1{
-height: 1000px;
+width:100%;
+height: 100%;
 }
 #qnawriteview caption {
-	    font-size: 120%;  font-weight: bold;
+	   font-weight: bold;
 }
 #qna_button{
 border:1px solid black;
@@ -45,14 +46,14 @@ border:1px solid black;
                
 </caption>
    <tr height="25" >
-             <td align="center" width="130 " style="font-weight: bold; ">제목</td>
+             <td align="center" width="10% " style="font-weight: bold; ">제목</td>
              
-             <td width="450" "><input type="text" name="title" size="68"  style="background-color:white; " /></td>
+             <td width=""><input type="text" name="title" size="42"  style="background-color:white; " /></td>
    </tr>
    <tr  >
-            <td align="center" width="150" style="font-weight: bold; ">문의사항</td>
-            <td width="450"  >
-            <textarea rows="11" cols="70" name="content"  style="background-color:white;">
+            <td align="center" width="10%" style="font-weight: bold; ">문의사항</td>
+            <td  >
+            <textarea rows="7" cols="45" name="content"  style="background-color:white;">
             </textarea></td>
    </tr>
    <tr height="20">

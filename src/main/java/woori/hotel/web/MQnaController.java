@@ -155,7 +155,7 @@ public class MQnaController {
 		
 			HttpSession session= request.getSession();
 			HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");   
-		    if (loginUser == null) mav.setViewName("mobilemember/login");
+		    if (loginUser == null) mav.setViewName("mobile/member/login");
 		    else {
 		        HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		        paramMap.put("qnaseq",qnaseq);
