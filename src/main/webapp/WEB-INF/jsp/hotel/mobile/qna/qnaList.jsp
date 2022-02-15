@@ -2,6 +2,7 @@
 <%@ include file="../header.jsp" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 #qnaviewtable,#qnaviewtable th,#qnaviewtable td{
 border:0;}

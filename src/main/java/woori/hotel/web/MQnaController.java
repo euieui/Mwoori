@@ -90,7 +90,7 @@ public class MQnaController {
 			paramMap.put("content",request.getParameter("content"));
 		   	qs.insertQna(paramMap);
 	    }
-		mav.setViewName("redirect:/qnaList.do");
+		mav.setViewName("redirect:/mqnaList.do");
 		return mav;
 	}
 	

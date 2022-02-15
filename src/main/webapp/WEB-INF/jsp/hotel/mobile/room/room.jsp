@@ -1,35 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ include file="../header.jsp" %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style> 
 #room_view{
+
 width: 100%;
 margin: 0 auto;
-height: 700px;
-
-
+height: 250%;
 }
 #room_top{
 
-width: 98%;
-height:  300px;
-font-size: 250%;
+width: 100%;
+height:  200px;
+font-size: 130%;
 font-weight:  bold;
 border-bottom: 3px solid black;
 
 }
 .room_content{
     float: left;
-    width: 98%;  
-    height: 2500px;
-    margin-top: 30px;
-    margin-left: 30px;
+    width: 100%;  
+    height: 200%;
+    margin-top: 40px;
+
+ 
 }
 
 .room_1 {
-    width: 80%;
+    width: 100%;
+    height :400px;
     margin:0 auto;
-    float: left;
+ 
    
 }
 .roomcontent_view{
@@ -37,27 +41,29 @@ height: 100px;
    width: 400px;
 }
 .roomcotent123{
-idth: 200px;
+
+width: 200px;
     height: 50px;
 }
 .roomcotent123 h4,p{
 margin:0;
 }
 .room_content_view{
+width: 100%;
+
 }
 .room_contetn_btn{
     position: relative;
-    top: -50px;
-    width: 100px;
-    left: 700px;
+    width: 100%; 
+    margin-top: 100px;
 }
 
 .room_btn{
 background-color: #F1EBD6;
-width: 200px;
+width: 100px;
 height: 40px;
-font-size: 20px;
-font-weight: bold;
+font-size: 80%;
+
 }
 
 }
@@ -85,7 +91,10 @@ function gotoimgshow(num){
 
 
 </script>
+
 <article>
+
+
 <div id="room_view">  
 
 			<div id="room_top">
@@ -98,7 +107,7 @@ function gotoimgshow(num){
 			<div class="room_content">
 									<div class="room_1">
 														<div>
-															<a href="gotoimgshow.do?num=1"><img  src="<c:url value='/room_images/Deluxe1.jpg'/> " height="500px" width="900px"></a>
+															<a href="gotoimgshow.do?num=1"><img  src="<c:url value='/room_images/Deluxe1.jpg'/> " height="70%" width="98%"></a>
 															
 														</div>
 													
@@ -109,7 +118,7 @@ function gotoimgshow(num){
 																		</div>
 																		 <div class="room_contetn_btn"> 
 																				 <input type="button" onClick ="gotoimgshow(1)" value="이미지 보기" class="room_btn" size="30">
-																				 <input type="button" value="예약하기"   onClick="gotobook('Deluxe');" style="background-color:#9F876B; width: 200px; font-size: 20px;
+																				 <input type="button" value="예약하기"   onClick="gotobook('Deluxe');" style="background-color:#9F876B; width: 100px; font-size: 20px;
 font-weight: bold;">
 																		 </div>
 														</div>											
@@ -117,7 +126,7 @@ font-weight: bold;">
 								
 								<div class="room_1">
 														<div>
-													<a href="gotoimgshow.do?num=2"><img  src="<c:url value='/room_images/BusinessDeluxe1.jpg'/> " height="500px" width="900px"></a>
+													<a href="gotoimgshow.do?num=2"><img  src="<c:url value='/room_images/BusinessDeluxe1.jpg'/> "height="60%" width="98%"></a>
 														</div>
 													
 														<div class="roomcontent_view">
@@ -134,7 +143,7 @@ font-weight: bold;">
 								</div>
 									<div class="room_1">
 														<div>
-													<a href="gotoimgshow.do?num=3"><img  src="<c:url value='/room_images/GrandCornerDeluxe1.jpg'/> " height="500px" width="900px"></a>
+													<a href="gotoimgshow.do?num=3"><img  src="<c:url value='/room_images/GrandCornerDeluxe1.jpg'/> " height="60%" width="98%"></a>
 														</div>
 													
 														<div class="roomcontent_view">
@@ -151,7 +160,7 @@ font-weight: bold;">
 								</div>
 								<div class="room_1">
 														<div>
-														<a href="gotoimgshow.do?num=4">	<img  src="<c:url value='/room_images/ExecuticeBusinessDeluxe1.jpg'/> " height="500px" width="900px"></a>
+														<a href="gotoimgshow.do?num=4">	<img  src="<c:url value='/room_images/ExecuticeBusinessDeluxe1.jpg'/> " height="60%" width="98%"></a>
 														</div>
 													
 														<div class="roomcontent_view" >
