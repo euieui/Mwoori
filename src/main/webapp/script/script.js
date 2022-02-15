@@ -163,4 +163,120 @@ function find_id(){
 }
 
 
+function mloginCheck(){
+	
+	if(document.loginFrm.id.value == ""){
+		alert("아이디를 입력하세요");
+		document.loginFrm.id.focus();
+		return false;
+	}
+	if(document.loginFrm.pwd.value == ""){
+		alert("비밀번호를 입력하세요");
+		document.loginFrm.pwd.focus();
+		return false;
+	}
+	return true;
+}
+
+
+function mgo_next(){
+	// 자바스크립트에서 jsp 페이지 내의 radio 버튼을 바라볼때, 같은 name의 radio가 여러개라면
+	// name  값에 의한 배열로 인식되어 사용됩니다.   
+	// 동의함 버튼 : okon[0],  동의안함  버튼 : okon[1]  
+	if( document.contractFrm.okon1[1].checked == true ){
+		alert('약관에 동의하셔야 회원 가입이 가능합니다.');
+	} else if( document.contractFrm.okon2[1].checked == true ){
+		alert('약관에 동의하셔야 회원 가입이 가능합니다.');
+	} else if( document.contractFrm.okon3[1].checked == true ){
+		alert('약관에 동의하셔야 회원 가입이 가능합니다.');
+	} else{
+		document.contractFrm.submit(); 
+	}
+}//
+
+
+
+
+
+function mgo_save(){
+	if (document.formm.id.value == "") {
+		alert("아이디를 입력하여 주세요."); 	    
+	    document.formm.id.focus();
+	} else if(document.formm.reid.value != document.formm.id.value){
+		alert("아이디 중복확인을 하지 않았습니다");		
+		document.formm.id.focus();
+	} else if(document.formm.pwd.value == "") {
+	    alert("비밀번호를 입력해 주세요.");	    
+	    document.formm.pwd.focus();
+	} else if(document.formm.pwd.value != document.formm.pwdCheck.value) {
+	    alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");	    
+	    document.formm.pwd.focus();
+	} else if(document.formm.name.value == "") {
+	    alert("이름을 입력해 주세요.");	    
+	    document.formm.name.focus();
+	} else if(document.formm.email.value == "") {
+	    alert("이메일을 입력해 주세요.");	   
+	    document.formm.email.focus();
+	}  else if(document.formm.phone.value == "") {
+	    alert("전화번호를 입력해 주세요.");	   
+	    document.formm.phone.focus();
+	} else if(document.formm.zip_num.value == "") {
+	    alert("주소를 입력해 주세요.");	   
+	    document.formm.zip_num.focus();
+	} else{
+		document.formm.action = "mjoinComplete.do";
+	    document.formm.submit();
+	}
+}
+
+
+
+
+function middoublecheck(){
+   if( document.formm.id.value=="" ){
+      alert("아이디를 입력하세요" );
+      documnet.formm.id.focus();
+      return;
+   }
+   var url = "midCheckForm.do?id=" + document.formm.id.value;
+   var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=200";
+   window.open(url, "IdCheck", opt);
+}
+
+
+
+
+function mpost_zip(){
+   var url = "mfindZipNum.do";
+   var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=550,";
+   opt = opt + " height=300, top=300, left=300";
+   window.open( url, "우편번호 찾기", opt );
+}
+
+
+
+
+function mresult(zip_num, sido, gugun, dong){
+	opener.document.formm.zip_num.value=zip_num;
+	opener.document.formm.addr1.value=sido+" "+gugun+" "+dong;
+	self.close();
+}
+
+
+
+
+function mmove_login(){
+	document.joinComFrm.action='mloginForm.do';
+	document.joinComFrm.submit();
+}
+
+
+
+function mfind_id(){
+   var url = "mfindIdPw.do";
+   var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=500,";
+   opt = opt + "height=250, top=300, left=300";
+   window.open(url, "Find Id/Pw", opt);
+}
+
 
