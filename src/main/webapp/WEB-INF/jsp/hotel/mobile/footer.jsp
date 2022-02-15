@@ -47,6 +47,6 @@ font-family: 'Nanum Myeongjo', serif;
       </div>
    </div>
 </footer>
-</div>
+
 </body>
 </html>

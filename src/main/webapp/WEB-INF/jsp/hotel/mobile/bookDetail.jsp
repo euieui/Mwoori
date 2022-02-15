@@ -1,8 +1,10 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
 <!-- 임시 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> --%> 
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+ 
 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" /> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -10,7 +12,11 @@
 <link href="<c:url value='/css/datepicker.css'/>" rel="stylesheet">
 
 <!-- 임시 -->
-<link href="<c:url value='/css/mobileHotel.css'/>" rel="stylesheet">
+<%-- <link href="<c:url value='/css/mobileHotel.css'/>" rel="stylesheet">
+<script src="<c:url value='/script/script.js'/>"></script>
+<script src="<c:url value='/script/mypage.js'/>"></script>
+<link href="mcss/main.css" rel="stylesheet"> --%>
+
 <script>
   $.datepicker.setDefaults({
     dateFormat: 'yy-mm-dd',
@@ -27,9 +33,9 @@
 
   $(function() {
 	    $("#datepicker1, #datepicker2").datepicker({
-	        showOn:"button"
+	        /* showOn:"button"
 	            , buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif"
-	            ,buttonImageOnly: true,
+	            ,buttonImageOnly: true, */
 	  
 		      	 minDate:"0", maxDate: "+1Y"
 
@@ -165,46 +171,43 @@ $(document).ready(function( $ ){
   
 </script>
 
+<hr>
 
 <div id="hotelview">
-	<div id="serch_bar_view">
-    <form method="post" name="formm" action="bookForm.do">
-    <input type="hidden" id = "kind" name="kind" value="">
+	<form name="formm" method="post" action="mbookForm.do" >
+	<input type="hidden" id="kind" name="kind" value=""/>
+	<div id="serch_bar_view"  style="border:1px solid black;">
            <div id="serch_bar">
-                  <ul>
-                    <li >체크인&nbsp;&nbsp;<input type="text"  name="checkin" id="datepicker1" size="20" value="${checkin }"> </li>                  
-                    <li >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="20" value="${checkout }">  </li>
+                  <ul style="text-align: left; ">
+                    <li >체크인&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text"  name="checkin" id="datepicker1" size="16" > </li>                  
+                    <li >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="16"  >  </li>
                             
-                    <li>객실&nbsp;&nbsp;<input type="text" name="roomnum" size="5" id="datepicker3" value="${roomnum }"></li>
-                    <li>성인&nbsp;&nbsp;<input type="text" name="usernum" size="5" id="datepicker4" value="${usernum }"></li>
-                    <li><input type="submit" value="검색하기"id="serch_bar_button" onclick="return checkRoom();"></li>
+                    <li style=" float: left;">객실&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="roomnum" size="16" id="datepicker3" ></li>
+                    <li style="">성인&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="usernum" size="16" id="datepicker4" ></li>
+                    <li >             
+                    <input type="submit" value="검색하기" id="serch_bar_button" onclick="return checkRoom();"></li>
                   </ul>
-           </div></form>          
+           </div>           
 	</div>
+	</form>
 	
 	<hr> <!-- 방선택 뷰  Deluxe--> 
  
  <c:if test="${DBool == false && BDBool == false && GCDBool == false && EBDBool == false}">
-   <div style="margin-top:250px; margin-left:370px;"><h2>남아있는 방이 없습니다.</h2></div>
+   <div style="margin-top:7%; margin-left:20%;"><h2>남아있는 방이 없습니다.</h2></div>
    </c:if>
   <!--  ----------------- -->
 	<c:if  test="${DBool == true }">
 	<div id="roomview">
+		<div id="subject">Deluxe</div>
 		<div id=room_img><img src="<c:url value='/room_images/Deluxe1.jpg'/> "></div>
 		<div id=room_content>
 			<ul>
-				<li>Deluxe</li>
-				<li>객실크기 : 40㎡ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 위치 : 5 ~ 6층 </li>
-				<li>침대 : 더블(킹) 1개 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp; 최대인원 : 2명</li>
-				<li><div class="openPopup1">객실 자세히 보기</div></li>
+				<li>객실크기 : 40㎡</li><li>위치 : 5 ~ 6층 </li>
+				<li>최대인원 : 2명</li><li ><span style="font-size:120%; font-weight:bold;">320,000 원 ~</span> <span style="font-size:70%">&nbsp;&nbsp;(1박)</span></li>
 			</ul>
 		</div>
-		<div id =price_view>
-			<div id=price>320,000 원 ~</div>
-			<div id=price2>1박</div>
-		</div>
+		<div class="openPopup1" id="popup">객실 자세히 보기</div>
 		<div id =button_view>
 			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="book_go1('Deluxe')"></div>
 		</div>
@@ -215,21 +218,16 @@ $(document).ready(function( $ ){
 	<!-- Business Deluxe -->
 	<c:if  test="${BDBool == true }">
 	<div id="roomview">
+		<div id="subject">Business Deluxe</div>
 		<div id=room_img><img src="<c:url value='room_images/BusinessDeluxe1.jpg'/> "></div>
 		<div id=room_content>
 			<ul>
-				<li>Business Deluxe</li>
-				<li>객실크기 : 56㎡ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 위치 : 5~6층</li>
-				<li>침대 : 더블(킹) 2개 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp; 최대인원 : 4명</li>
-				<li><div class="openPopup2">객실 자세히 보기</div></li>
+				<li>객실크기 : 56㎡</li><li>위치 : 5~6층</li>
+				<li>최대인원 : 4명</li><li ><span style="font-size:120%; font-weight:bold;">390,000 원 ~</span> <span style="font-size:70%">&nbsp;&nbsp;(1박)</span></li>
+				<li></li>
 			</ul>
 		</div>
-		<div id =price_view>
-			<div id=price>390,000 원 ~</div>
-			<div id=price2>1박</div>
-		</div>
+		<div class="openPopup2" id="popup">객실 자세히 보기</div>
 		<div id =button_view>
 			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="book_go1('Business Deluxe')"></div>
 		</div>
@@ -239,21 +237,15 @@ $(document).ready(function( $ ){
 	
 	<c:if  test="${GCDBool == true }">
 	<div id="roomview">
+	<div id="subject">Grand Corner Deluxe</div>
 		<div id=room_img><img src="<c:url value='room_images/GrandCornerDeluxe1.jpg'/> "></div>
 		<div id=room_content>
 			<ul>
-				<li>Grand Corner Deluxe</li>
-				<li>객실크기 : 72㎡ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 위치 : 7~8층</li>
-				<li>침대 : 더블(킹) 3개 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp; 최대인원 : 6명</li>
-				<li><div class="openPopup3">객실 자세히 보기</div></li>
+				<li>객실크기 : 72㎡</li><li>위치 : 7~8층</li>
+				<li>최대인원 : 6명</li><li ><span style="font-size:120%; font-weight:bold;">360,000 원 ~</span> <span style="font-size:70%">&nbsp;&nbsp;(1박)</span></li>
 			</ul>
 		</div>
-		<div id =price_view>
-			<div id=price>460,000 원 ~</div>
-			<div id=price2>1박</div>
-		</div>
+		<div class="openPopup3" id="popup">객실 자세히 보기</div>
 		<div id =button_view>
 			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="book_go1('Grand Corner Deluxe')"></div>
 		</div>
@@ -263,27 +255,22 @@ $(document).ready(function( $ ){
 	
 	<c:if  test="${EBDBool == true }">
 	<div id="roomview">
+		<div id="subject">Executive Business Deluxe</div>
 		<div id=room_img><img src="<c:url value='/room_images/ExecuticeBusinessDeluxe1.jpg'/> "></div>
 		<div id=room_content>
 			<ul>
-				<li>Executive Business Deluxe</li>
-				<li>객실크기 : 64㎡ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 위치 : 최상층</li>
-				<li>침대 : 더블(킹) 2개 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp; 최대인원 : 4명</li>
-				<li><div class="openPopup4">객실 자세히 보기</div></li>
+				<li>객실크기 : 64㎡</li><li>위치 : 최상층</li>
+				<li>최대인원 : 4명</li><li ><span style="font-size:120%; font-weight:bold;">550,000 원 ~</span> <span style="font-size:70%">&nbsp;&nbsp;(1박)</span></li>
 			</ul>
 		</div>
-		<div id =price_view>
-			<div id=price>550,000 원 ~</div>
-			<div id=price2>1박</div>
-		</div>
+		<div class="openPopup4" id="popup">객실 자세히 보기</div>
 		<div id =button_view>
 			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="book_go1('Executive Business Deluxe')"></div>
 		</div>
 	</div>
 	<hr>
 	</c:if>
+</div>
 	
 
 
@@ -364,6 +351,7 @@ $(document).ready(function( $ ){
 			</div>
 	    </div>
 </div>
+
 
 <div id="popup02" class="popup00">
 	    <div class="close">close</div>
@@ -596,10 +584,5 @@ $(document).ready(function( $ ){
 			</div>
 	    </div>
 </div>
-
-	
-	
-</div>
-
-
-
+<hr>
+<%@ include file="footer.jsp" %>

@@ -44,6 +44,7 @@ font-family: 'Nanum Myeongjo', serif;
 <script src="<c:url value='/script/hotelScript.js'/>"></script>
 <link href="mcss/main.css" rel="stylesheet">
 <link href="mcss/hotel.css" rel="stylesheet">
+<link href="<c:url value='/css/mobileHotel.css'/>" rel="stylesheet">
 
 <%--  <link href="<c:url value='/css/css.css'/> " rel="stylesheet">
 <link href="<c:url value='/css/Hotel.css'/>" rel="stylesheet">
