@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %><%@ include file="sub_menu.jsp" %>
+<%@ include file="../header.jsp" %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 
-#seemore_div123123{			
-	float: left;
+	#seemore_div123123{			
     height: 490px;
-    width: 392px;
+    width: 100%;
     background: #Faf1d0;
-    right: 50px;
+
     text-align: left;}
 #seemore_div123123 ul{list-style:none; padding:13px; padding-top:0px; padding-right:0px;}
 #seemore_div123123 ul li{font-size:90%;}
@@ -17,24 +17,22 @@
 #seemore_div123123 ul li:nth-child(8){font-size:115%; font-weight:bold;}
 
 #room_detail{
-height: 1200px;
- width: 1200px;
+height: 200%;
+ width: 100%;
  margin: 0 auto;
- float: left;
- margin-left: 100px;
+
 }
 #deluxe_view{
 margin-top:20px;
-float: left;
-width: 900px;
-height: 500px;
+
+width: 100%;
+
 }
 #deluxe_content{
-float:left;
-width: 1000px;
-height: 600px;
-    margin-left: 40px;
-    margin-top: 10px;
+margin-top:20px;
+width: 100%;
+height: 200%;
+background:#Faf1d0;
 }
 
    </style>
@@ -48,16 +46,16 @@ height: 600px;
 <div id="deluxe_content">
 
 <div style="    
-float: left;
-    height: 585px;
-    width: 500px;
-    left: 50px;">
+
+    height: 100%;
+    width: 100%;
+    ">
 					<div id=seemore_div2_1>
 						<div id=seemore_div2_1left>
 							객실이용
 						</div>
 						<div id=seemore_div2_1right>
-							<ul>
+							<ul  style="list-style: none;">
 								<li>위치:최상층 &nbsp;&nbsp;전망 :바다  </li>
 								<li>침대 :2 &nbsp;인원:4&nbsp; 크기:68㎡ </li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
@@ -74,7 +72,7 @@ float: left;
 							부대시설
 						</div>
 						<div id=seemore_div2_2right>
-							<ul>
+							<ul  style="list-style: none;">
 								<li>피트니스 클럽 이용 안내</li>
 								<li>- 체육관(Gym) 무료 이용(만 16세 이상 입장 가능)</li>
 								<li>- 실내 수영장 무료 이용(만 13세 이상 입장 가능)</li>

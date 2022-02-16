@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
@@ -177,4 +177,3 @@ ${imglist.kind} 객실 사진</div></c:forEach>
 
 
 </article>
-<%@ include file="../footer.jsp" %> 

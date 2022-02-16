@@ -83,10 +83,8 @@ function gotobook(kind){
 
 function gotoimgshow(num){
 
- 	 var url="mgotoimgshow.do?num="+num;
-	 var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=810,height=470, top=300, left=300";
-	window.open(url, "객실 사진", opt); 
-	
+	 document.formm.action ="mgotoroom.do?num="+num;
+    document.formm.submit();
 }
 
 
@@ -94,7 +92,7 @@ function gotoimgshow(num){
 
 <article>
 
-
+<form name="formm"  method="post">
 <div id="room_view">  
 
 			<div id="room_top">
@@ -107,7 +105,7 @@ function gotoimgshow(num){
 			<div class="room_content">
 									<div class="room_1">
 														<div>
-															<a href="mgotoimgshow.do?num=1"><img  src="<c:url value='/room_images/Deluxe1.jpg'/> " height="70%" width="100%"></a>
+															<img  src="<c:url value='/room_images/Deluxe1.jpg'/> " height="70%" width="100%">
 															
 														</div>
 													
@@ -117,7 +115,7 @@ function gotoimgshow(num){
 																					<h4>고급스러운 매력을지닌 Deluxe 객실</h4>	
 																		</div>
 																		 <div class="room_contetn_btn"> 
-																				 <input type="button" onClick ="gotoimgshow(1)" value="이미지 보기" class="room_btn" size="25">
+																				 <input type="button" onClick ="gotoimgshow(1)" value="상세 정보" class="room_btn" size="25">
 																				 <input type="button" value="예약하기"   onClick="gotobook('Deluxe');" 
 																				 style="background-color:#9F876B; height: 30px; width: 120px; font-size: 100%;font-weight: bold;">
 																		 </div>
@@ -126,7 +124,7 @@ function gotoimgshow(num){
 								
 								<div class="room_1">
 														<div>
-													<a href="mgotoimgshow.do?num=2"><img  src="<c:url value='/room_images/BusinessDeluxe1.jpg'/> "height="70%" width="100%"></a>
+												<img  src="<c:url value='/room_images/BusinessDeluxe1.jpg'/> "height="70%" width="100%">
 														</div>
 													
 														<div class="roomcontent_view">
@@ -135,7 +133,7 @@ function gotoimgshow(num){
 																					<h4>고급스러운 매력을지닌 BusinessDeluxe 객실</h4>		
 																		</div>
 																		 <div class="room_contetn_btn">  
-																				 <input type="button" onClick ="gotoimgshow(2)" value="이미지 보기" class="room_btn">
+																				 <input type="button" onClick ="gotoimgshow(2)" value="상세 정보" class="room_btn">
 																				 <input type="button"  value="예약하기"  onClick="gotobook('Business Deluxe');"
 																				 style="background-color:#9F876B;height: 30px; width: 120px; font-size: 100%; font-weight: bold;">
 																		 </div>
@@ -143,7 +141,7 @@ function gotoimgshow(num){
 								</div>
 									<div class="room_1">
 														<div>
-													<a href="mgotoimgshow.do?num=3"><img  src="<c:url value='/room_images/GrandCornerDeluxe1.jpg'/> " height="70%" width="100%"></a>
+													<img  src="<c:url value='/room_images/GrandCornerDeluxe1.jpg'/> " height="70%" width="100%">
 														</div>
 													
 														<div class="roomcontent_view">
@@ -152,7 +150,7 @@ function gotoimgshow(num){
 																					<h4>고급스러운 매력을지닌 GrandCornerDeluxe 객실</h4>		
 																		</div>
 																		 <div class="room_contetn_btn"> 
-																				 <input type="button" onClick ="gotoimgshow(3)" value="이미지 보기" class="room_btn">
+																				 <input type="button" onClick ="gotoimgshow(3)" value="상세 정보" class="room_btn">
 																				 <input type="button" value="예약하기" onClick="gotobook('Grand Corner Deluxe');"
 																				 style="background-color:#9F876B;height: 30px; width: 120px;  font-size: 100%; font-weight: bold;">
 																		 </div>
@@ -160,7 +158,7 @@ function gotoimgshow(num){
 								</div>
 								<div class="room_1">
 														<div>
-														<a href="mgotoimgshow.do?num=4"><img  src="<c:url value='/room_images/ExecuticeBusinessDeluxe1.jpg'/> " height="70%" width="100%"></a>
+														<img  src="<c:url value='/room_images/ExecuticeBusinessDeluxe1.jpg'/> " height="70%" width="100%">
 														</div>
 													
 														<div class="roomcontent_view" >
@@ -169,7 +167,7 @@ function gotoimgshow(num){
 																					<h4>고급스러운 매력을지닌 ExecuticeBusinessDeluxe 객실</h4>			
 																		</div>
 																		<div class="room_contetn_btn">  
-																				 <input type="button" onClick ="gotoimgshow(4)" value="이미지 보기" class="room_btn">
+																				 <input type="button" onClick ="gotoimgshow(4)" value="상세 정보" class="room_btn">
 																				 <input type="button"  value="예약하기" onClick="gotobook('Executive Business Deluxe');"
 																				 style="background-color:#9F876B; height: 30px; width: 120px; font-size: 100%;; font-weight: bold;">
 																		 </div>
@@ -187,7 +185,7 @@ function gotoimgshow(num){
 
 
 
-
+</form>
 
 
 </article>

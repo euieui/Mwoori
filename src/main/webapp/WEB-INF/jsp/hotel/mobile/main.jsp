@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 
-<%@ include file="header.jsp" %>
+ <%@ include file="header.jsp" %> 
+ 
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div  class="clear"></div>
 
@@ -75,7 +77,7 @@ function days () {
 
   
 </script>
-
+<div id="wrap">
 
 
 <div id="main_img">
@@ -100,6 +102,6 @@ function days () {
 </form>
 
 
- 
+ </div>
 
 <%@ include file="footer.jsp" %>
