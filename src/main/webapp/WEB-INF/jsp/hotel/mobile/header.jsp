@@ -42,7 +42,11 @@ font-family: 'Nanum Myeongjo', serif;
 </style>
 <script src="<c:url value='/script/script.js'/>"></script>
 <script src="<c:url value='/script/mypage.js'/>"></script>
+<script src="<c:url value='/script/hotelScript.js'/>"></script>
 <link href="mcss/main.css" rel="stylesheet">
+<link href="mcss/hotel.css" rel="stylesheet">
+<link href="<c:url value='/css/mobileHotel.css'/>" rel="stylesheet">
+
 
 <%--  <link href="<c:url value='/css/css.css'/> " rel="stylesheet">
 <link href="<c:url value='/css/Hotel.css'/>" rel="stylesheet">
@@ -50,6 +54,18 @@ font-family: 'Nanum Myeongjo', serif;
  <link href="member/member.css" rel="stylesheet">
 <link href="css/Hotel.css" rel="stylesheet">
 <link href="script/script.js" rel="stylesheet">  --%>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&f
+amily=Gothic+A1:wght@900&family=Hahmlet:wght@251&family=Nanum+Myeongjo:wght@800&display=swap"
+ rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 
 
 </head>

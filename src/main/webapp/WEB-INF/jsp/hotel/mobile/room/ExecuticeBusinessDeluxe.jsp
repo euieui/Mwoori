@@ -50,11 +50,11 @@ background:#Faf1d0;
     height: 100%;
     width: 100%;
     ">
-					<div id=seemore_div2_1>
-						<div id=seemore_div2_1left>
+					<div id=seemore_div2_112313>
+						<div id=seemore_div2_1left123123>
 							객실이용
 						</div>
-						<div id=seemore_div2_1right>
+						<div id=seemore_div2_1right23232>
 							<ul  style="list-style: none;">
 								<li>위치:최상층 &nbsp;&nbsp;전망 :바다  </li>
 								<li>침대 :2 &nbsp;인원:4&nbsp; 크기:68㎡ </li>
@@ -67,11 +67,11 @@ background:#Faf1d0;
 						</div>
 					</div>
 					<hr>
-					<div id=seemore_div2_2>
-						<div id=seemore_div2_2left ">
+					<div id=seemore_div2_22323>
+						<div id=seemore_div2_2left2323>
 							부대시설
 						</div>
-						<div id=seemore_div2_2right>
+						<div id=seemore_div2_2right232>
 							<ul  style="list-style: none;">
 								<li>피트니스 클럽 이용 안내</li>
 								<li>- 체육관(Gym) 무료 이용(만 16세 이상 입장 가능)</li>

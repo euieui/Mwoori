@@ -31,7 +31,7 @@ left:10px;
 		 text-decoration: underline;
 }
 .menu {
- overflow:hidden;
+overflow:hidden;
   position: absolute;
   top: 0;
   right: 0;
@@ -39,7 +39,7 @@ left:10px;
   width:60%;
   max-width: 0;
   transition: 0.5s ease;
-  z-index: 1;
+  z-index: 10;
   background-color: #9F876B;
 }
 
