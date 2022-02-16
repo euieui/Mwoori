@@ -305,7 +305,7 @@ $(document).ready(function( $ ){
 								<li>위치 : 5~6층 &nbsp;&nbsp;전망 : 산 또는 바다</li>
                         		<li>침대 : 1&nbsp;&nbsp; 인원 : 4 &nbsp;크기 : 40㎡</li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
-								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무</li>
+								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무료</li>
 								<li>220V, 110V 전압 사용 가능</li>
 								<li>커피·차 티백 무료 제공</li>
 							</ul>
@@ -382,7 +382,7 @@ $(document).ready(function( $ ){
 								<li>위치 : 5~6층 &nbsp;&nbsp;전망 : 산 또는 바다</li>
                     		    <li>침대 : 2&nbsp;&nbsp; 인원 : 4 크기 : 56㎡</li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
-								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무</li>
+								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무료</li>
 								<li>220V, 110V 전압 사용 가능</li>
 								<li>커피·차 티백 무료 제공</li>
 							</ul>
@@ -460,7 +460,7 @@ $(document).ready(function( $ ){
 								<li>위치 : 7~8층 &nbsp;&nbsp;전망 : 바다&nbsp;&nbsp; 크기 : 72㎡</li>
                    			    <li>침대 : 3,&nbsp;&nbsp; 인원 : 6 </li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
-								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무</li>
+								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무료</li>
 								<li>220V, 110V 전압 사용 가능</li>
 								<li>커피·차 티백 무료 제공</li>
 							</ul>
@@ -537,7 +537,7 @@ $(document).ready(function( $ ){
 								<li>위치 : 최상층 &nbsp;&nbsp;전망 : 바다 크기 : 68㎡ </li>
                        			<li>침대 : 2 &nbsp;&nbsp;인원 : 4 </li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
-								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무</li>
+								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무료</li>
 								<li>220V, 110V 전압 사용 가능</li>
 								<li>커피·차 티백 무료 제공</li>
 							</ul>
