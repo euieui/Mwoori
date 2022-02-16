@@ -6,38 +6,36 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="<c:url value='/css/mobileHotel.css'/>" rel="stylesheet">
+
+
 <script type="text/javascript">
 	function idok(userid){
 		opener.formm.id.value="${id}";
 		opener.formm.reid.value="${id}";
 		self.close();
 	}
+	
 </script>
-<style type="text/css">
-body{font-family:Verdana; font-size:90%; text-align:center;}
-input{border:#BEBBB9 solid 1px;}
-.dup_brown{width:100px; height:22px; background:#9f876b; color:white; font-size:90%;}
-.joinButton{width:70px; height:40px; position:relative; margin:0 auto;  background:#3a3125; color:white; border:0;}
-
-</style>
 </head>
 <body>
-<div id="wrap" style="margin:20px 0">
-<h3>ID 중복확인</h3>
-	<form method="post" name="idCheckFrm" action="idCheckForm.do">
-		User ID&nbsp;&nbsp;&nbsp;<input type="text" name="id" value="${id}">
-		<input type="submit" value="검색" class="dup_brown"><br>
-		
-		<div style="margin-top:20px">
+<div class="mjoinMainTitle">ID 중복확인</div>
+				<br><br>
+	<form method="post" name="idCheckFrm" action="midCheckForm.do">
+		<div class="mjoinSubTitle">User ID</div>
+		<input type="text" name="id" value="${id}" class="msubInputSmall">
+		<input type="submit" value="검색" class="mdup_brown"><br>
+				<br><br><br>
 			<c:if test="${result==1}">
 				<script type="text/javascript">opener.document.formm.id.value="";</script>
-				${id} 은(는) 이미 사용중인 아이디입니다.
+				<center style="font-size:90%;">${id} 은(는) 이미 사용중인 아이디입니다.</center>
 			</c:if>
 			<c:if test="${result==-1}">
-				${id} 은(는) 사용가능한 아이디입니다.
-				<input type="button" value="사용" class="joinButton" onclick="idok('${id}');">
+				<center style="font-size:90%;">${id} 은(는) 사용가능한 아이디입니다.</center>
+				<center><input type="button" value="사용" class="mjoinButton" onclick="idok('${id}');"></center>
 			</c:if>
 	</form>
-</div>
+
 </body>
 </html><!-- 완료 -->

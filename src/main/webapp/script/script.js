@@ -122,7 +122,7 @@ function iddoublecheck(){
       return;
    }
    var url = "idCheckForm.do?id=" + document.formm.id.value;
-   var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=200";
+   var opt = "toolbar=no, menubar=no, resizable=no, width=100vw, height:100vw";
    window.open(url, "IdCheck", opt);
 }
 
@@ -192,7 +192,12 @@ function mgo_next(){
 	} else{
 		document.contractFrm.submit(); 
 	}
-}//
+}
+
+function mgo_back(){
+	document.contractFrm.action='mobilemain.do';
+	document.contractFrm.submit();
+}
 
 
 

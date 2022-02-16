@@ -6,17 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>findZipNum.jsp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="<c:url value='/css/mobileHotel.css'/>" rel="stylesheet">
+
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 body{font-family:Verdana; font-size:90%;}
-#popup{padding:0 10px;}
 
-table#zipcode{border-collapse:collapse; border-top:2px solid #9f876b; border-bottom:2px solid #9f876b;
-margin-top:15px; width:100%; font-size:100%;}
+table#zipcode{border-collapse:collapse; border-top:1vw solid #9f876b; border-bottom:1vw solid #9f876b;
+margin-top:2vw; width:100%; font-size:100%;}
 table#zipcode th{background:#faf1d0;}
-table#zipcode th, table#zipcode td{text-align:center; border-bottom:1px dotted #9f876b; font-size:90%;}
-table td, th{padding:8px;}
-table#zipcode a{display:block; height:8px; text-decoration:none; padding:8px; font-size:90%;}
+table#zipcode th, table#zipcode td{text-align:center; border-bottom:0.1vw solid #9f876b; font-size:90%;}
+table td, th{padding:1vw;}
+table#zipcode a{display:block; height:5vw; text-decoration:none; padding:1vw; font-size:90%;}
 table#zipcode a:hover{font-weight:bold;}
 
 input{border:#BEBBB9 solid 1px;}
@@ -30,15 +32,15 @@ function result(zip_num, sido, gugun, dong){
 </script>
 </head>
 <body>
-<div id="popup">
-	<h3>우편번호 검색</h3>
-	<form method="post" name="formm" action="findZipNum.do">
-		동이름 : <input name="dong" type="text">
-		<input type="submit" value="찾기" class="dup_brown">
+<div class="mjoinMainTitle">우편번호 검색</div>
+	<form method="post" name="formm" action="mfindZipNum.do">
+		<div class="mjoinSubTitle">동이름 </div>
+		<input name="dong" type="text" class="msubInputSmall">
+		<input type="submit" value="찾기" class="mdup_brown">
 	</form>
 	<!-- 검색된 우편번호와 동이 표시되는 곳 -->
 	<table id="zipcode">
-		<tr><th width="100">우편번호</th><th>주소</th></tr>
+		<tr><th width="80vw">우편번호</th><th>주소</th></tr>
 		<c:forEach items="${addressList}" var="addressDto">
 			<tr>
 				<td>${addressDto.ZIP_NUM}</td>

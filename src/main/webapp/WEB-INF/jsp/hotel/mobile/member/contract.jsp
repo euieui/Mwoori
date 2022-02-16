@@ -1,25 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%><!-- 완료 -->
 <%@ include file="../header.jsp" %>
-<!-- <link href="/member.css" rel="stylesheet">
-<script src="/member.js"></script> -->
+
 
 <article>
 
-<div class="contTitle">회원가입</div>
-<div class="contThreeStep">
-	<div class="contSelect">약관동의</div>
-	<div class="contNonselect">회원정보 입력</div>
-	<div class="contNonselect">가입완료</div>
+<div class="mcontTitle">회원가입</div>
+<div class="mcontThreeStep">
+	<div class="mcontSelect">약관동의</div>
+	<div class="mcontNonselect">회원정보 입력</div>
+	<div class="mcontNonselect">가입완료</div>
 </div>
 
-<div style="margin: 0 auto;  width: 870px;">
-<form id="join" method="post" name="contractFrm" action="joinForm.do">
-	
-<div class="contBox">
+<div style="margin: 0 auto;  width: 100vw;">
+<form id="join" method="post" name="contractFrm" action="mjoinForm.do">
+<center>
+<div class="mcontBox">
 <br>
-	&nbsp;&nbsp;&nbsp;신라호텔 이용약관에 대한 동의 (필수)
-<textarea rows="9" cols="150" style="font-size:80%;">
+신라호텔 이용약관에 대한 동의 (필수)
+<textarea rows="9"  style="width:95vw; font-size:80%;">
 제1조 멤버십 규정 일반
 
 
@@ -421,17 +420,17 @@ A. 적립 포인트는 매년 1월 1일부터 12월 31일까지 멤버십 프로
 9. 삼성상품권과 관련된 기타의 사항은 삼성상품권 이용약관에 따릅니다.
 
 </textarea>
-	<div class="contAgree" >
+	<div class="mcontAgree" >
 		<input type="radio" name="okon1"> 동의함 &nbsp; &nbsp; &nbsp;
 		<input type="radio" name="okon1" checked> 동의안함 
 	</div>
 </div>
 
-<div class="contBox">
+<div class="mcontBox">
 <br>
-	&nbsp;&nbsp;&nbsp;개인정보 수집, 이용에 대한 동의 (필수)
-<textarea rows="9" cols="150" style="font-size:80%;">
-	1. 수집 이용 항목
+개인정보 수집, 이용에 대한 동의 (필수)
+<textarea rows="9"  style="width:95vw; font-size:80%;">
+1. 수집 이용 항목
 
 성명(국문·영문), 생년월일, 성별, 이메일주소, 휴대폰번호, 구매 및 예약내역, 투숙기간, 아이디, 비밀번호, 신라리워즈 번호, IPIN(DI)
 
@@ -446,44 +445,45 @@ A. 적립 포인트는 매년 1월 1일부터 12월 31일까지 멤버십 프로
 ※ 관련 법령에서 정한 별도 보유 기한이 있는 경우는 그에 따름.
 ※ 위 사항에 대한 동의를 거부할 수 있으나, 이에 대한 동의가 없을 경우 신라리워즈 회원 가입 및 서비스 이용이 불가합니다.
 </textarea>
-	<div class="contAgree">
+	<div class="mcontAgree">
 		<input type="radio" name="okon2"> 동의함 &nbsp; &nbsp; &nbsp;
 		<input type="radio" name="okon2" checked> 동의안함 
 	</div>
 </div>
 
-<div class="contBox">
+<div class="mcontBox">
 <br>
-	&nbsp;&nbsp;&nbsp;개인정보 제3자 제공에 대한 동의 (필수) 
-<textarea rows="9" cols="150" style="font-size:80%;">
-	1. 제공받는 자
+개인정보 제3자 제공에 대한 동의 (필수) 
+<textarea rows="9"  style="width:95vw; font-size:80%;">
+1. 제공받는 자
 
-	신라스테이㈜
-	
-	2. 제공받는 자의 이용 목적
-	
-	신라리워즈 서비스 제공
-	
-	3. 제공하는 항목
-	
-	성명(국문·영문), 생년월일, 성별, 이메일주소, 휴대폰번호, 구매 및 예약 내역, 투숙기간, 아이디, 신라리워즈 번호
-	
-	4. 제공받은 자의 보유·이용 기간 :
-	
-	회원 탈퇴 시까지
-	
-	※위 사항에 대한 동의를 거부할 수 있으나, 이에 대한 동의가 없을 경우 신라리워즈 회원 가입 및 서비스 이용이 불가합니다.
+신라스테이㈜
+
+2. 제공받는 자의 이용 목적
+
+신라리워즈 서비스 제공
+
+3. 제공하는 항목
+
+성명(국문·영문), 생년월일, 성별, 이메일주소, 휴대폰번호, 구매 및 예약 내역, 투숙기간, 아이디, 신라리워즈 번호
+
+4. 제공받은 자의 보유·이용 기간 :
+
+회원 탈퇴 시까지
+
+※위 사항에 대한 동의를 거부할 수 있으나, 이에 대한 동의가 없을 경우 신라리워즈 회원 가입 및 서비스 이용이 불가합니다.
 </textarea>
-	<div class="contAgree">
+	<div class="mcontAgree">
 		<input type="radio" name="okon3"> 동의함 &nbsp; &nbsp; &nbsp;
 		<input type="radio" name="okon3" checked> 동의안함 
 	</div>
 </div>
+</center>
 
 
-<div class="contButtons">
-	<input type="Button" value="다음" class="contButton_darkbrown" onclick="go_next();">
-	<input type="Button" value="취소" class="contButton_brown" onclick="go_back();">
+<div class="mcontButtons">
+	<input type="Button" value="다음" class="mcontButton_darkbrown" onclick="mgo_next();">
+	<input type="Button" value="취소" class="mcontButton_brown" onclick="mgo_back();">
 </div>
 
 

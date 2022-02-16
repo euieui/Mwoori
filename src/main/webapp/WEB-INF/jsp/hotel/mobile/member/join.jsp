@@ -1,59 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>   
 
-<script src="../script/script.js"></script>
-<style type="text/css">
-input{border:#BEBBB9 solid 1px;}
-</style>
-<article>
-<div class="contTitle">회원가입</div>
-<div class="contThreeStep">
-	<div class="contNonselect">약관동의</div>
-	<div class="contSelect">회원정보 입력</div>
-	<div class="contNonselect">가입완료</div>
-</div>
 
-<!-- join테마 css -->
 
-<div style="width:865px; margin: 0 auto;">
-<form id="join" method="post" name="formm" action="joinComplete.do">
+<form id="join" method="post" name="formm" action="mjoinComplete.do">
 		
 	<br><br>
-	<div class="joinTitle">기본입력</div>
-	<table class="joinBox">
-		<tr><th>이름</th><td><input type="text" size="20" name="name" value="${name}"> </td></tr>
-		<tr><th>이메일</th><td><input type="text" size="30" name="email" value="${email}"></td></tr>
-		<tr><th>전화번호</th><td><input type="text" size="20" name="phone" value="${phone}"></td></tr>
-		<tr><th rowspan="3">주소</th><td><input type="text" name="zip_num" size="10" value="${zip_num}">      
-	   		<input type="button" value="주소 찾기" class="dup_brown" onclick="post_zip();"></td></tr>
-		<tr><td><input type="text" name="addr1"   size="50" value="${addr1}"></td></tr>
-		<tr><td><input type="text" name="addr2"   size="25" value="${addr2}"></td></tr>
-	</table>
-	<br><br>
-	<div class="joinTitle">웹사이트 비밀번호 입력</div>
-	<table class="joinBox">	
-		<tr><th>아이디</th><td><input type="text" name="id" size="20" value="${id}"> 
-	    		<input type="button" value="중복 체크" class="dup_brown" onclick="iddoublecheck();">
-				<input type="hidden" name="reid"></td></tr>
-				
-				<c:if test="${result==-1}">
-				${id}는 사용가능한 아이디입니다.
-				<input type="button" value="사용" class="cancel" onclick="idok('${id}');">
-				</c:if>
-				</td></tr>
-		<tr><th>비밀번호</th><td><input type="password" name="pwd" size="20">	</td></tr>
-		<tr><th>비밀번호 확인</th><td><input type="password" name="pwdCheck" size="20">  </td></tr>
-	</table>
+	<div class="mjoinMainTitle">기본입력</div>
+	<div class="mjoinSubTitle">이름</div>
+	<input type="text"  name="name" value="${name}" class="msubInput">
+	<div class="mjoinSubTitle">이메일</div>
+	<input type="text"  name="email" value="${email}" class="msubInput">
+	<div class="mjoinSubTitle">전화번호</div>
+	<input type="text"  name="phone" value="${phone}" class="msubInput">
+	<div class="mjoinSubTitle">주소</div>
+	<input type="text" name="zip_num" value="${zip_num}" class="msubInputSmall">      
+	<input type="button" value="주소 찾기" class="mdup_brown" onclick="mpost_zip();">
+	<hr style="border:hidden; height:1.5vw; margin:0;">
+	<input type="text" name="addr1"    value="${addr1}" class="msubInput" placeholder="주소 구,동">
+	<hr style="border:hidden; height:1.5vw; margin:0;">
+	<input type="text" name="addr2"    value="${addr2}" class="msubInput" placeholder="상세주소">
+	
+	<br><br><br>
+	<div class="mjoinMainTitle">웹사이트 비밀번호 입력</div>
+	<div class="mjoinSubTitle">아이디</div>
+	<input type="text" name="id" size="20" value="${id}" class="msubInputSmall"> 
+    <input type="button" value="중복 체크" class="mdup_brown" onclick="middoublecheck();">
+	<input type="hidden" name="reid">
+			
+	<c:if test="${result==-1}">
+	${id}는 사용가능한 아이디입니다.
+	<input type="button" value="사용" class="mcancel" onclick="idok('${id}');">
+	</c:if>
+			
+	<div class="mjoinSubTitle">비밀번호</div>
+	<input type="password" name="pwd" size="20" class="msubInput" placeholder="비밀번호">
+	<hr style="border:hidden; height:1.5vw; margin:0;">
+	<input type="password" name="pwdCheck" size="20" class="msubInput" placeholder="비밀번호 확인"> 
+	
 	<center><div>${message}</div></center>
 
-<!-- cont테마 css -->
-<center><div class="contButtons">
-	<input type="button" value="가입신청" class="joinButton" onclick="go_save()">
+
+<center><div class="mcontButtons">
+	<input type="button" value="가입신청" class="mjoinButton" onclick="mgo_save()">
 </div></center>
 
 
 </form>
-</div>
+
 </article>
 
 
