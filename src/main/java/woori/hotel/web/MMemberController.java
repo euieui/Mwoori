@@ -605,7 +605,10 @@ public class MMemberController {
 		return "redirect:/mobilemain.do";
 	}
 	
-	
+	@RequestMapping(value = "/mmypage.do")
+	public String mmypage() {
+		return "mobile/mypage/mypage";
+	}
 	
 	
 	

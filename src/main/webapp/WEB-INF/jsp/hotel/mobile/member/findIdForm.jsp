@@ -22,8 +22,6 @@ function findId(){
 	document.frm.submit();
 }
 </script>
-</head>
-<body>
 <div class="mcontTitle">ID 찾기</div>
 <hr style="width:100vw; border-bottom:0; border-left:0;" border:#a1886f;>
 <br><Br>

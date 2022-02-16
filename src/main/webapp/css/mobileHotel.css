@@ -70,4 +70,67 @@
 .rbtn{position:absolute; left:900px; background-image: url(images/ico_movie_171115.png); background-position: 0px -460px; width:50px; height:50px; border-radius: 50%; top:180px;}
 	
 	
+	
+	
+	
 
+
+/*  member css*/
+
+.mlogtitle{width:100vw; height:13vw; position:relative; margin:2vw auto; line-height:240%;
+	text-align:center; }
+.mlogIdpwdBox{width:100vw; height:30vw; position:relative; margin:2vw auto; margin-top:15vw; 
+	line-height:100%; text-align:center; }
+.mlogIdPwd{width:90vw; height:10vw; position:relative; margin:1vw auto; line-height:100%;
+	text-align:left; color:gray; }
+.mloginButton{width:95vw; height:13vw; position:relative; margin:2vw auto; line-height:100%;
+	text-align:center; background:#3a3125; color:white; font-weight:bold; border:hidden;}
+.mlogFindButton{width:100vw; height:20vw; position:relative; margin:2vw auto; line-height:100%;
+	text-align:center; margin-bottom:10vw;}
+.mfindButton{width:40vw; height:9vw; position:relative; margin:1vw auto; line-height:100%;
+	text-align:center;  background:#9f876b; color:white; border:hidden;}
+.mjoinButton{width:50vw; height:13vw; position:relative; margin:8vw auto; line-height:100%;
+	text-align:center; background:#3a3125; color:white; font-weight:bold; border:hidden;}
+
+	
+	
+	
+.mcontTitle{width:100vw; height:15vw; position:relative; margin:2vw auto; line-height:300%;
+	text-align:center; background:#9f876b; font-size:120%; color:white;}
+	
+.mcontThreeStep{width:96vw; height:15vw; position: relative; margin:0 auto;}
+.mcontSelect{width:31vw; height:14vw; border:0.3vw solid #F2EFEB; border-bottom:0.8vw solid #a1886f; color:#3A3125; background:#FAF9F7; text-align:center; position:relative; float:left; line-height:400%; font-size:80%; margin:0;}
+.mcontNonselect{width:31vw; height:14vw; border:0.3vw solid #F2EFEB; color:#DBD4CC; text-align:center; position:relative; float:left; line-height:400%; font-size:80%; margin:0; border-bottom:0.3vw solid #a1886f;}
+
+
+.mcontBox{width:98vw; height:60vw;  line-height:300%;}
+.mcontAgree{width:90vw; height:60vw; position:relative; font-size:80%; line-height:0%;}
+.mcontButtons{width:62vw; height:15vw; margin:1vw auto; margin-top:20vw;}
+.mcontButton_brown{width:30vw; height:10vw; position:relative; margin-right:0.3vw; margin-left:0.3vw; float: left; background: #9f876b; color:white; border:0;}
+.mcontButton_darkbrown{width:30vw; height:10vw; position:relative; margin-right:0.3vw; margin-left:0.3vw; float: left; background: #3a3125; color:white; border:0;}
+	
+	
+	
+
+.mjoinMainTitle{width:90vw; height:8vw; margin:3vw auto; font-weight:bold; color:black; line-height:200%;}
+.mjoinSubTitle{width:90vw; height:8vw; margin:0 auto; margin-top:3vw; color:black; font-size:90%; line-height:200%; }
+.msubInput{width:90vw; height:8vw; margin:0 auto; color:black; position:relative; left:3vw; padding-left:2vw;}
+.mfindContent{font-weight:bold; width:90vw; height:8vw; margin:0 auto; color:black; position:relative; left:3vw; padding-left:2vw;}
+.msubInputSmall{width:63vw; height:8vw; margin:0 auto; color:black; position:relative; left:4vw; padding-left:2vw;}
+
+.mdup_brown{position:relative; margin-left:7vw; width:20vw; height:10vw; background:#9f876b; color:white; font-size:90%; border:hidden;}
+
+.mviewBox{width:80vw; height:40vw; position:relative; margin:0 auto; background:#faf1d0; text-align:center; padding:3vw;}
+
+
+
+
+
+
+/* 마이페이지 */
+
+#msub_menu_aa{width:100vw; float:left; }
+#msub_menu_aa ul{list-style:none; padding:0;}
+#msub_menu_aa ul li{text-align:center; width:90vw;
+	 height:13vw; line-height:200%; background:#f1ebd6; line-height:200%; position:relative; margin:3vw auto;}
+	
