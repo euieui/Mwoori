@@ -41,10 +41,6 @@ function go_search_checkdate(){
 	document.frm.submit();
 }
 </script>
-<style>
-.mmypageBooklist{width:85vw; height:25vw; line-height:120%; background:#f1ebd6; 
-	position:relative; margin:3vw auto; text-align:left; padding-top:5vw; padding-left:5vw;}
-</style>
 
 <article class="rightarticle_aa">
 	
