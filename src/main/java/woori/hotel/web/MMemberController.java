@@ -430,10 +430,14 @@ public class MMemberController {
 		String pwd = request.getParameter("pwd");
 		if( loginUser == null) { 
 			mav.addObject("message", "다시 로그인해주세요");
+			url =  "redirect:/mloginForm.do";
+
 		}else if(pwd==""){
 			mav.addObject("message", "비밀번호를 입력해주세요");
+	    	url = "mobile/mypage/profilePw";
 		}else if(!loginUser.get("PWD").equals(pwd)){
 			mav.addObject("message", "비밀번호가 틀립니다");
+	    	url = "mobile/mypage/profilePw";
 		}else {
 	    	url = "mobile/mypage/profileForm";
 	    	String addr = loginUser.get("ADDRESS").toString(); //주소 추출
@@ -529,6 +533,7 @@ public class MMemberController {
 		
 		if( loginUser == null) { 
 			mav.addObject("message", "다시 로그인해주세요");
+			url =  "redirect:/mloginForm.do";
 	// 현재 비밀번호 확인
 		}else if(pwd.equals(null)){ 
 			mav.addObject("message", "현재 비밀번호를 입력해주세요");
@@ -567,27 +572,6 @@ public class MMemberController {
 	    	session.setAttribute("loginUser", loginUser);
  		}
 		return url;
-	}
-	
-	@RequestMapping(value="/mquitCheck.do", method=RequestMethod.POST)
-	public ModelAndView quitCheck(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-		String url = "mobile/mypage/quitPw";
-		HttpSession session = request.getSession();
-		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
-		String pwd = request.getParameter("pwd");
-		if( loginUser == null) { 
-			mav.addObject("message", "다시 로그인해주세요");
-		}else if(pwd==""){
-			mav.addObject("message", "비밀번호를 입력해주세요");
-		}else if(!loginUser.get("PWD").equals(pwd)){
-			mav.addObject("message", "비밀번호가 틀립니다");
-		}else {
-			url = "mobile/mypage/quitOk";
-			session.setAttribute("loginUser", loginUser);
-		}
-		mav.setViewName(url);
-		return mav;
 	}
 	
 	@RequestMapping(value="/mquit.do", method=RequestMethod.POST)
