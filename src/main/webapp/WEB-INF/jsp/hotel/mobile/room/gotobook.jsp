@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>${kind}방 예약 하기</title>
 
 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" /> -->
@@ -16,39 +18,49 @@
 <style type="text/css">
 #gotobook_view{
     border: 1px solid black;
-    width: 80%;
-    margin: auto;
-        height: 1150px;
+    width: 100%;
+    margin: 0 auto;
+   height: 600px;
     
 }
 #gotobook_table{
 border:1px solid black;
-    width: 70%;
-    height:700px;
+    width: 98%;
+    height:70%;
     margin: 0 auto;
 }
-#gotobook_table th{
-width: 230px;
+ #gotobook_table th{
+width: 60%;
   background: #faf1d0;
  text-align: center;
  font-weight:bold;
- font-size: 30px;
+ 
 }
 
 #gotobook_table caption{
-    width: 420px;
+    width: 100%;
     margin: 0 auto;
-    font-size: 50px;
+    font-size: 100%;
 }
+
+#gotobook_btn{
+width:100%;
+height: 50px;
+
+border:1px solid black;
+}
+
 #book_btn{
-width: 150px;
-    height: 80px;
-    position: relative;
-    margin: 0 auto;
+position:relative;
+
+width: 20%;
+  height: 50px;
+   
+   margin-left: 40%;
     background: #3a3125;
     color: white;
     border: 0;
-    font-size: 20px;
+    font-size: 100%;
     font-weight: bold;
 }
 </style>
@@ -134,7 +146,7 @@ width: 150px;
   </script>
 </head>
 <body>
-<form name="formm" method="post" action="gotobookdetail.do" >
+<form name="formm" method="post" action="mgotobookdetail.do" >
 <div id="gotobook_view"  style="border:1px solid black;">
 <table id="gotobook_table">
 <caption>
@@ -146,15 +158,13 @@ width: 150px;
 <tr> <th>객실 수</th>      <td><input type="text" name="roomnum" size="15" id="datepicker3" ></td></tr>
 <tr> <th>인원  </th >      <td><input type="text" name="usernum" size="15" id="datepicker4">	</td></tr>
 </table>
-   </div>
   
-   <div id="gotobook_btn" style="width: 70px;
-    margin: 0 auto;
-    margin-top: -100px; ">
+  
+   <div id="gotobook_btn">
 		<input type="submit" value="검색하기" id="book_btn" onclick="return checkRoom();">
    
    </div>
-  
+   </div>
 </form>
 </body>
 </html>

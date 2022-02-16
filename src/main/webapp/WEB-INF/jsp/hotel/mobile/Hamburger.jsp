@@ -35,11 +35,11 @@ overflow:hidden;
   position: absolute;
   top: 0;
   right: 0;
-  height: 100%;
-  width:60%;
+  height: 120%;
+  width:65%;
   max-width: 0;
   transition: 0.5s ease;
-  z-index: 10;
+  z-index: 2;
   background-color: #9F876B;
 }
 
@@ -73,6 +73,7 @@ overflow:hidden;
   height: 100%;
   position: absolute;
   transition: all .2s ease-out;
+  z-index:3;
   width: 100%;
 }
 
@@ -129,7 +130,7 @@ overflow:hidden;
  <c:otherwise>
 		               <li id="logo">${loginUser.NAME}(${loginUser.ID})</li>
 		               <li><a href="mlogout.do">로그아웃</a></li>
-		               <li><a href="mmypage.do">마이페이지</a></li>
+		               <li><a href="mbookChecklist.do?page=1&a=1">마이페이지</a></li>
          
  </c:otherwise> 
  </c:choose>
@@ -137,7 +138,7 @@ overflow:hidden;
   </ul>
   </div>
   
-  
+
    		 <div>
 				   <p class="ham_p"'> <a href="mgoInfo.do">호텔 우리 소개</a></p> 
 				          <div>
@@ -145,7 +146,7 @@ overflow:hidden;
 				              <ul class="ham_ul">
 				                <li><a href="mgoInfo.do">호텔 개요</a></li>
 				                <li><a href="mseoulHotel.do">제주 호텔</a></li>
-				                <li><a href="mmap.do">호텔 길찾기 </a>	</li>
+				            
 				              </ul>
 				      
 				      
@@ -153,11 +154,11 @@ overflow:hidden;
 				          </div>
     </div>
       <div>
-    	 <p class="ham_p"><a href="mroom.do">객실 소개</a></p>
+    	 <p class="ham_p">객실 소개</p>
 				        <div>
 								  <ul class="ham_ul">
     
-								        
+								        <li> <a href="mroom.do">객실 상세  소개</a></li>
 								        <li ><a href="mgotoroom.do?num=1">Deluxe </a></li>
 										<li ><a href="mgotoroom.do?num=2"> BusinessDeluxe </a></li>
 										<li ><a href="mgotoroom.do?num=3">GrandCornerDeluxe</a></li> 
@@ -180,17 +181,11 @@ overflow:hidden;
       
     </div>
       <div>
-  <p class="ham_p">   갤러리 </p>
-          <div>
-              <ul class="ham_ul">
-               
-	
-					<li><a href="gallery.do">사진</a></li>
-					<li><a href="v.do">비디오</a></li>
-	
-	
-              </ul>
-          </div>
+<p class="ham_p"> 갤러리</p>
+       		<ul class="ham_ul">
+       				<li> <a href="mgallery.do"> 호텔소개 이미지 및 동영상 </a></li>
+       				
+       		</ul>
     </div>
     
     

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link
   rel="stylesheet"
   href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
@@ -19,7 +21,7 @@
 	
 	#imgshow_view{
 	width: 100%;
-	height: 700px;
+	height: 100%;
 	margin: 0 auto;
 	}
 
@@ -35,7 +37,7 @@
       }
 
       .swiper {
-        width: 115%;
+        width: 100%;
         height: 600px;
       }
 
@@ -249,10 +251,10 @@
 </div>
 
 <div style="margin: 0 auto; ">
-<div id="sum_aa" style="margin-top: 50px;">비디오</div>
+<div id="sum_aa" >비디오</div>
 
 <div>
-<iframe style="margin: 0 auto;" width="100%" height="678" src="<c:url value= 'https://www.youtube.com/embed/81xxCLvADlU?autoplay=1&mute=1'/> "   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+<iframe style="margin: 0 auto;" width="100%" height="300px" src="<c:url value= 'https://www.youtube.com/embed/81xxCLvADlU?autoplay=1&mute=1'/> "   title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
 encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </div>

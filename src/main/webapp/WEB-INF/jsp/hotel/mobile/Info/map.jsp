@@ -2,21 +2,24 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ include file="../header.jsp" %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+a30f6c65f2ff21329383f660625a27f8
 
 <style>
 #map{
-margin: 0 auto; top:30px; border:2px solid blck;     left: -150px;
+margin: 0 auto; top:30px; border:2px solid blck;    
 }
 </style>
 
-<article class="rightarticle_aa"><%@ include file="sub_menu.jsp" %>
+<article class="rightarticle_aa">
 
 
-<div id="sum_aa"  style="float: left;">우리호텔 오시는길</div>
+<div id="sum_aa"   style="width: 100%;">우리호텔 오시는길</div>
 
-<div id="map" style="width:865px;height:350px;"></div>
+<div id="map" style="width:100%;height:350px;"></div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efe16d21eafbef16cb6aad1c0d174c2f "></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efe16d21eafbef16cb6aad1c0d174c2f'  "></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -52,17 +55,13 @@ infowindow.open(map, marker);
 
 </script>
 <div class="clear"></div>
-<div class="box_aa" id="box3_aa" style="left:350px; margin-top: 50px; height: 140px; float: left;">
-		<ul class="add_aa" id="name_aa"   style="  margin: 29px 5px;">
-			<li>주소</li>
-			<li>대표전화</li>
+<div class="box_aa" id="box3_aa" style=" margin-top: 50px; height: 140px;">
+		<ul class="add_aa" id="name_aa"   style="  margin: 29px 5px; list-style: none;">
+			<li>주소  :  서귀포시 중문 관광로 72번길75</li>
+			<li>대표전화 : 064 2233 3131</li>
 	
 		</ul>
-		<ul class="add_aa" id="content_aa" style="  margin: 30px 5px;">
-			<li>서귀포시 중문 관광로 72번길75</li>
-			<li>064 2233 3131</li>
-		
-		</ul>
+	
 	</div>
 
 </article>
