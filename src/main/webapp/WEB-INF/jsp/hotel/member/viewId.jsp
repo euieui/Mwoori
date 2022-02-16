@@ -17,7 +17,7 @@ input{border:#BEBBB9 solid 1px;}
 </style>
 <script type="text/javascript">
 function move_login(){
-	opener.location.href='loginForm';
+	opener.location.href='loginForm.do';
 	self.close();
 }
 </script>

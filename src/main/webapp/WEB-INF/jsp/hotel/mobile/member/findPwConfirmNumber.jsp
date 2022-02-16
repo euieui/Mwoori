@@ -1,48 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>findPwconfirmNumber.jsp</title>
-<style type="text/css">
-body{font-size:90%;}
-table{width: 300px; border-collapse: collapse; font-size: 80%; line-height: 100%; padding: 5px;}
-table td,th{border: #f2efeb solid 1px; padding: 5px;}
-table th{width:100px; background:#faf1d0; }
-input{border:#BEBBB9 solid 1px;}
-.findIdFormbutton{width:300px; height:30px; position:relative; margin:0 auto;}
-.dup_brown{width:100px; height:22px; background:#9f876b; color:white; font-size:90%;}
-</style>
-</head>
-<body>
+<%@ include file="../header.jsp" %>
 
-
-<center><h3>Pw 찾기</h3></center>
-
-<form method="post" name="frm" action="findPwStep2.do">
-<table align="center" bgcolor="black" cellspacing="1" width="400">
-	<tr align="center" bgcolor="white">
-		<th>아이디</th><td>${member.ID}<input type="hidden" name="id" value="${member.ID}"></td>
-	</tr>
-	<tr align="center" bgcolor="white">
-		<th>성명</th><td>${member.NAME}<input type="hidden" name="name" value="${member.NAME}"></td>
-	</tr>
-	<tr align="center" bgcolor="white">
-		<th>전화번호</th><td>${member.PHONE}
-			<input type="hidden" name="phone" value="${member.PHONE}"></td>
-	</tr>
-	<tr align="center" bgcolor="white">
-		<th>인증번호</th><td><input type="text" name="confirmNum" value="${confirmNum}">전송받은 번호를 입력하세요</td>
-	</tr>
-</table>
-<div align="center" class="findIdFormbutton">
-	<br>
+<div class="mcontTitle">Pw 찾기</div>
+<hr style="width:100vw; border-bottom:0; border-left:0;" border:#a1886f;>
+<br>
+<form method="post" name="frm" action="mfindPwStep2.do">
+	<div class="mjoinSubTitle">아이디</div>
+		<div class="mfindContent">${member.ID}<input type="hidden" name="id" value="${member.ID}"></div>
+	<div class="mjoinSubTitle">성명</div>
+		<div class="mfindContent">${member.NAME}<input type="hidden" name="name" value="${member.NAME}"></div>
+	<div class="mjoinSubTitle">전화번호</div>
+		<div class="mfindContent">${member.PHONE}
+			<input type="hidden" name="phone" value="${member.PHONE}"></div>
+	<div class="mjoinSubTitle">인증번호</div>
+		<input type="text" name="confirmNum" value="${confirmNum}" placeholder="전송받은 번호를 입력하세요" class="msubInput">
+	
+	<br><br>
 	<center>${msg}</center>
-	<center><input type="submit" value="인증번호 확인" class="dup_brown" align="center"></center>
+	<center><input type="submit" value="인증번호 확인" class="mjoinButton" align="center"></center>
 	<br>
-</div>
 
 </form>
-</body>
-</html><!-- 완료 -->
+<hr style="width:100vw; border:#F2EFEB; border-bottom:0; height:2vw; background:#F2EFEB;">
+
+<%@ include file="../footer.jsp" %>

@@ -156,12 +156,16 @@ function move_login(){
 
 
 function find_id(){
-   var url = "findIdPw.do";
-   var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=500,";
-   opt = opt + "height=250, top=300, left=300";
-   window.open(url, "Find Id/Pw", opt);
+   var url = "mfindIdForm.do";
+   var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=100vw, height=100vw";
+   window.open(url, "Find Id", opt);
 }
 
+function find_pw(){
+   var url = "mfindPwForm.do";
+   var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=100vw, height=100vw";
+   window.open(url, "Find Pwd", opt);
+}
 
 function mloginCheck(){
 	

@@ -1,50 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-body{font-size:90%;}
-table{width: 300px; border-collapse: collapse; font-size: 80%; line-height: 100%; padding: 5px;}
-table td,th{border: #f2efeb solid 1px; padding: 5px;}
-table th{width:100px; background:#faf1d0; }
-input{border:#BEBBB9 solid 1px;}
-.findIdFormbutton{width:300px; height:30px; position:relative; margin:0 auto;}
-.dup_brown{width:100px; height:22px; background:#9f876b; color:white; font-size:90%;}
-.dup_darkbrown{width:100px; height:22px; background:#3a3125; color:white; font-size:90%;}
-</style>
+<%@ include file="../header.jsp" %>
 <script type="text/javascript">
 function move_login(){
-	opener.location.href='loginForm';
+	opener.location.href='mloginForm.do';
 	self.close();
 }
 </script>
-</head>
-<body>
-<center><h3>ID 찾기</h3></center>
-<table align="center" bgcolor="black" cellspacing="1" width="400">
 
-<tr align="center" bgcolor="white">
-		<th>성명</th><td>${member.NAME}</td>
-	</tr>
-	<tr align="center" bgcolor="white">
-		<th>전화번호</th><td>${member.PHONE}</td>
-	</tr>
-</table>
-<div align="center" class="findIdFormbutton">
+<div class="mcontTitle">ID 찾기</div>
+<hr style="width:100vw; border-bottom:0; border-left:0;" border:#a1886f;>
+<br>
+	<div class="mjoinSubTitle">성명</div>
+		<div class="mfindContent">${member.NAME}</div>
+	<div class="mjoinSubTitle">전화번호</div>
+		<div class="mfindContent">${member.PHONE}</div>
+	<br><br>
+	<div class="mviewBox">${msg}</div>
 	<br>
-	<center>${msg}</center>
-	<br>
-	<input type="button" value="로그인 창으로" class="dup_brown" onclick="move_login();">
-	<input type="button" value="비밀번호 찾기" class="dup_darkbrown" onclick="location.href='findPwForm.do?id=${member.id}'">
-	<br>
-	
-</div>
-
-
+	<div class="mcontButtons">
+		<input type="button" value="로그인 창으로" class="mcontButton_brown" onclick="move_login();">
+		<input type="button" value="비밀번호 찾기" class="mcontButton_darkbrown" onclick="location.href='mfindPwForm.do?id=${member.id}'">
+	</div>
+	<br><br>
 </form>
-</body>
-</html>
-<!-- 완료 -->
+<hr style="width:100vw; border:#F2EFEB; border-bottom:0; height:2vw; background:#F2EFEB;">
+
+<%@ include file="../footer.jsp" %>

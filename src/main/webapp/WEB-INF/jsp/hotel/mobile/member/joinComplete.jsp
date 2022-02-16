@@ -14,15 +14,15 @@
 	 	<c:choose> 
 	 		<c:when  test="${empty joinName}">  
 	 			<center></center>
-	 			정상적으로 가입되지 못하였습니다.
+	 			정상적으로 가입하지 못하였습니다.<br><br>
 	 			다시 회원가입해주세요.
 	 			<br><br><br>
 	 			<input type="button" value="로그인 페이지로" class="mdup_brown" onclick="mmove_login();" align="center"></center>
 	 		</c:when>
 	 		 <c:otherwise>
 	 		 <center>
-					감사합니다.<br>
-					${joinName.NAME} 님께서는 우리호텔에 정상적으로 가입되셨습니다.
+					감사합니다.<br><br>
+					${joinName.NAME} 님께서는<br> 우리호텔에 정상적으로 가입되셨습니다.
 					<br><br><br>
 				<input type="submit" value="로그인" class="mjoinButton"></center>
 			</c:otherwise>

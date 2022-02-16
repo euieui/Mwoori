@@ -132,7 +132,7 @@ public class MemberController {
 			mav.setViewName("member/findIdConfirmNumber");
 		} else {
 			mav.setViewName("member/viewId");
-			mav.addObject("msg", "조회한 회원의 아이디는 "+ id + " 입니다");
+			mav.addObject("msg", "조회한 회원의 아이디는 \" "+ id + " \" 입니다");
 		}
 		mav.addObject("member", list.get(0));
 		return mav;

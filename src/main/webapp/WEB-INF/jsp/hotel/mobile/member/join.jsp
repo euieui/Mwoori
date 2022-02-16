@@ -2,6 +2,14 @@
 <%@ include file="../header.jsp" %>   
 
 
+<article>
+
+<div class="mcontTitle">회원가입</div>
+<div class="mcontThreeStep">
+	<div class="mcontNonselect">약관동의</div>
+	<div class="mcontSelect">회원정보 입력</div>
+	<div class="mcontNonselect">가입완료</div>
+</div>
 
 <form id="join" method="post" name="formm" action="mjoinComplete.do">
 		
@@ -50,9 +58,10 @@
 
 </article>
 
+<hr style="width:100vw; border:#F2EFEB; border-bottom:0; height:2vw; background:#F2EFEB;">
 
 
 
 
 
-<%@ include file="../footer.jsp" %> <!-- 완료 -->
+<%@ include file="../footer.jsp" %> 
