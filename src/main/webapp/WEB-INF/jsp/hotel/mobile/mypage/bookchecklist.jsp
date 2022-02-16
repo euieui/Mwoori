@@ -5,7 +5,7 @@
 <div  class="clear"></div>
 
 <c:forEach items="${booklist}" var="booklist">
-<div id="serch_bar_view_aa"  style="border-bottom:1px solid #faf1d0;">
+<div id="serch_bar_view_aa">
 	<div id="serch_bar_aa" 
 		onclick="location.href='mlistbookcheck.do?bdseq='+${booklist.BDSEQ}">
 	

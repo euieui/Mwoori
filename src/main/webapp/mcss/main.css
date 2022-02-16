@@ -153,8 +153,7 @@ footrer #foter_2 ul li a{
 
 	
 	}
-	
-#sum_aa{position:relative;width:865px;  height:64px; border-bottom:6px solid #3a3125; 
+#sum_aa{position:relative; width:100%;  min-height:64px; border-bottom:6px solid #3a3125;
 	font-size:170%; line-height:64px;/* background:aqua; */ color:#9f876b;
 	
 	}

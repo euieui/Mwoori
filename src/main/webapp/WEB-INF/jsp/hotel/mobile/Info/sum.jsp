@@ -6,9 +6,9 @@
 <article class="rightarticle_aa">
 <%@ include file="sub_menu.jsp" %>
 <div id="abox_aa">
-	<div id="sum_aa">개요</div>
+	<div id="sum_aa" style="width:100%;">개요</div>
 	<div class="box_aa" id="img_aa">
-	<img src="<c:url value='/images/hotel_sum.jpg'/> " id="aa_img" width="845px;">
+	<img src="<c:url value='/images/hotel_sum.jpg'/> " id="aa_img" width="100%;">
 	</div>
 	<div class="box_aa" id="af_aa">
 		<div class="subject_aa">소개</div>
