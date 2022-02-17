@@ -5,7 +5,7 @@
 <script type="text/javascript">
 
 
-function findPwd(){
+function gofindPwd(){
 	
 	if(document.frm.id.value == ""){
 		alert("아이디를 입력하세요");
@@ -41,7 +41,7 @@ function findPwd(){
 	<hr style="border:hidden; height:3vw; margin:0;">
 	<input type="text" name="phone" value="${member.PHONE}" class="msubInput" placeholder="전화번호">
 	<br><br><Br>
-	<center><input type="button" value="인증번호 전송" class="mjoinButton" onclick="findPwd()"></center>
+	<center><input type="button" value="인증번호 전송" class="mjoinButton" onclick="gofindPwd()"></center>
 	<center>${msg}</center>
 	<Br><br>
 </form>

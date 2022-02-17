@@ -112,27 +112,33 @@ CREATE TABLE qna
 
 /* Create Foreign Keys */
 
+
+
 ALTER TABLE bookdetail
 	ADD FOREIGN KEY (booknum)
 	REFERENCES book (booknum)
+	  ON DELETE CASCADE
 ;
 
 
 ALTER TABLE bookdetail
 	ADD FOREIGN KEY (hotelnum)
 	REFERENCES hotel (hotelnum)
+	ON DELETE CASCADE
 ;
-
+ALTER TABLE book DROP FOREIGN KEY SYS_C007618;
 
 ALTER TABLE book
 	ADD FOREIGN KEY (id)
 	REFERENCES hotelmember (id)
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE qna
 	ADD FOREIGN KEY (id)
 	REFERENCES hotelmember (id)
+	ON DELETE CASCADE
 ;
 
 create or replace view book_view
@@ -200,15 +206,15 @@ insert into bookdetail(usernum,checkin,checkout,bdseq,booknum,hotelnum)
 values(2,to_date('2022-03-12'),to_date('2022-03-17'),seq_bookdetail_bdseq.nextval,3,1301);
 
  insert into qna (qnaseq, title, content, id) 
-values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'oh');
+values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'scott');
  insert into qna (qnaseq, title, content, id) 
-values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'oh');
+values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'scott');
  insert into qna (qnaseq, title, content, id) 
-values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'oh');
+values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'scott');
  insert into qna (qnaseq, title, content, id) 
-values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'oh');
+values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'scott');
  insert into qna (qnaseq, title, content, id) 
-values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'oh');
+values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'scott');
 
 insert into qna (qnaseq, title, content, id) 
 values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'yong');

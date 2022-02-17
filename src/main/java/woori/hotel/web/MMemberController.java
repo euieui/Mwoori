@@ -450,7 +450,6 @@ public class MMemberController {
 		
 		return mav;
 	}
-	
 
 	@RequestMapping("mquitPw.do")
 	public String quitPw(Model model, HttpServletRequest request) {
@@ -467,18 +466,30 @@ public class MMemberController {
 	}
 	
 	@RequestMapping(value="/mquit.do", method=RequestMethod.POST)
-	public String quit(HttpServletRequest request) {
+	public String quit(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		
 		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
-
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("id", loginUser.get("ID"));
-		ms.deleteMember(paramMap);
+		String pwd = request.getParameter("pwd");
 		
-		session.removeAttribute("loginUser");
-		
-		return "redirect:/mobilemain.do";
+		String url = "mobile/mypage/quitPw";
+
+		System.out.println("loginUserID : " + loginUser.get("ID"));
+
+		if( loginUser == null) { 
+			model.addAttribute("message", "다시 로그인해주세요");
+		}else if(pwd==""){
+			model.addAttribute("message", "비밀번호를 입력해주세요");
+		}else if(!loginUser.get("PWD").equals(pwd)){
+			model.addAttribute("message", "비밀번호가 틀립니다");
+		}else {
+			paramMap.put("id", loginUser.get("ID"));
+			ms.deleteMember(paramMap);
+			
+			session.removeAttribute("loginUser");
+			url = "redirect:/mobilemain.do";
+		} 
+		return url;
 	}
 	
 	@RequestMapping(value = "/mmypage.do")

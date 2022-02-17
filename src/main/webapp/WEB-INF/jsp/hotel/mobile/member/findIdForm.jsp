@@ -5,7 +5,7 @@
 <script type="text/javascript">
 
 
-function findId(){
+function gofindId(){
 
 	if(document.frm.name.value == ""){
 		alert("이름을 입력하세요");
@@ -30,7 +30,7 @@ function findId(){
 	<hr style="border:hidden; height:3vw; margin:0;">
 	<input type="text" name="phone" value="${memer.PHONE}" class="msubInput" placeholder="전화번호">
 	<br><br><br>
-	<center><input type="button" value="인증번호 전송" class="mjoinButton" onclick="findId()"></center>
+	<center><input type="button" value="인증번호 전송" class="mjoinButton" onclick="gofindId()"></center>
 	<center>${msg}</center>
 	<Br><br>
 </form>

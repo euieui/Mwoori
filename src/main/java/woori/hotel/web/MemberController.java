@@ -470,7 +470,7 @@ public class MemberController {
 	@RequestMapping(value="/quitCheck.do", method=RequestMethod.POST)
 	public ModelAndView quitCheck(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		String url = "quitPw";
+		String url = "mypage/quitPw";
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
 		String pwd = request.getParameter("pwd");
@@ -491,8 +491,9 @@ public class MemberController {
 	@RequestMapping(value="/quit.do", method=RequestMethod.POST)
 	public String quit(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		
+
 		HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+		System.out.println("loginUserID : " + loginUser.get("ID"));
 
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("id", loginUser.get("ID"));
@@ -500,6 +501,6 @@ public class MemberController {
 		
 		session.removeAttribute("loginUser");
 		
-		return "redirect:/";
+		return "redirect:/main.do";
 	}
 }

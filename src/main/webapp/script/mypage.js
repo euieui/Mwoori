@@ -54,7 +54,14 @@ function mfindPw(){
 	var url = "mfindPwForm.do";
 	var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=100vw,";
 	opt = opt + "height=100vw";
-	window.open(url, "Find Id/Pw", opt);
+	window.open(url, "Find Pw", opt);
+}
+
+function mfindId(){
+	var url = "mfindIdForm.do";
+	var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=100vw,";
+	opt = opt + "height=100vw";
+	window.open(url, "Find Id", opt);
 }
 
 function mgo_profileUpdate(id){
@@ -83,7 +90,6 @@ function mquikOK(){
 	var con = confirm("탈회를 신청하시면 번복이 불가능합니다. 탈회하시겠습니까?");
 		if(con == true) {
 		document.quitPw.action ="mquit.do";	
-		alert("이용해주셔서 감사합니다. 탈회가 완료되었습니다.");
 		document.quitPw.submit();
 		}	else return false;
 }

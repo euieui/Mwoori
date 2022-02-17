@@ -43,7 +43,7 @@
 	</update>
 	
 	<delete id="deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
-		{CALL deleteHotelember( #{id}  )  }
+		{CALL deleteHotelmember( #{id}  )  }
 	</delete>
 	
 </mapper>

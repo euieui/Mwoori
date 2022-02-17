@@ -18,8 +18,8 @@
 
 
 <div class="mlogFindButton">
-	<input type="button" value="아이디 찾기" class="mfindButton" onclick="find_id()">
-	<input type="button" value="비밀번호 찾기" class="mfindButton" onclick="find_pw()">	</div>
+	<input type="button" value="아이디 찾기" class="mfindButton" onclick="mfind_id()">
+	<input type="button" value="비밀번호 찾기" class="mfindButton" onclick="mfind_pw()">	</div>
 	
 <hr style="width:100vw; border:#F2EFEB; border-bottom:0; height:2vw; background:#F2EFEB;">
 

@@ -88,13 +88,11 @@ BEGIN
     update hotelmember set pwd=p_pwd where id=p_id;
     commit;
 END;
-	
-	
-    
-create or replace procedure deleteMember (
+
+create or replace procedure deleteHotelmember (
     p_id IN hotelmember.id%type)
 IS
 BEGIN
-    delete hotelmember where id=p_id;
+    delete from hotelmember where id=p_id;
     commit;
 END;

@@ -159,15 +159,21 @@ function move_login(){
 	document.joinComFrm.submit();
 }
 
-
-
 function find_id(){
+   var url = "findIdPw";
+   var url = "findIdPw.do";
+   var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=500,";
+   opt = opt + "height=250, top=300, left=300";
+   window.open(url, "Find Id/Pw", opt);
+}
+
+function mfind_id(){
    var url = "mfindIdForm.do";
    var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=100vw, height=100vw";
    window.open(url, "Find Id", opt);
 }
 
-function find_pw(){
+function mfind_pw(){
    var url = "mfindPwForm.do";
    var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=100vw, height=100vw";
    window.open(url, "Find Pwd", opt);
@@ -287,11 +293,5 @@ function mmove_login(){
 
 
 
-function mfind_id(){
-   var url = "mfindIdPw.do";
-   var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=500,";
-   opt = opt + "height=250, top=300, left=300";
-   window.open(url, "Find Id/Pw", opt);
-}
 
 
