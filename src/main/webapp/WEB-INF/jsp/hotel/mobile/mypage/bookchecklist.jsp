@@ -16,7 +16,7 @@
 			<span id="black_aa">
 				<fmt:formatDate value="${booklist.CHECKIN}"/>
 				<br>~<br>
-				<fmt:formatDate value="${booklist.CHECKOUT}"/>
+				<fmt:formatDate value="${booklist.CHECKOUT}"/> 
 			</span>
 		</div>
 	
