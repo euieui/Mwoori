@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 
-<article class="rightarticle_aa"><%@ include file="sub_menu.jsp" %>
+<article class="rightarticle_aa">
 <div id="sbox_aa">
 	<div id="sum_aa" style="width:100%;">제주 호텔</div>
 	<div class="box_aa" id="simg_aa">

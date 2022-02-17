@@ -4,7 +4,6 @@
 
 
 <article class="rightarticle_aa">
-<%@ include file="sub_menu.jsp" %>
 <div id="abox_aa">
 	<div id="sum_aa" style="width:100%;">개요</div>
 	<div class="box_aa" id="img_aa">

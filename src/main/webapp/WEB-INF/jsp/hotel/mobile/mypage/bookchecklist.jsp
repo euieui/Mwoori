@@ -22,6 +22,22 @@
 		</div>
 	</div>           
 </div>
+<br>
 </c:forEach>
+<br><br><br><br><br>
+
+
+
+<jsp:include page="../mypage/paging.jsp">
+	<jsp:param name="page" value="${paging.page}" />
+	<jsp:param name="beginPage" value="${paging.beginPage}" />
+	<jsp:param name="endPage" value="${paging.endPage}" />
+	<jsp:param name="prev" value="${paging.prev}" />
+	<jsp:param name="next" value="${paging.next}" />
+	<jsp:param name="command" value="mbookChecklist.do" />
+</jsp:include>
+
+
+
 
 <%@ include file="../footer.jsp" %>
