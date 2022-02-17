@@ -126,11 +126,11 @@ text-align:center;
 
 footer #footer_2 ul{
 	
-
+	list-style:none; padding:0;
 	margin-right: 0px;
 }
 footer #footer_2 ul li{
-	list-style:none;
+	
 	 display:inline-block;
 }
 footrer #foter_2 ul li a{
