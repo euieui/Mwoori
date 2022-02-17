@@ -325,10 +325,13 @@ public class MemberController {
 		String pwd = request.getParameter("pwd");
 		if( loginUser == null) { 
 			mav.addObject("message", "다시 로그인해주세요");
+	    	url =  "redirect:/loginForm.do";
 		}else if(pwd==""){
 			mav.addObject("message", "비밀번호를 입력해주세요");
+	    	url =  "mypage/profilePw";
 		}else if(!loginUser.get("PWD").equals(pwd)){
 			mav.addObject("message", "비밀번호가 틀립니다");
+	    	url =  "mypage/profilePw";
 		}else {
 	    	url = "mypage/profileForm";
 	    	String addr = loginUser.get("ADDRESS").toString(); //주소 추출

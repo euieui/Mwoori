@@ -24,9 +24,9 @@
 	<div class="mjoinSubTitle">주소</div>
 	<input type="text" name="zip_num" value="${zip_num}" class="msubInputSmall">      
 	<input type="button" value="주소 찾기" class="mdup_brown" onclick="mpost_zip();">
-	<hr style="border:hidden; height:1.5vw; margin:0;">
+		<hr style="border:hidden; height:1.5vw; margin:0;">
 	<input type="text" name="addr1"    value="${addr1}" class="msubInput" placeholder="주소 구,동">
-	<hr style="border:hidden; height:1.5vw; margin:0;">
+		<hr style="border:hidden; height:1.5vw; margin:0;">
 	<input type="text" name="addr2"    value="${addr2}" class="msubInput" placeholder="상세주소">
 	
 	<br><br><br>
