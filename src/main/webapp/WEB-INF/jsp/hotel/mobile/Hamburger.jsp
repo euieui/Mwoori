@@ -130,7 +130,7 @@ overflow:hidden;
  <c:otherwise>
 		               <li id="logo">${loginUser.NAME}(${loginUser.ID})</li>
 		               <li><a href="mlogout.do">로그아웃</a></li>
-		               <li><a href="mbookChecklist.do?page=1&a=1">마이페이지</a></li>
+		               <li><a href="mmypage.do">마이페이지</a></li>
          
  </c:otherwise> 
  </c:choose>

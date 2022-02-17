@@ -14,13 +14,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import woori.hotel.service.AdminBookService;
 import woori.hotel.service.MainService;
+import woori.hotel.util.BookVO;
+import woori.hotel.util.Paging;
 
 
 @Controller
 public class MMainController {
 	
 	@Resource(name="MainService") MainService ms;
+	@Resource(name="AdminBookService") AdminBookService abs;
 	
 	
 	@RequestMapping(value="/mobilemain.do")
@@ -341,4 +345,106 @@ if(kind.equals("Deluxe")) {
 	
 	}
 
+	@RequestMapping(value="/mbookChecklist.do")
+	public ModelAndView bookChecklist(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginUser = 
+				(HashMap<String, Object>) session.getAttribute("loginUser");
+	    if(loginUser==null) mav.setViewName("mobile/member/login");
+	    else {
+			int page = 1;
+			String booknums="";
+			String indate="";
+			String outdate="";
+			
+			if(request.getParameter("booknums")!=null) {
+				booknums=request.getParameter("booknums");
+				session.setAttribute("booknums", booknums);
+			} else if(session.getAttribute("booknums")!=null) {
+				booknums=(String)session.getAttribute("booknums");
+			} else {
+				session.removeAttribute("booknums");
+				booknums="";
+			}
+			
+			if(request.getParameter("page")!=null) {
+				page=Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			} else if(session.getAttribute("page")!=null) {
+				page = (int)session.getAttribute("page");
+			} else {
+				page= 1;
+				session.removeAttribute("page");
+			}
+			
+			if(request.getParameter("checkins")!=null) {
+				indate=request.getParameter("checkins");
+				session.setAttribute("checkins", indate);
+			} else if(session.getAttribute("checkins")!=null) {
+				indate=(String)session.getAttribute("checkins");
+			} else {
+				session.removeAttribute("checkins");
+				indate="";
+			}
+			
+			if(request.getParameter("checkouts")!=null) {
+				outdate=request.getParameter("checkouts");
+				session.setAttribute("checkouts", outdate);
+			} else if(session.getAttribute("checkouts")!=null) {
+				outdate=(String)session.getAttribute("checkouts");
+			} else {
+				session.removeAttribute("checkouts");
+				outdate="";
+			}
+			
+			if(request.getParameter("a")!=null) {
+				System.out.println("파라미터 a 값 : "+request.getParameter("a"));
+				session.removeAttribute("checkins");
+				indate="";
+				session.removeAttribute("checkouts");
+				outdate="";
+				session.removeAttribute("booknums");
+				booknums="";
+			}
+			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			if(!booknums.equals("")) paramMap.put("booknums", Integer.parseInt(booknums));
+			else if(booknums.equals("")) paramMap.put("booknums", booknums);
+			paramMap.put("indate", indate);
+			paramMap.put("outdate", outdate);
+			paramMap.put("id", loginUser.get("ID"));
+			paramMap.put("count", 0);
+			
+			Paging paging = new Paging();
+			paging.setPage(page);
+			
+			abs.getAllCount(paramMap);
+			int count = (int) paramMap.get("count");
+			paging.setTotalCount(count);
+			
+			paramMap.put("ref_cursor", null);
+			paramMap.put("startnum", paging.getStartNum());
+			paramMap.put("endnum", paging.getEndNum());
+			abs.getAllBookList(paramMap);
+			
+			ArrayList<HashMap<String, Object>> list = 
+					(ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			
+			BookVO bvo = new BookVO();
+			
+			
+			mav.addObject("booklist",list);
+			mav.addObject("paging", paging);
+			mav.addObject("total",count);
+			mav.addObject("booknums",booknums);
+			mav.addObject("checkins",indate);
+			mav.addObject("checkouts",outdate);
+			
+			mav.setViewName("mobile/mypage/bookchecklist");
+	    }
+		
+		return mav;
+	}
 }
