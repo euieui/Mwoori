@@ -5,6 +5,12 @@ function book_go1(kind){
    document.formm.submit();
 }
 
+function mbook_go1(kind){
+	   document.formm.kind.value= kind;
+	   document.formm.action = "mbook.do";
+	   document.formm.submit();
+	}
+
   function checkRoom () {
 	
       var checkinStr =  document.formm.checkin.value;

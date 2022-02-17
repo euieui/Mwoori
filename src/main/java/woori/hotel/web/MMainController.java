@@ -316,7 +316,13 @@ if(kind.equals("Deluxe")) {
 			ArrayList<Integer> remainList = ms.remainList(checkin, checkout, kind);
 			ArrayList<Integer> userNumList = new ArrayList<>();
 			
-		
+			System.out.println("뭘확인해야하냐 : " + kind);
+			System.out.println("뭘확인해야하냐 : " + checkin);
+			System.out.println("뭘확인해야하냐 : " + checkout);
+			System.out.println("뭘확인해야하냐 : " + usernum);
+			System.out.println("뭘확인해야하냐 : " + roomnum);
+			
+			
 			int a = usernum / roomnum ;  
 			int b = usernum % roomnum; 
 			

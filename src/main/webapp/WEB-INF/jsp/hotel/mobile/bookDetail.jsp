@@ -175,15 +175,15 @@ $(document).ready(function( $ ){
 
 <div id="hotelview">
 	<form name="formm" method="post" action="mbookForm.do" >
-	<input type="hidden" id="kind" name="kind" value=""/>
+	<input type="hidden" id="kind" name="kind" value="">
 	<div id="serch_bar_view"  style="border:1px solid black;">
            <div id="serch_bar">
                   <ul style="text-align: left; ">
-                    <li >체크인&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text"  name="checkin" id="datepicker1" size="16" > </li>                  
-                    <li >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="16"  >  </li>
+                    <li >체크인&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="text"  name="checkin" id="datepicker1" size="16" value="${checkin }"> </li>                  
+                    <li >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="16" value="${checkout }" >  </li>
                             
-                    <li style=" float: left;">객실&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="roomnum" size="16" id="datepicker3" ></li>
-                    <li style="">성인&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="usernum" size="16" id="datepicker4" ></li>
+                    <li style=" float: left;">객실&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="roomnum" size="16" id="datepicker3" value="${roomnum }"></li>
+                    <li style="">성인&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="usernum" size="16" id="datepicker4" value="${usernum }"></li>
                     <li >             
                     <input type="submit" value="검색하기" id="serch_bar_button" onclick="return checkRoom();"></li>
                   </ul>
@@ -209,7 +209,7 @@ $(document).ready(function( $ ){
 		</div>
 		<div class="openPopup1" id="popup">객실 자세히 보기</div>
 		<div id =button_view>
-			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="book_go1('Deluxe')"></div>
+			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="mbook_go1('Deluxe')"></div>
 		</div>
 	</div>
 	<hr>
@@ -229,7 +229,7 @@ $(document).ready(function( $ ){
 		</div>
 		<div class="openPopup2" id="popup">객실 자세히 보기</div>
 		<div id =button_view>
-			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="book_go1('Business Deluxe')"></div>
+			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="mbook_go1('Business Deluxe')"></div>
 		</div>
 	</div>
 	<hr>
@@ -247,7 +247,7 @@ $(document).ready(function( $ ){
 		</div>
 		<div class="openPopup3" id="popup">객실 자세히 보기</div>
 		<div id =button_view>
-			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="book_go1('Grand Corner Deluxe')"></div>
+			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="mbook_go1('Grand Corner Deluxe')"></div>
 		</div>
 	</div>
 	<hr>
@@ -265,7 +265,7 @@ $(document).ready(function( $ ){
 		</div>
 		<div class="openPopup4" id="popup">객실 자세히 보기</div>
 		<div id =button_view>
-			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="book_go1('Executive Business Deluxe')"></div>
+			<div id=button_view_div><input type="button" value="예약하기" id="book_button" onclick="mbook_go1('Executive Business Deluxe')"></div>
 		</div>
 	</div>
 	<hr>
