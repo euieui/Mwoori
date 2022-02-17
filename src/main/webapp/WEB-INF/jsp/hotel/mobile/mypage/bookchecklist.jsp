@@ -19,7 +19,6 @@
 				<fmt:formatDate value="${booklist.CHECKOUT}"/> 
 			</span>
 		</div>
-	
 	</div>           
 </div>
 </c:forEach>
