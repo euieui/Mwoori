@@ -47,7 +47,7 @@ overflow:hidden;
   cursor: pointer;
   display: inline-block;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   padding: 8px 0;
   top: 15px;
   right: 4px;
@@ -73,7 +73,7 @@ overflow:hidden;
   height: 100%;
   position: absolute;
   transition: all .2s ease-out;
-  z-index:3;
+  z-index:5;
   width: 100%;
 }
 

@@ -100,7 +100,7 @@ font-weight: bold;
 	<input type="button"  value="1:1 질문하기"  class="submit" id="qna_button"
 	onClick="location.href='mqnaWriteForm.do'"> 
 	<input type="button"    value="되돌아가기"  class="cancel" id="qna_button"
-	onclick="location.href=mobilemain.do'">  
+	onclick="location.href='mobilemain.do'">  
 </div>
 </form>
 </article>

@@ -4,10 +4,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 #sbox1232222{
-    width: 700px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 50px;
-
+height: 400px;
 }
 #sum2323{
 font-weight: bold;
@@ -35,7 +35,7 @@ font-weight: bold;
 			<td class="cont_cont123">주말 및 공휴일 </td><td class="cont_name">09:00~16:00
 	</table>
 	</br></br></br>
-	&nbsp;&nbsp;[객실 예약 운영 시간 : 평일(월~금요일) 09:00~20:00, 주말(토~일요일) 및 공휴일 09:00~18:00]
+	&nbsp;&nbsp;[객실 예약 운영 시간 : 평일(월~금요일) 09:00~20:00,<br> &nbsp;&nbsp;주말(토~일요일) 및 공휴일 09:00~18:00]
  </div>
 </div>
 

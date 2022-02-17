@@ -17,14 +17,14 @@
 
 <style type="text/css">
 #gotobook_view{
-    border: 1px solid black;
+ 
     width: 100%;
     margin: 0 auto;
    height: 600px;
     
 }
 #gotobook_table{
-border:1px solid black;
+
     width: 98%;
     height:70%;
     margin: 0 auto;
@@ -46,8 +46,9 @@ width: 60%;
 #gotobook_btn{
 width:100%;
 height: 50px;
+margin-top: 20px;
 
-border:1px solid black;
+
 }
 
 #book_btn{

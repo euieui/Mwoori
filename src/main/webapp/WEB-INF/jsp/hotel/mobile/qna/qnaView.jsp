@@ -31,15 +31,19 @@ table-layout:fixed;
 }
 
 #qna_buttons{
-margin:0 auto; width:100%;
+width
+
+
+ border:1px solid black;
 margin-top:30px;
+ height: 50px;
 }
 #qna_button{
 
-margin:0 auto;
+margin:3px;;
 border:1px solid black;
- height: 50px;
-  width: 130px;  
+ height: 30px;
+  width: 30%;  
   background: #9F876B;
    
 }

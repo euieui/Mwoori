@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 <%@ include file="../qna/sub_menu.jsp" %>
+
 <style>
 #sbox1232222{
     width: 700px;

@@ -48,12 +48,12 @@ border:1px solid black;
    <tr height="25" >
              <td align="center" width="10% " style="font-weight: bold; ">제목</td>
              
-             <td width=""><input type="text" name="title" size="42"  style="background-color:white; " /></td>
+             <td width=""><input type="text" name="title" size="40"  style="background-color:white; " /></td>
    </tr>
    <tr  >
             <td align="center" width="10%" style="font-weight: bold; ">문의사항</td>
             <td  >
-            <textarea rows="7" cols="45" name="content"  style="background-color:white;">
+            <textarea rows="7" cols="43" name="content"  style="background-color:white;">
             </textarea></td>
    </tr>
    <tr height="20">
