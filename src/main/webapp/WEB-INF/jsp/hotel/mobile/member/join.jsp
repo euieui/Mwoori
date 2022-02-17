@@ -49,9 +49,9 @@
 	<center><div>${message}</div></center>
 
 
-<center><div class="mcontButtons">
-	<input type="button" value="가입신청" class="mjoinButton" onclick="mgo_save()">
-</div></center>
+
+	<center><input type="button" value="가입신청" class="mjoinButton" onclick="mgo_save()"></center>
+
 
 
 </form>

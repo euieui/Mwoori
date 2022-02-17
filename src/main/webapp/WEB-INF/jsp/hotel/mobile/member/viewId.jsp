@@ -16,7 +16,7 @@ function move_login(){
 	<div class="mjoinSubTitle">전화번호</div>
 		<div class="mfindContent">${member.PHONE}</div>
 	<br><br>
-	<div class="mviewBox">${msg}</div>
+	<center><div class="mviewBox">${msg}</div></center>
 	<br>
 	<div class="mcontButtons">
 		<input type="button" value="로그인 창으로" class="mcontButton_brown" onclick="move_login();">

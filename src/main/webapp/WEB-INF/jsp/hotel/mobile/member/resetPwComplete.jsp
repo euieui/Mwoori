@@ -15,7 +15,7 @@ function move_login(){
 <br><br>
 
 <form method="post" name="frm">
-		<div class="mviewBox">비밀번호 재설정이 완료되었습니다</div>
+		<center><div class="mviewBox">비밀번호 재설정이 완료되었습니다</div></center>
 	
 	<center><input type="button" value="로그인 페이지로" class="mjoinButton" onclick="move_login();" align="center"></center>
 	<br>

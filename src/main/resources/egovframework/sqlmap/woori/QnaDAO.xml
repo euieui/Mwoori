@@ -11,7 +11,7 @@
 {CALL listQna(#{id},#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap})} </select>
 
 <insert parameterType="java.util.HashMap" statementType="CALLABLE" id="insertQna">
-{ CALL insertQna( #{id},#{content},#{title} ) } </insert>
+{ CALL insertQna( #{id},#{title},#{content} ) } </insert>
 
 <select parameterType="java.util.HashMap" statementType="CALLABLE" id="getQna">
 {CALL getQna(#{qnaseq},#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=hotelMap })} </select>
